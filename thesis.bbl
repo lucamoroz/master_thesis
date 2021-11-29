@@ -1,0 +1,219 @@
+\begin{thebibliography}{10}
+
+\bibitem{BO}
+B.~Shahriari, K.~Swersky, Z.~Wang, R.~P. Adams, and N.~de~Freitas, ``Taking the
+  human out of the loop: A review of bayesian optimization,'' {\em Proceedings
+  of the IEEE}, vol.~104, no.~1, pp.~148--175, 2016.
+
+\bibitem{AkamasCGP}
+S.~Cereda, S.~Valladares, P.~Cremonesi, and S.~Doni, ``Cgptuner: A contextual
+  gaussian process bandit approach for the automatic tuning of it
+  configurations under varying workload conditions,'' {\em Proc. VLDB Endow.},
+  vol.~14, p.~1401–1413, apr 2021.
+
+\bibitem{CGPBanditOptimization}
+A.~Krause and C.~Ong, ``Contextual gaussian process bandit optimization,'' in
+  {\em Advances in Neural Information Processing Systems} (J.~Shawe-Taylor,
+  R.~Zemel, P.~Bartlett, F.~Pereira, and K.~Q. Weinberger, eds.), vol.~24,
+  Curran Associates, Inc., 2011.
+
+\bibitem{WorkloadCharacterization}
+M.~C. Calzarossa, L.~Massari, and D.~Tessera, ``Workload characterization: A
+  survey revisited,'' {\em ACM Comput. Surv.}, vol.~48, feb 2016.
+
+\bibitem{PearsonCoefficient}
+W.~Kirch, ed., {\em Pearson's Correlation Coefficient}, pp.~1090--1091.
+\newblock Dordrecht: Springer Netherlands, 2008.
+
+\bibitem{ClusteringSurvey}
+R.~Xu and D.~Wunsch, ``Survey of clustering algorithms,'' {\em IEEE
+  Transactions on Neural Networks}, vol.~16, no.~3, pp.~645--678, 2005.
+
+\bibitem{PCA}
+A.~Maćkiewicz and W.~Ratajczak, ``Principal components analysis (pca),'' {\em
+  Computers \& Geosciences}, vol.~19, no.~3, pp.~303--342, 1993.
+
+\bibitem{WorkloadsPowerLaw}
+A.~Mahanti, N.~Carlsson, A.~Mahanti, M.~Arlitt, and C.~Williamson, ``A tale of
+  the tails: Power-laws in internet measurements,'' {\em IEEE Network},
+  vol.~27, no.~1, pp.~59--64, 2013.
+
+\bibitem{ForecastingSurvey}
+G.~Mahalakshmi, S.~Sridevi, and S.~Rajaram, ``A survey on forecasting of time
+  series data,'' in {\em 2016 International Conference on Computing
+  Technologies and Intelligent Data Engineering (ICCTIDE'16)}, pp.~1--8, 2016.
+
+\bibitem{ExponentialSmoothingHoltCharles}
+C.~C. Holt, ``{Forecasting seasonals and trends by exponentially weighted
+  moving averages},'' {\em International Journal of Forecasting}, vol.~20,
+  no.~1, pp.~5--10, 2004.
+
+\bibitem{ForecastingBoxJenkins}
+G.~E.~P. Box, G.~M. Jenkins, G.~C. Reinsel, and G.~M. Ljung, {\em Time Series
+  Analysis: Forecasting and Control}.
+\newblock 5th~ed., 2015.
+
+\bibitem{25YearsForecasting}
+J.~G. {De Gooijer} and R.~J. Hyndman, ``25 years of time series forecasting,''
+  {\em International Journal of Forecasting}, vol.~22, no.~3, pp.~443--473,
+  2006.
+\newblock Twenty five years of forecasting.
+
+\bibitem{DeepLearningForecastingSurvey}
+B.~Lim and S.~Zohren, ``Time-series forecasting with deep learning: a survey,''
+  {\em Philosophical Transactions of the Royal Society A: Mathematical,
+  Physical and Engineering Sciences}, vol.~379, no.~2194, p.~20200209, 2021.
+
+\bibitem{RNNLSTM}
+A.~Sherstinsky, ``Fundamentals of recurrent neural network {(RNN)} and long
+  short-term memory {(LSTM)} network,'' {\em CoRR}, vol.~abs/1808.03314, 2018.
+
+\bibitem{seq2seq}
+I.~Sutskever, O.~Vinyals, and Q.~V. Le, ``Sequence to sequence learning with
+  neural networks,'' 2014.
+
+\bibitem{EncoderDecoder}
+K.~Cho, B.~van Merrienboer, {\c{C}}.~G{\"{u}}l{\c{c}}ehre, F.~Bougares,
+  H.~Schwenk, and Y.~Bengio, ``Learning phrase representations using {RNN}
+  encoder-decoder for statistical machine translation,'' {\em CoRR},
+  vol.~abs/1406.1078, 2014.
+
+\bibitem{DeepAR}
+V.~Flunkert, D.~Salinas, and J.~Gasthaus, ``Deepar: Probabilistic forecasting
+  with autoregressive recurrent networks,'' {\em CoRR}, vol.~abs/1704.04110,
+  2017.
+
+\bibitem{DeepState}
+S.~S. Rangapuram, M.~W. Seeger, J.~Gasthaus, L.~Stella, Y.~Wang, and
+  T.~Januschowski, ``Deep state space models for time series forecasting,'' in
+  {\em Advances in Neural Information Processing Systems} (S.~Bengio,
+  H.~Wallach, H.~Larochelle, K.~Grauman, N.~Cesa-Bianchi, and R.~Garnett,
+  eds.), vol.~31, Curran Associates, Inc., 2018.
+
+\bibitem{MAKRIDAKIS2018802}
+S.~Makridakis, E.~Spiliotis, and V.~Assimakopoulos, ``The m4 competition:
+  Results, findings, conclusion and way forward,'' {\em International Journal
+  of Forecasting}, vol.~34, no.~4, pp.~802--808, 2018.
+
+\bibitem{GluonTS}
+A.~Alexandrov, K.~Benidis, M.~Bohlke{-}Schneider, V.~Flunkert, J.~Gasthaus,
+  T.~Januschowski, D.~C. Maddix, S.~S. Rangapuram, D.~Salinas, J.~Schulz,
+  L.~Stella, A.~C. T{\"{u}}rkmen, and Y.~Wang, ``Gluonts: Probabilistic time
+  series models in python,'' {\em CoRR}, vol.~abs/1906.05264, 2019.
+
+\bibitem{UberHybridES}
+S.~Smyl, ``A hybrid method of exponential smoothing and recurrent neural
+  networks for time series forecasting,'' {\em International Journal of
+  Forecasting}, vol.~36, no.~1, pp.~75--85, 2020.
+\newblock M4 Competition.
+
+\bibitem{M5Competition}
+S.~Makridakis, E.~Spiliotis, and V.~Assimakopoulos, ``The m5 accuracy
+  competition: Results, findings and conclusions,'' 10 2020.
+
+\bibitem{FacebookProphet}
+S.~Taylor and B.~Letham, ``Forecasting at scale,'' {\em The American
+  Statistician}, vol.~72, 09 2017.
+
+\bibitem{MicrosoftSSA}
+``Ssaforecaster.''
+  https://docs.microsoft.com/en-us/python/api/nimbusml/nimbusml.timeseries.ssaforecaster?view=nimbusml-py-latest.
+
+\bibitem{ForecastingHyndmanAthanasopoulos}
+R.~Hyndman and G.~Athanasopoulos, {\em Forecasting: Principles and Practice}.
+\newblock Australia: OTexts, 2nd~ed., 2018.
+
+\bibitem{STL}
+C.~R. B., C.~W. S., M.~J. E., and T.~I. J., ``Stl: A seasonal-trend
+  decomposition procedure based on loess,''
+
+\bibitem{DiscriminativeGenerativeModels}
+A.~Y. Ng and M.~I. Jordan, ``On discriminative vs. generative classifiers: a
+  comparison of logistic regression and naive bayes,'' {\em Advances in Neural
+  Information Processing Systems}, no.~14, pp.~841--848, 2002.
+
+\bibitem{ExponentialSmoothingStateSpace}
+R.~Hyndman, A.~Koehler, K.~Ord, and R.~Snyder, {\em Forecasting with
+  exponential smoothing. The state space approach}.
+\newblock 01 2008.
+
+\bibitem{BoxJenkins}
+S.~MAKRIDAKIS and M.~HIBON, ``Arma models and the box–jenkins methodology,''
+  {\em Journal of Forecasting}, vol.~16, no.~3, pp.~147--163, 1997.
+
+\bibitem{AutoForecasting}
+R.~J. Hyndman and Y.~Khandakar, ``Automatic time series forecasting: The
+  forecast package for r,'' {\em Journal of Statistical Software}, vol.~27,
+  no.~3, p.~1–22, 2008.
+
+\bibitem{GAM}
+T.~Hastie and R.~Tibshirani, ``Generalized additive models: Some
+  applications,'' {\em Journal of the American Statistical Association},
+  vol.~82, no.~398, pp.~371--386, 1987.
+
+\bibitem{L-BFGS}
+R.~H. Byrd, P.~Lu, J.~Nocedal, and C.~Zhu, ``A limited memory algorithm for
+  bound constrained optimization,'' {\em SIAM Journal on Scientific Computing},
+  vol.~16, no.~5, pp.~1190--1208, 1995.
+
+\bibitem{RNNForecasting}
+H.~Hewamalage, C.~Bergmeir, and K.~Bandara, ``Recurrent neural networks for
+  time series forecasting: Current status and future directions,'' {\em CoRR},
+  vol.~abs/1909.00590, 2019.
+
+\bibitem{RNN}
+J.~L. Elman, ``Finding structure in time,'' {\em Cognitive Science}, vol.~14,
+  no.~2, pp.~179--211, 1990.
+
+\bibitem{VanishingGradient}
+S.~Hochreiter, ``The vanishing gradient problem during learning recurrent
+  neural nets and problem solutions,'' {\em Int. J. Uncertain. Fuzziness
+  Knowl.-Based Syst.}, vol.~6, p.~107–116, apr 1998.
+
+\bibitem{MQCNN}
+R.~Wen, K.~Torkkola, B.~Narayanaswamy, and D.~Madeka, ``A multi-horizon
+  quantile recurrent forecaster,'' 2018.
+
+\bibitem{NARX}
+R.~DiPietro, C.~Rupprecht, N.~Navab, and G.~D. Hager, ``Analyzing and
+  exploiting narx recurrent neural networks for long-term dependencies,'' 2018.
+
+\bibitem{Wavenet}
+A.~van~den Oord, S.~Dieleman, H.~Zen, K.~Simonyan, O.~Vinyals, A.~Graves,
+  N.~Kalchbrenner, A.~W. Senior, and K.~Kavukcuoglu, ``Wavenet: {A} generative
+  model for raw audio,'' {\em CoRR}, vol.~abs/1609.03499, 2016.
+
+\bibitem{CloudComputing}
+M.~Armbrust, A.~Fox, R.~Griffith, A.~D. Joseph, R.~Katz, A.~Konwinski, G.~Lee,
+  D.~Patterson, A.~Rabkin, I.~Stoica, and M.~Zaharia, ``A view of cloud
+  computing,'' {\em Commun. ACM}, vol.~53, p.~50–58, apr 2010.
+
+\bibitem{ArimaWorkloadPrediction}
+R.~N. Calheiros, E.~Masoumi, R.~Ranjan, and R.~Buyya, ``Workload prediction
+  using arima model and its impact on cloud applications’ qos,'' {\em IEEE
+  Transactions on Cloud Computing}, vol.~3, no.~4, pp.~449--458, 2015.
+
+\bibitem{ArmaAutoscaling}
+N.~Roy, A.~Dubey, and A.~Gokhale, ``Efficient autoscaling in the cloud using
+  predictive models for workload forecasting,'' in {\em 2011 IEEE 4th
+  International Conference on Cloud Computing}, pp.~500--507, 2011.
+
+\bibitem{WorkloadCharacterizationAndPrediction}
+A.~Khan, X.~Yan, S.~Tao, and N.~Anerousis, ``Workload characterization and
+  prediction in the cloud: A multiple time series approach,'' in {\em 2012 IEEE
+  Network Operations and Management Symposium}, pp.~1287--1294, 2012.
+
+\bibitem{LSTMLargeScaleWorkloadForecasting}
+X.~Tang, ``Large-scale computing systems workload prediction using parallel
+  improved lstm neural network,'' {\em IEEE Access}, vol.~7, pp.~40525--40533,
+  2019.
+
+\bibitem{Seagull}
+O.~Poppe, T.~Amuneke, D.~Banda, A.~De, A.~Green, M.~Knoertzer, E.~Nosakhare,
+  K.~Rajendran, D.~Shankargouda, M.~Wang, A.~Au, C.~Curino, Q.~Guo, A.~Jindal,
+  A.~Kalhan, M.~Oslake, S.~Parchani, V.~Ramani, R.~Sellappan, S.~Sen,
+  S.~Shrotri, S.~Srinivasan, P.~Xia, S.~Xu, A.~Yang, and Y.~Zhu, ``Seagull: An
+  infrastructure for load prediction and optimized resource allocation,'' {\em
+  CoRR}, vol.~abs/2009.12922, 2020.
+
+\end{thebibliography}
