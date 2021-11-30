@@ -38,6 +38,53 @@ A.~Mahanti, N.~Carlsson, A.~Mahanti, M.~Arlitt, and C.~Williamson, ``A tale of
   the tails: Power-laws in internet measurements,'' {\em IEEE Network},
   vol.~27, no.~1, pp.~59--64, 2013.
 
+\bibitem{ClusterHomogeinitySeparation}
+P.~Hansen and B.~Jaumard, ``Cluster analysis and mathematical programming,''
+  {\em Math. Program.}, vol.~79, pp.~191--215, 10 1997.
+
+\bibitem{FuzzyClustering}
+M.-S. Yang, ``A survey of fuzzy clustering,'' {\em Mathematical and Computer
+  Modelling}, vol.~18, no.~11, pp.~1--16, 1993.
+
+\bibitem{HierarchicalClustering}
+S.~C. Johnson, ``Hierarchical clustering schemes,'' {\em Psychometrika},
+  vol.~32, pp.~241--254, 1967.
+
+\bibitem{ImpossibleTheoremForClustering}
+J.~Kleinberg, ``An impossibility theorem for clustering,'' in {\em Proceedings
+  of the 15th International Conference on Neural Information Processing
+  Systems}, NIPS'02, (Cambridge, MA, USA), p.~463–470, MIT Press, 2002.
+
+\bibitem{kmeans++}
+D.~Arthur and S.~Vassilvitskii, ``k-means++: The advantages of careful
+  seeding,'' tech. rep., Stanford, 2006.
+
+\bibitem{MeanShift}
+Y.~Cheng, ``Mean shift, mode seeking, and clustering,'' {\em IEEE transactions
+  on pattern analysis and machine intelligence}, vol.~17, no.~8, pp.~790--799,
+  1995.
+
+\bibitem{OPTICS}
+M.~Ankerst, M.~M. Breunig, H.-P. Kriegel, and J.~Sander, ``Optics: Ordering
+  points to identify the clustering structure,'' in {\em Proceedings of the
+  1999 ACM SIGMOD International Conference on Management of Data}, SIGMOD '99,
+  (New York, NY, USA), p.~49–60, Association for Computing Machinery, 1999.
+
+\bibitem{MixtureModels}
+G.~J. McLachlan and K.~E. Basford, {\em Mixture models: Inference and
+  applications to clustering}, vol.~38.
+\newblock M. Dekker New York, 1988.
+
+\bibitem{SilhouetteCoefficient}
+P.~J. Rousseeuw, ``Silhouettes: A graphical aid to the interpretation and
+  validation of cluster analysis,'' {\em Journal of Computational and Applied
+  Mathematics}, vol.~20, pp.~53--65, 1987.
+
+\bibitem{BayesianInformationCriterion}
+A.~A. Neath and J.~E. Cavanaugh, ``The bayesian information criterion:
+  background, derivation, and applications,'' {\em Wiley Interdisciplinary
+  Reviews: Computational Statistics}, vol.~4, no.~2, pp.~199--203, 2012.
+
 \bibitem{ForecastingSurvey}
 G.~Mahalakshmi, S.~Sridevi, and S.~Rajaram, ``A survey on forecasting of time
   series data,'' in {\em 2016 International Conference on Computing

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.6.24)  29 NOV 2021 16:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.6.24)  30 NOV 2021 17:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -625,415 +625,441 @@ Underfull \hbox (badness 10000) in paragraph at lines 177--184
 
  []
 
-[4 <./img/cgp_it_sys.png (PNG copy)>] [5] [6]
-<img/sota_ts_components.png, id=257, 505.89pt x 312.41719pt>
+[4 <./img/cgp_it_sys.png (PNG copy)>] [5]
+<img/clustering_approach.png, id=220, 768.62157pt x 263.48438pt>
+File: img/clustering_approach.png Graphic file (type png)
+<use img/clustering_approach.png>
+Package pdftex.def Info: img/clustering_approach.png  used on input line 214.
+(pdftex.def)             Requested size: 345.0pt x 118.26935pt.
+ [6]
+Underfull \hbox (badness 10000) in paragraph at lines 229--237
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 229--237
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 238--245
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 238--245
+
+ []
+
+[7 <./img/clustering_approach.png (PNG copy)>] [8]
+<img/sota_ts_components.png, id=309, 505.89pt x 312.41719pt>
 File: img/sota_ts_components.png Graphic file (type png)
 <use img/sota_ts_components.png>
-Package pdftex.def Info: img/sota_ts_components.png  used on input line 233.
+Package pdftex.def Info: img/sota_ts_components.png  used on input line 270.
 (pdftex.def)             Requested size: 345.0pt x 213.0606pt.
-<img/sota_ts_additive_decomposition.png, id=260, 505.89pt x 454.69875pt>
+<img/sota_ts_additive_decomposition.png, id=312, 505.89pt x 454.69875pt>
 File: img/sota_ts_additive_decomposition.png Graphic file (type png)
 <use img/sota_ts_additive_decomposition.png>
 Package pdftex.def Info: img/sota_ts_additive_decomposition.png  used on input 
-line 245.
+line 282.
 (pdftex.def)             Requested size: 345.0pt x 310.093pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 237--249
+Underfull \hbox (badness 10000) in paragraph at lines 274--286
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 237--249
+Underfull \hbox (badness 10000) in paragraph at lines 274--286
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 237--249
+Underfull \hbox (badness 10000) in paragraph at lines 274--286
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 237--249
+Underfull \hbox (badness 10000) in paragraph at lines 274--286
 
  []
 
-[7] [8 <./img/sota_ts_components.png>] [9 <./img/sota_ts_additive_decomposition
-.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 277--285
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 277--285
+[9] [10 <./img/sota_ts_components.png>] [11 <./img/sota_ts_additive_decompositi
+on.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 314--322
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 277--285
+Underfull \hbox (badness 10000) in paragraph at lines 314--322
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 277--285
-
- []
-
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 286--298
+Underfull \hbox (badness 10000) in paragraph at lines 314--322
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 286--298
+Underfull \hbox (badness 10000) in paragraph at lines 314--322
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 286--298
+Underfull \hbox (badness 10000) in paragraph at lines 323--335
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 286--298
+Underfull \hbox (badness 10000) in paragraph at lines 323--335
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 301--305
+Underfull \hbox (badness 10000) in paragraph at lines 323--335
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 301--305
+Underfull \hbox (badness 10000) in paragraph at lines 323--335
 
  []
 
-[11]
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 338--342
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 338--342
+
+ []
+
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 3
-08.
- (/usr/share/texmf-dist/tex/latex/lm/ts1lmr.fd
+45.
+(/usr/share/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-<img/sota_ts_fb_prophet.png, id=328, 462.22687pt x 341.77687pt>
+) [13]
+<img/sota_ts_fb_prophet.png, id=367, 462.22687pt x 341.77687pt>
 File: img/sota_ts_fb_prophet.png Graphic file (type png)
 <use img/sota_ts_fb_prophet.png>
-Package pdftex.def Info: img/sota_ts_fb_prophet.png  used on input line 325.
+Package pdftex.def Info: img/sota_ts_fb_prophet.png  used on input line 362.
 (pdftex.def)             Requested size: 345.0pt x 255.10126pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 323--358
+Underfull \hbox (badness 10000) in paragraph at lines 360--395
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 323--358
+Underfull \hbox (badness 10000) in paragraph at lines 360--395
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 323--358
+Underfull \hbox (badness 10000) in paragraph at lines 360--395
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 323--358
+Underfull \hbox (badness 10000) in paragraph at lines 360--395
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 323--358
+Underfull \hbox (badness 10000) in paragraph at lines 360--395
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 323--358
+Underfull \hbox (badness 10000) in paragraph at lines 360--395
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 323--358
+Underfull \hbox (badness 10000) in paragraph at lines 360--395
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 323--358
+Underfull \hbox (badness 10000) in paragraph at lines 360--395
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 323--358
+Underfull \hbox (badness 10000) in paragraph at lines 360--395
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 323--358
+Underfull \hbox (badness 10000) in paragraph at lines 360--395
 
  []
 
-[12] [13 <./img/sota_ts_fb_prophet.png (PNG copy)>]
-<img/rnns.png, id=350, 853.1875pt x 384.43625pt>
+[14 <./img/sota_ts_fb_prophet.png (PNG copy)>] [15]
+<img/rnns.png, id=387, 853.1875pt x 384.43625pt>
 File: img/rnns.png Graphic file (type png)
 <use img/rnns.png>
-Package pdftex.def Info: img/rnns.png  used on input line 364.
+Package pdftex.def Info: img/rnns.png  used on input line 401.
 (pdftex.def)             Requested size: 345.0pt x 155.4553pt.
- [14]
-<img/rnn_architectures.png, id=360, 834.11626pt x 260.975pt>
+ [16 <./img/rnns.png>]
+<img/rnn_architectures.png, id=398, 834.11626pt x 260.975pt>
 File: img/rnn_architectures.png Graphic file (type png)
 <use img/rnn_architectures.png>
-Package pdftex.def Info: img/rnn_architectures.png  used on input line 376.
+Package pdftex.def Info: img/rnn_architectures.png  used on input line 413.
 (pdftex.def)             Requested size: 345.0pt x 107.94421pt.
-<img/stacked_lstm.png, id=363, 757.83125pt x 454.69875pt>
+<img/stacked_lstm.png, id=401, 757.83125pt x 454.69875pt>
 File: img/stacked_lstm.png Graphic file (type png)
 <use img/stacked_lstm.png>
-Package pdftex.def Info: img/stacked_lstm.png  used on input line 383.
+Package pdftex.def Info: img/stacked_lstm.png  used on input line 420.
 (pdftex.def)             Requested size: 345.0pt x 206.99925pt.
- [15 <./img/rnns.png> <./img/rnn_architectures.png>]
-<img/seq2seq.png, id=373, 760.8425pt x 341.275pt>
+<img/seq2seq.png, id=404, 760.8425pt x 341.275pt>
 File: img/seq2seq.png Graphic file (type png)
 <use img/seq2seq.png>
-Package pdftex.def Info: img/seq2seq.png  used on input line 391.
+Package pdftex.def Info: img/seq2seq.png  used on input line 428.
 (pdftex.def)             Requested size: 345.0pt x 154.75441pt.
- [16 <./img/stacked_lstm.png (PNG copy)>]
-Overfull \hbox (4.72212pt too wide) in paragraph at lines 399--400
+
+[17 <./img/rnn_architectures.png>] [18 <./img/stacked_lstm.png (PNG copy)> <./i
+mg/seq2seq.png (PNG copy)>]
+Overfull \hbox (4.72212pt too wide) in paragraph at lines 436--437
 []\OT1/lmr/m/n/10 More gen-er-ally, the idea of feed-ing both time-dependent an
 d time-independent
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 411--418
+Underfull \hbox (badness 10000) in paragraph at lines 448--455
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 411--418
-
- []
-
-[17 <./img/seq2seq.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 419--428
+Underfull \hbox (badness 10000) in paragraph at lines 448--455
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 419--428
-
- []
-
-<img/deepar.png, id=395, 465.23813pt x 251.43938pt>
-File: img/deepar.png Graphic file (type png)
-<use img/deepar.png>
-Package pdftex.def Info: img/deepar.png  used on input line 434.
-(pdftex.def)             Requested size: 345.0pt x 186.46123pt.
-[18 <./img/deepar.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 452--460
+Underfull \hbox (badness 10000) in paragraph at lines 456--465
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 452--460
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 461--468
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 461--468
+Underfull \hbox (badness 10000) in paragraph at lines 456--465
 
  []
 
 [19]
-<img/deepstate.png, id=413, 819.8128pt x 253.69781pt>
+<img/deepar.png, id=433, 465.23813pt x 251.43938pt>
+File: img/deepar.png Graphic file (type png)
+<use img/deepar.png>
+Package pdftex.def Info: img/deepar.png  used on input line 471.
+(pdftex.def)             Requested size: 345.0pt x 186.46123pt.
+ [20 <./img/deepar.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 489--497
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 489--497
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 498--505
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 498--505
+
+ []
+
+<img/deepstate.png, id=446, 819.8128pt x 253.69781pt>
 File: img/deepstate.png Graphic file (type png)
 <use img/deepstate.png>
-Package pdftex.def Info: img/deepstate.png  used on input line 482.
+Package pdftex.def Info: img/deepstate.png  used on input line 519.
 (pdftex.def)             Requested size: 345.0pt x 106.76526pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 470--486
+Underfull \hbox (badness 10000) in paragraph at lines 507--523
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 470--486
+Underfull \hbox (badness 10000) in paragraph at lines 507--523
 
  []
 
-<img/deepstate2.png, id=416, 947.03813pt x 372.64218pt>
+[21]
+<img/deepstate2.png, id=454, 947.03813pt x 372.64218pt>
 File: img/deepstate2.png Graphic file (type png)
 <use img/deepstate2.png>
-Package pdftex.def Info: img/deepstate2.png  used on input line 507.
+Package pdftex.def Info: img/deepstate2.png  used on input line 544.
 (pdftex.def)             Requested size: 345.0pt x 135.74886pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 487--511
+Underfull \hbox (badness 10000) in paragraph at lines 524--548
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 487--511
+Underfull \hbox (badness 10000) in paragraph at lines 524--548
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 487--511
+Underfull \hbox (badness 10000) in paragraph at lines 524--548
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 487--511
+Underfull \hbox (badness 10000) in paragraph at lines 524--548
 
  []
 
-[20 <./img/deepstate.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 516--530
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 516--530
+[22 <./img/deepstate.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 553--567
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 516--530
+Underfull \hbox (badness 10000) in paragraph at lines 553--567
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 516--530
+Underfull \hbox (badness 10000) in paragraph at lines 553--567
 
  []
 
-<img/mqcnn.png, id=428, 772.38562pt x 447.92343pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 553--567
+
+ []
+
+<img/mqcnn.png, id=466, 772.38562pt x 447.92343pt>
 File: img/mqcnn.png Graphic file (type png)
 <use img/mqcnn.png>
-Package pdftex.def Info: img/mqcnn.png  used on input line 533.
+Package pdftex.def Info: img/mqcnn.png  used on input line 570.
 (pdftex.def)             Requested size: 345.0pt x 200.0737pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 531--551
+Underfull \hbox (badness 10000) in paragraph at lines 568--588
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 531--551
+Underfull \hbox (badness 10000) in paragraph at lines 568--588
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 531--551
+Underfull \hbox (badness 10000) in paragraph at lines 568--588
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 531--551
+Underfull \hbox (badness 10000) in paragraph at lines 568--588
 
  []
 
-[21 <./img/deepstate2.png (PNG copy)>]
-<img/wavenet.png, id=438, 724.20563pt x 265.74281pt>
+[23 <./img/deepstate2.png (PNG copy)>]
+<img/wavenet.png, id=476, 724.20563pt x 265.74281pt>
 File: img/wavenet.png Graphic file (type png)
 <use img/wavenet.png>
-Package pdftex.def Info: img/wavenet.png  used on input line 557.
+Package pdftex.def Info: img/wavenet.png  used on input line 594.
 (pdftex.def)             Requested size: 345.0pt x 126.59813pt.
- [22 <./img/mqcnn.png (PNG copy)>]
-[23 <./img/wavenet.png (PNG copy)>] [24]
-Underfull \hbox (badness 10000) in alignment at lines 603--612
+ [24 <./img/mqcnn.png (PNG copy)> <./img/wavenet.png (PNG copy)>] [25] [26]
+Underfull \hbox (badness 10000) in alignment at lines 640--649
 [][][]
  []
 
-[25] [26]
-Underfull \hbox (badness 10000) in paragraph at lines 651--652
+[27] [28]
+Underfull \hbox (badness 10000) in paragraph at lines 688--689
 
  []
 
 LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 
-652.
+689.
 (/usr/share/texmf-dist/tex/latex/lm/ot1lmtt.fd
 File: ot1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [27]
-Underfull \hbox (badness 10000) in paragraph at lines 687--695
+) [29]
+Underfull \hbox (badness 10000) in paragraph at lines 724--732
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 687--695
+Underfull \hbox (badness 10000) in paragraph at lines 724--732
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 699--706
+Underfull \hbox (badness 10000) in paragraph at lines 736--743
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--713
+Underfull \hbox (badness 10000) in paragraph at lines 743--750
 
  []
 
-[28]
-Underfull \hbox (badness 10000) in paragraph at lines 721--728
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 721--728
+[30]
+Underfull \hbox (badness 10000) in paragraph at lines 758--765
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 731--738
+Underfull \hbox (badness 10000) in paragraph at lines 758--765
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 731--738
+Underfull \hbox (badness 10000) in paragraph at lines 768--775
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 739--746
+Underfull \hbox (badness 10000) in paragraph at lines 768--775
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 739--746
+Underfull \hbox (badness 10000) in paragraph at lines 776--783
 
  []
 
-[29] [30] (./thesis.bbl [31]
-Underfull \hbox (badness 10000) in paragraph at lines 119--121
+
+Underfull \hbox (badness 10000) in paragraph at lines 776--783
+
+ []
+
+[31] [32] (./thesis.bbl [33] [34]
+Underfull \hbox (badness 10000) in paragraph at lines 166--168
 []\OT1/lmr/m/n/10 ``Ssaforecaster.'' https://docs.microsoft.com/en-
  []
 
 
-Overfull \hbox (15.58107pt too wide) in paragraph at lines 119--121
+Overfull \hbox (15.58107pt too wide) in paragraph at lines 166--168
 \OT1/lmr/m/n/10 us/python/api/nimbusml/nimbusml.timeseries.ssaforecaster?view=n
 imbusml-
  []
 
-[32]
-Underfull \hbox (badness 1062) in paragraph at lines 212--218
+[35]
+Underfull \hbox (badness 1062) in paragraph at lines 259--265
 \OT1/lmr/m/n/10 E. Nosakhare, K. Ra-jen-dran, D. Shankar-gouda, M. Wang, A. Au,
 
  []
 
-[33]) [34] (./thesis.aux)
+) [36] (./thesis.aux)
 Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: D5189635416A570B5FF136021708E2DD;3994.
  ) 
 Here is how much of TeX's memory you used:
- 13397 strings out of 478994
- 189601 string characters out of 5864751
- 583078 words of memory out of 5000000
- 30488 multiletter control sequences out of 15000+600000
+ 13430 strings out of 478994
+ 190275 string characters out of 5864751
+ 606532 words of memory out of 5000000
+ 30504 multiletter control sequences out of 15000+600000
  470751 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,14n,74p,1098b,1970s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/share/texmf-dist/
 fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-math
-ex.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-di
-st/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/l
-m-mathsy.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rmsc.enc}</usr/share/
+sy.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texm
+f-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/l
+m-mathit.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rmsc.enc}</usr/share/
 texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dist/fonts/type1/
 public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><
 /usr/share/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf-dist/f
@@ -1044,12 +1070,13 @@ c/lm/lmr12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/shar
 e/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf-dist/fonts/type1/
 public/lm/lmri10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri12.pfb></
 usr/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fo
-nts/type1/public/lm/lmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt
-10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (40 pages, 1477742 bytes).
+nts/type1/public/lm/lmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy
+7.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf
+-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on thesis.pdf (42 pages, 1541817 bytes).
 PDF statistics:
- 674 PDF objects out of 1000 (max. 8388607)
- 591 compressed objects within 6 object streams
- 168 named destinations out of 1000 (max. 500000)
- 268 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 721 PDF objects out of 1000 (max. 8388607)
+ 633 compressed objects within 7 object streams
+ 184 named destinations out of 1000 (max. 500000)
+ 273 words of extra memory for PDF output out of 10000 (max. 10000000)
 

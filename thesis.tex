@@ -209,8 +209,45 @@
 	Finally, stochastic processes such as wavelets and nonparametric filtering are used to extract trend and seasonal components from the time series representing the workload properties (see section \ref{sec:forecasting}), identify the structure of predictive models and estimate their parameters. A common goal when applying such techniques is to cope with capacity planning and resource management.
 	
 	\subsection{ Clustering } \label{ssec:clustering}
-	aaa
+	In the era of data, clustering provides a way to classify and group information into a set of categories, called clusters, when labels are not provided. The goal is to learn a new object or understand a phenomenon, and try to seek the features that can describe it in order to make comparisons with other known objects of phenomena \cite{ClusteringSurvey}. Such learning process is called unsupervised learning.
+	\begin{figure} \label{fig:clustering_approach}
+		\includegraphics[width=\linewidth]{img/clustering_approach.png}
+		\caption{Common clustering procedure.}
+	\end{figure}
+	In general, a cluster is described by considering its internal homogeneity and the external separation \cite{ClusterHomogeinitySeparation}, meaning that the same cluster should present similar patterns, while patterns in different clusters should not.
 	
+	Formally, given an input set $X = \{ \pmb{x}_1, ..., \pmb{x_N} \}$ with $\pmb{x}_i \in \mathbb{R}^d$, \textit{hard clustering} attempts to seek a $K$-partition of $X$, $C = \{ C_1, ..., C_K \}$ with $K \leq N$ such that:
+	\begin{enumerate}
+		 \item $C_i \neq \emptyset$ for $i = 1, ..., K$
+		 \item $\cup_{i=1}^{K} C_i = X$
+		 \item $C_i \cap C_j = \emptyset$ for each $i, j = 1, ..., K$ with $i \neq j$
+	\end{enumerate}
+	Therefore, at the end of the procedure, each point in $X$ belongs to a single cluster. In \textit{fuzzy clustering} this constraint is relaxed, and a point $\pmb{x}_i \in X$ can belong to multiple clusters with a certain degree of membership \cite{FuzzyClustering}. Another alternative to hard clustering is \textit{hierarchical clustering}, that repeatedly agglomerates points (or, symmetrically, divides clusters) creating a dendrogram \cite{HierarchicalClustering}.  
+	
+	The general clustering procedure is depicted in figure \ref{fig:clustering_approach}. The feature selection or extraction step chooses a subset of features from the set of available features. From that subset new features can be generated, for example by using Principal Component Analysis. This step can heavily affect the clustering result. Then, one or more clustering algorithms must be selected often along with a proximity measure (e.g. the Euclidean distance). Note that there isn't any clustering algorithm that is capable of solving all types of problems \cite{ImpossibleTheoremForClustering}. Finally, each clustering algorithm must be objectively validated, and the results interpreted.
+	
+	In the context of workload characterization (see section \ref{ssec:workload_characterization}) we are interested in hard clustering methods to automatically group workloads. \\
+	A well-known clustering method is $k$-means, that partitions $X$ into $k \leq |X|$ clusters $C_1, ..., C_k$ by finding:\\\\
+	\centerline{
+	$
+	\underset{C_1, ..., C_k}{\mathrm{argmax}} \, \sum_{i=1}^{k} \underset{{\pmb{x} \in S}}{\sum} || \pmb{x} - \pmb{\mu}_i ||^2
+	$
+	} \\\\
+	where $\pmb{\mu}_i$ is the \textit{centroid} of cluster $C_i$, and a point $\pmb{x}$ belongs to the cluster having the closest centroid. In order to effectively initialize the value of $\mu_i$, $k$-means++ can be used \cite{kmeans++}. $k$-means requires the number of clusters to be given as input.
+	
+	Mean shift \cite{MeanShift} is another centroid-based clustering procedure that at each iteration moves the points towards the direction of maximum density by using a kernel function $K(x_i, x)$ (e.g. a Gaussian kernel) that controls the direction of the movement $m(x)$:\\\\
+	\centerline{
+		$
+		m(x) = \frac{\sum_{x_i \in N(x)} K(x_i - x)x_i}{\sum_{x_i \in N(x)} K(x_i - x)}
+		$
+	} \\\\
+	where $N(x)$ is the neighborhood of $x$. The algorithm stops on convergence. Unlike $k$-means, mean shift doesn't require to know the number of clusters, but it must be provided with a bandwidth parameter that determines the size of the neighborhood $N(x)$. Such bandwidth can be estimated using nearest neighbors.
+	
+	OPTICS \cite{OPTICS} is a density-based approach that requires two parameters: the minimum number of points required to form a cluster, and the radius $\epsilon$ to consider when forming clusters. OPTICS is very data-efficient for small values of $\epsilon$, and can be used for outlier detection as it doesn't necessarily need to assign a cluster to each point.
+	
+	Finally, Gaussian Mixture Models (GMM) \cite{MixtureModels} can provide a probabilistic approach to clustering by estimating $k$ Gaussian distributions via Expectation-Maximization . The expectation step calculates the probability that a point $\pmb{x}_i$ belongs to the cluster $C_j$, and the maximization step updates the parameters (mean and covariance matrix) of the distributions representing the clusters in order to maximize the log-likelihood function. This process is repeated until convergence. To do so, GMM require to be given the number of components (i.e. clusters) and the covariance type. When compared to $k$-means, the advantage of GMM is that it is not limited to spherical-shaped clusters.
+	
+	When evaluating the quality of a clustering $C=\{C_1, ..., C_k\}$, the Silhouette coefficient \cite{SilhouetteCoefficient} computes a score representing how well-separated the clusters are. Similarly, the Bayesian Information Criterion \cite{BayesianInformationCriterion} is an alternative applicable to GMM. These scores can be used to choose the number of clusters to be found or method-specific parameter.
 	
 	\subsection{ Forecasting } \label{sec:forecasting}
 	Forecasting is a common data science task that makes use of temporal data \cite{ForecastingSurvey} to help organizations with capacity planning, goal setting, and anomaly detection. It is required in many situations: for example, deciding whether to build another warehouse in the next five years requires forecasts of future demand, and scheduling staff in a call center next week requires forecasts of call volumes.
@@ -595,7 +632,7 @@
 	Before starting the tuning process, made of iterations (or experiments) where a new configuration is repeatedly applied and evaluated, we must collect enough workload data in order to train the forecasting models and gather knowledge about the workload (see section \ref{ssec:workload_characterization_module} for details).
 	As stated by \cite{Seagull}, a significant number of workloads follow a daily or a weekly seasonality. Therefore, the data collection time lasts at least one week.
 	 
-	 After the collection period has ended, the online tuning process of the IT system can start. The tuning process is made of experiments of duration up to $t_2 - t_1$, that is the length of the window $\omega_{t_1:t_2}$ on which a configuration is applied and its outcome is measured.  However, it can happen that an experiment gets invalidated due to an early stop condition such as the violation of constraint (TODO add ref to cgp explaining violations).  
+	 After the collection period has ended, the online tuning process of the IT system can start. The tuning process is made of experiments of duration up to $t_2 - t_1$, that is the length of the window $\omega_{t_1:t_2}$ on which a configuration is applied and its outcome is measured.  However, it can happen that an experiment gets invalidated due to an early stop condition such as the violation of constraint (see section \ref{ssec:contextual_bayesian_optimization}).  
 	 
 	 After a forecast is made, the experiment develops and the true workload reveals itself. When comparing the predicted with the actual workload, two (bad) cases can occur: the predicted average workload is different from the true average workload, and the stability prediction is not correct (e.g. predicted stable but it is unstable). The latter case is further detailed by the four sub-cases shown in table \ref{table:stability_cases}. 	 
 	 \begin{table*}\centering \label{table:stability_cases}
@@ -716,7 +753,7 @@
 	
 	\subsection{Workload characterization module}  \label{ssec:workload_characterization_module}
 	Workload characterization is used to normalize the outcome of each configuration according to the workload type, which is required by contextual Bayesian optimization (section \ref{ssec:contextual_bayesian_optimization}). We are interested in characterizing the workload without any human intervention: for this reason, the module uses clustering-based methods. \\
-	The clustering methods that have been chosen are $k$-means, mean shift, Gaussian Mixture Models (GMM), and OPTICS.
+	The clustering methods that have been chosen are $k$-means, mean shift, Gaussian Mixture Models (GMM), and OPTICS (see section \ref{ssec:clustering}).
 	
 	Since $k$-means requires the number of clusters to be given as input, the quality of clustering is evaluated for each size $k \in K, K = [2, \max (3, \log n)]$ where $n$ is the number of workload points. The evaluation is performed computing the Silhouette score for each $k$, and selecting the value that leads to the highest score:\\\\
 	\centerline{
@@ -749,6 +786,8 @@
 	Finally, the dataset $W$ is initialized together with the forecasting module: the workload points seen during the initialization period (e.g. the first week) are included so that the tuner is provided with meaningful workload groups since the beginning of the optimization process.
 
 	\section{ Experimental setup }
+
+	
 	
 	\section{ Results }
 	
