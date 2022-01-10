@@ -97,7 +97,7 @@
 		
 		% Bottom of the page
 		{ \large XX February 2022 \par}
-		{ \large \textsc{Academic Year 2018/2019}\par}
+		{ \large \textsc{Academic Year 2021/2022}\par}
 	\end{titlepage}
 	
 	% empty page
@@ -141,7 +141,7 @@
 	\newpage
 	\pagenumbering{arabic}
 	
-	\section{ Introduction }
+	\section{Introduction }
 	% should i specify that the workload is also specific to each tuning scenario?
 	Most software systems allow its users to tailor the configuration according to the context under which the system is running, so that it can meet some quality or cost targets. With the number of available options increasing over time, the configuration spaces became too wide and the effects of their options may not be trivial or predictable, especially when many of them are tuned together. Within this context, manually finding the configuration that maximizes the performance of a web application or minimizes the costs of a cloud service requires a lot of work that can only be done by experts that know the software being tuned, consuming time and without any guarantee that such configuration will be found. Furthermore, if such optimal configuration is found, a software change or update, or even an hardware change may require the whole work to be repeated.
 	
@@ -151,7 +151,7 @@
 	
 	We further present the problem in section \ref{sec:context_and_state_of_the_art}, detailing the components required by the approach and the current state of the art. Section \ref{sec:proposed_solution} describes the proposed solution and \ref{sec:exp_setup} the experimental setup. Finally, section \ref{sec:results} shows the results obtained on two distinct database models.
 	
-	\section{ Context and State of the Art } \label{sec:context_and_state_of_the_art}
+	\section{Context and State of the Art } \label{sec:context_and_state_of_the_art}
 	Tuning an IT system without changing its code requires to find good configurations in an enormous search space where the tunable parameters affect different layers of the IT stack, such as Operating System (OS), Database Management System (DBMS), and Java Virtual Machine (JVM). These parameters can have counter-intuitive effects with inter-dependencies, making manual optimization hard or even unfeasible when looking for the optimal configuration. Recent years have seen automatic approaches emerge \cite{AkamasCGP, OtterTune, OtterTune2, LearningToSample}, with \cite{AkamasCGP} using Contextual Bayesian Optimization (BO). However, when automatically tuning IT systems on a staging environment, i.e. a replica of the real system, it is still necessary to replicate the real workload to find the optimal configuration that fits the way the IT system is used at different times of the day or week. Finding such workload(s) takes time, lengthening the time required to complete the tuning process.
 	
 	A possible solution to this issue is to directly tune the production system under the real workload, removing the workload analysis and replication requirement, with the performance of each configuration measured directly from the production system rather than a staging replica, which could lead to unrealistic outcomes. However, performing experiments on an IT system while being used can be dangerous and poses new challenges: a bad configuration can cause bad user experience and consequently business issues.
@@ -159,7 +159,7 @@
 	This work extends the Contextual Bayesian Optimization tuner \cite{AkamasCGP} to be applied in an online manner	on IT systems receiving the production workload by providing two key components: a workload characterization and a workload forecasting module. \\
 	The following section briefly presents BO and section \ref{ssec:contextual_bayesian_optimization} presents the Contextual BO tuner of \cite{AkamasCGP} explaining why workload characterization and forecasting are required. The state of the art of forecasting is presented (section \ref{sec:forecasting}), followed by a section on workload forecasting in the context of IT systems (section \ref{ssec:workload_forecasting}). A general overview of workload characterization is presented in section \ref{ssec:workload_characterization}. Clustering, that can be used for workload characterization, is described in section \ref{ssec:clustering}.
 	
-	\subsection{ Bayesian Optimization } \label{ssec:bayesian_optimization}
+	\subsection{Bayesian Optimization } \label{ssec:bayesian_optimization}
 	Bayesian Optimization \cite{BO} is a tool for the joint optimization of design choices of complex systems, such as the parameters of a recommendation system, a neural network, or a medical analysis tool. For example a typical software system made of a database, a back-end, and a front-end is characterized by an enormous amount of parameters that are often dependent on each other.
 	Optimizing such parameters is not a simple task, and BO provides an automated approach to make such design choices.\\
 	
@@ -230,7 +230,7 @@
 	
 	Finally, stochastic processes such as wavelets and nonparametric filtering are used to extract trend and seasonal components from the time series representing the workload properties (see section \ref{sec:forecasting}), identify the structure of predictive models and estimate their parameters. A common goal when applying such techniques is to cope with capacity planning and resource management.
 	
-	\subsection{ Clustering } \label{ssec:clustering}
+	\subsection{Clustering } \label{ssec:clustering}
 	In the era of data, clustering provides a way to classify and group information into a set of categories, called clusters, when labels are not provided. The goal is to learn a new object or understand a phenomenon, and try to seek the features that can describe it in order to make comparisons with other known objects or phenomena \cite{ClusteringSurvey}. Such learning process is called unsupervised learning.
 	\begin{figure} \label{fig:clustering_approach}
 		\includegraphics[width=\linewidth]{img/clustering_approach.png}
@@ -271,7 +271,7 @@
 	
 	When evaluating the quality of a clustering $C=\{C_1, ..., C_k\}$, the Silhouette coefficient \cite{SilhouetteCoefficient} computes a score representing how well-separated the clusters are. Similarly, the Bayesian Information Criterion \cite{BayesianInformationCriterion} is an alternative applicable to GMM. These scores can be used to choose the number of clusters to be found or method-specific parameter.
 	
-	\subsection{ Forecasting } \label{sec:forecasting}
+	\subsection{Forecasting } \label{sec:forecasting}
 	Forecasting is a common data science task that makes use of temporal data \cite{ForecastingSurvey} to help organizations with capacity planning, goal setting, and anomaly detection. It is required in many situations: for example, deciding whether to build another warehouse in the next five years requires forecasts of future demand, and scheduling staff in a call center next week requires forecasts of call volumes.
 	
 	The first successful forecasting methods have been proposed around \textit{1950}, some of them being Exponential Smoothing \cite{ExponentialSmoothingHoltCharles} and ARIMA \cite{ForecastingBoxJenkins}, which originated a wide variety of derived techniques \cite{25YearsForecasting}. In the big-data era, where companies have huge numbers of time series each with their own characteristics, traditional techniques have shown some limitations due to specific model requirements (section \ref{sssec:exponential_smoothing} and \ref{sssec:arma}), model inflexibility, necessity of manual feature engineering, lack of automation, difficulties of dealing with missing data, and lack of well-performing multivariate models \cite{25YearsForecasting}.\\
@@ -378,7 +378,7 @@
 		
 	The vector ARIMA (VARIMA) model has been proposed as a multivariate generalization of the univariate ARIMA model, but in general Vector Auto-Regressive (VAR) models tend to suffer from overfitting, providing poor out-of-sample forecasts \cite{25YearsForecasting}.
 	
-	\subsubsection{ Prophet } \label{sssec:prohet}
+	\subsubsection{Prophet } \label{sssec:prohet}
 	Prophet \cite{FacebookProphet} is a solution developed by Facebook that provides an ``analyst-in-the-loop'' approach (figure \ref{fig:analyst_in_the_loop}) and a flexible model that fit a wide range of business time series. The model simplifies the process of adding domain knowledge about the data generation process and reduces the time required to obtain high quality forecasts. Finally, Prophet is able to automatically handle time series with trend changes, multiple seasonality, and holidays effects.
 	\begin{figure}
 		\includegraphics[width=\linewidth]{img/sota_ts_fb_prophet.png}
@@ -463,7 +463,7 @@
 	
 	
 	% TODO introduction about RNNs - characteristics e.g. of LSTM - see https://arxiv.org/pdf/1705.04378.pdf , background of https://arxiv.org/pdf/1703.04691.pdf
-	\subsubsection{ DeepAR } \label{sssec:deepar}
+	\subsubsection{DeepAR } \label{sssec:deepar}
 	DeepAR \cite{DeepAR} is a discriminative model capable of probabilistic forecasts in the form of Monte Carlo samples, it is based on Sequence to Sequence (S2S) \cite{seq2seq} and can learn a global model from multiple time series.\\
 	Alongside with a model, DeepAR proposes a solution to the issue of dealing with time series having very different magnitudes, which are known to ruin the learning of an effective global model reducing the effectiveness of normalization techniques on some datasets \cite{DeepAR}.
 	
@@ -503,7 +503,7 @@
 		Without any modification, in order to handle different scales the network should learn to scale the input to an appropriate range and then invert the scaling. As the network has a limited operating range and some datasets exhibit a power-law of scales (such as the Amazon dataset of \cite{DeepAR}), this issue was addressed by scaling the input values (e.g. $\tilde{z}_{i, t}$ and $z_{i,t}$) using an item-dependent factor $\nu_i$. Then, before drawing samples from the distribution, the output of the network (e.g. the mean $\mu$ of the Gaussian) is multiplied by the scale. The scaling factor $\nu$ is set to be the average value of the time series: $\nu_i = 1 + \frac{1}{t_0} \sum_{t=1}^{t_0} z_{i,t}$. Finally, rather than training the network choosing random time series from the dataset, the probability of choosing a time series is proportional to its scale factor $\nu_i$: by non-uniformly sampling during training, imbalanced datasets with fewer large scale time series are used more effectively.
 		
 	
-	\subsubsection{ DeepState } \label{sssec:deepstate}
+	\subsubsection{DeepState } \label{sssec:deepstate}
 	DeepState \cite{DeepState} is a generative model that combines state space models \cite{ExponentialSmoothingStateSpace} with deep learning. The idea is to use a latent state $\pmb{l}_t \in \mathbb{R}^D$ to encode time series components such as level, trend, and seasonality patterns, and parametrize the linear state space model (SSM) by using a recurrent neural network (RNN) whose weights are learned jointly from multiple time series and covariates. \\
 	The main advantage of SSM is that the model is easily interpretable, but when used with traditional models such as ARIMA and Exponential Smoothing it results in an univariate model that still requires a lot of human work that cannot be easily recycled for other time series.
 	DeepState solves this issue by using neural networks to learn a global model from multiple time series without making strong assumptions and reducing the human effort, and solving the common interpretability issue of neural networks by fusing them with SSMs.
@@ -568,7 +568,7 @@
 		\label{fig:deepstate2}
 	\end{figure}
 
-	\subsubsection{ Multi Quantile Recurrent Forecaster } \label{sssec:mqcnn}
+	\subsubsection{Multi Quantile Recurrent Forecaster } \label{sssec:mqcnn}
 	Multi Quantile Recurrent Forecaster (MQCNN) \cite{MQCNN} is a Sequence-to-Sequence RNN-based model capable of producing multi-horizon quantile forecasts.\\
 	\cite{MQCNN} proposes a forking-sequences approach that improves the training stability and performance of encoder-decoder architectures by efficiently training on all time points where a forecast could be created. Furthermore, the model can be used with different encoders, but the best results were achieved using a CNN-based encoder.
 	
@@ -619,7 +619,7 @@
 	\end{figure}
 	
 	
-	\subsection{ Workload forecasting } \label{ssec:workload_forecasting}
+	\subsection{Workload forecasting } \label{ssec:workload_forecasting}
 	% ADD stuff about short term load forecasting (STLF) see https://arxiv.org/pdf/1705.04378.pdf
 	The ability of forecasting the workload of an IT system opens the possibility of proactively adapting the system according to the future demand and making smarter decisions, keeping the Quality of Service (QoS) high while reducing the infrastructure costs. This section lists some applications of workload forecasting and how it has been approached.\\
 	Recent years have seen companies moving from self-hosted to cloud-hosted  IT services, where a public provider is paid to lend on-demand computing power likewise utilities such as electricity, gas, and water. This paradigm, called cloud computing \cite{CloudComputing}, enabled the possibility of flexibly adapting the capacity of a system according to the demand, potentially heavily reducing the infrastructure costs.  Figure \ref{fig:cloud_vs_traditional_computing} highlights the difference of cloud computing with the traditional paradigm, where to avoid loosing customers the capacity of the system must be able to serve the highest peak of demand, causing an over-provisioning of resources when the demand is low.\\
@@ -637,7 +637,7 @@
 	
 	The application of novel forecasting techniques such as the ones based on neural network has still to be explored. Nevertheless, the flexibility of such models, especially when compared to ARIMA and Exponential Smoothing, is promising: potentially dealing with huge numbers of time series with minimum effort, while keeping the forecasting accuracy high, would make workload forecasting much more accessible to many companies, leading to better services and lower costs.
 	
-	\section{ Proposed solution and approach } \label{sec:proposed_solution}
+	\section{Proposed solution and approach } \label{sec:proposed_solution}
 	At the time of writing, \cite{AkamasCGP} optimizes IT systems on a staging environment (a replica of the real system) using artificial workloads that have no impact on the user experience. The goal of this work is to extend the underlying tuner so it can be applied to the actual IT system running under the real workload, with the advantages of reducing the effort explained in section \ref{ssec:workload_characterization} and obtaining performance measurements directly from the ``real'' system. To do so, as detailed in section \ref{ssec:contextual_bayesian_optimization}, we need a workload characterization and a workload forecasting module.
 	
 	The main challenge when tuning a system while it is serving its clients is to keep QoS levels high, and at the same time quickly finding good configurations for the system. Furthermore, we want Akamas to be easy to configure and apply in order to require the minimum amount of human work. Therefore, the requirements for the solution are to be autonomous and reliable.
@@ -843,7 +843,7 @@
 	
 	Finally, the dataset $W$ is initialized together with the forecasting module: the workload points seen during the initialization period (e.g. the first week) are included so that the tuner is provided with meaningful workload groups since the beginning of the optimization process.
 
-	\section{ Experimental setup } \label{sec:exp_setup}
+	\section{Experimental setup } \label{sec:exp_setup}
 	The proposed solution has the goal of extending the existing tuner \cite{AkamasCGP} to work in an online manner. Therefore, we are interested in how quickly we are able to find a good configuration while avoiding bad ones. Nevertheless, the effectiveness of the tuning depends on two key factors: the ability of selecting as many stable workload windows as possible, that increases the number of experiments and therefore how quickly we can optimize the objective function, while avoiding unstable workload windows that are likely to lead to failures or low QoS levels. This selection ability,  along with the quality of the configuration proposed by the tuner, strongly depends on the forecasting accuracy.\\
 	Therefore, we evaluate the forecasting module and the window selection algorithm independently from the tuner (section \ref{ssec:exp_workload_forecasting} and \ref{ssec:exp_stable_wkld_finder}). The workload characterization module, that is based on clustering algorithms, is evaluated qualitatively. The overall solution is evaluated by using DBMS models (section \ref{ssec:exp_online_cgp}) that map the configuration space to a wide variety of performance metrics (according to the perceived workload), allowing us to run reproducible tests on a local machine.
 	
@@ -870,7 +870,7 @@
 	
 	Finally, we are interested in the performance of the developed solution when the amount of time series data provided to the forecaster covers less than one week. By exploring such case when using time series with weekly seasonality we can also understand how the system reacts to patterns that are not present in the historical data (e.g. the reduced number of requests during the weekend when the forecaster has only four days of historical data).
 	
-	\subsection{ Workload Forecasting } \label{ssec:exp_workload_forecasting}
+	\subsection{Workload Forecasting } \label{ssec:exp_workload_forecasting}
 	To evaluate the forecasting accuracy we chose two metrics: the Mean Absolute Percentage Error (MAPE) and the Root Mean Squared Error (RMSE).  Remembering that we are repeatedly forecasting short-term windows while new workload data is incoming, we are interested in the overall errors up to the latest measurement plus how wrong the forecaster is in a specific moment.
 	
 	Formally, when evaluating the accuracy of a time series starting at time $t_0$ and we have data up to time $t_1$, for each forecasted window $\omega_{t:t+\delta}$ where $\delta$ is the length of the short term forecast, we compute the error of the associated forecast $\tilde{\pmb{y}}_{t:t+\delta}$ using the true values $\pmb{y}_{t:t+\delta}$, for $t=t_0, ..., t_1 - \delta$. Then, we merge the forecasts and compute the error up to time $t_1 - \delta$. As we receive new time series data over time (i.e. $t_1$ increases over time), the latter is called incremental MAPE or RMSE. \\
@@ -903,7 +903,7 @@
 	The two metrics may look redundant, but since the RMSE gives more importance to the highest errors, by considering the RMSE over the MAPE we are actually increasing sensitivity to outliers. Furthermore, using RMSE we seek to be correct on average, while in contrast the MAPE targets the median.\\
 	Finally, note that the MAPE is easier to understand as it express the error as a percentage that is independent from the scale of the time series. Therefore, it is useful to compare the performance of a model on different time series. Nevertheless, MAPE cannot be used when the values are too close to zero.
 	
-	\subsection{ Stable workload finder } \label{ssec:exp_stable_wkld_finder}
+	\subsection{Stable workload finder } \label{ssec:exp_stable_wkld_finder}
 	The stable workload finder algorithm uses the forecast of the upcoming workload and its historical data to predict if a time window in the upcoming future will be stable or not. Therefore, it acts as a binary classifier that should detect a decent amount of stable windows while avoiding unstable ones. As mentioned in section \ref{ssec:stable_window_finder}, we give more importance to avoiding false positives (see table \ref{table:stability_cases}) as they facilitate failures.
 	
 	To evaluate such classifier, we consider its precision and recall. Precision is defined as:\\\\
@@ -927,7 +927,7 @@
 		$
 	}\\\\
 	
-	\subsection{ Online Contextual Gaussian Process Tuner } \label{ssec:exp_online_cgp}
+	\subsection{Online Contextual Gaussian Process Tuner } \label{ssec:exp_online_cgp}
 	As mentioned before, the proposed solution is evaluated using DBMS models, namely MongoDB and Cassandra. The models are trained such that they can map the configuration space, specific to each DBMS, to a wide variety of performance metrics \cite{AkamasCGP}, such as throughput and memory usage. By doing so, the experiments are easily reproducible.\\	
 	Furthermore, by using database models we know the optimal configuration and we can see how far the tuner is from the real optimum. To do so, we compute the Normalized Performance Improvement at iteration $i$:\\\\
 	\centerline{
@@ -957,10 +957,10 @@
 	
 	Finally, when evaluating tuners, we are interested in how many iterations are required to outperform the baseline tuner in terms of CR. We expect that at the beginning of the tuning process the tuner needs to explore the configuration space, suggesting configurations that are worse than the baseline. After a few iterations, the suggested configurations will be better than the baseline (i.e. the configurations will have a score higher than 0) so that the CR of the tuner will eventually overtake the CR of the Baseline tuner. We name this metric Time To Recover (TTR).
 	
-	\section{ Results } \label{sec:results}
+	\section{Results } \label{sec:results}
 	This section presents the results according to the setup presented in section \ref{sec:exp_setup}. Workload characterization is evaluated qualitatively. 
 	
-	\subsection{ Workload Characterization } \label{ssec:results_wkld_characterization}
+	\subsection{Workload Characterization } \label{ssec:results_wkld_characterization}
 	The workload characterization, performed with clustering methods, is evaluated qualitatively.
 	By doing so, we must remember that each workload type (i.e. cluster) will group the points that will be used by the tuner to normalize the score. Therefore, it is important for each cluster to contain a meaningful amount of points so that the tuner can understand which configurations are better/worse under a given workload type. For this reason, OPTICS turned out to be unusable due to the high number of identified clusters (often above 1000), where a significant amount of clusters were made of just one point. Note that such issue could be solved by changing the parameters according to the dataset being clustered, at the cost of losing the autonomy of the workload characterization module.  
 	
@@ -1566,7 +1566,7 @@
 	The results of the scenarios using the Daily time series with increasing noise show that noise doesn't have a significant impact on the tuning. Simulating the scenarios, there are a total of 191, 190, and 70 stable windows (i.e. true positives) in the time series with 0.02, 0.04, and 0.08 std. deviation noise respectively, highlighting that  what actually affects the tuning are the thresholds $Theta$ and $\tilde{\Theta}$: by raising the thresholds we increase the CR (lowering the TTR) at the cost of causing more failures. 
 	
 	\clearpage
-	\section{ Conclusions and future work}
+	\section{Conclusions and future work}
 	With this work, we integrated state-of-the-art forecasting techniques with \cite{AkamasCGP} to smartly explore the configuration space of a software system, improving a target metric while avoiding constraints violations, such as Quality of Service constraints. 
 	
 	The developed solution has been tested using two DBMS models on 20 tuning scenarios, always finding configurations that either reduce the primary memory requirements or the system response time within a day of experiments, and effectively exploiting the collected knowledge. By making accurate predictions about the workload time series, the forecasting models allow the online tuners to reduce the amount of constraint violations and system failures caused by the necessity of exploring the configuration space to improve its baseline, according to the different workloads perceived by the system being optimized. 
