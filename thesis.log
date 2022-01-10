@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.6.24)  10 JAN 2022 13:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.6.24)  10 JAN 2022 16:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2183,6 +2183,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [74 <./img/results_onlinecgp_references.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 1276--1276
+[]|\OT1/lmr/m/n/12 [req/s,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1276--1276
+[]|\OT1/lmr/m/n/12 [req/s,
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -2197,10 +2206,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 File: img/results/mongo_allianz_10ms_kmeans_cr.png Graphic file (type png)
 <use img/results/mongo_allianz_10ms_kmeans_cr.png>
 Package pdftex.def Info: img/results/mongo_allianz_10ms_kmeans_cr.png  used on 
-input line 1284.
+input line 1285.
 (pdftex.def)             Requested size: 397.48499pt x 172.91411pt.
 
-Overfull \hbox (7.48499pt too wide) in paragraph at lines 1284--1284
+Overfull \hbox (7.48499pt too wide) in paragraph at lines 1285--1285
  [][] 
  []
 
@@ -2209,10 +2218,10 @@ Overfull \hbox (7.48499pt too wide) in paragraph at lines 1284--1284
 File: img/results/mongo_allianz_10ms_kmeans_fail.png Graphic file (type png)
 <use img/results/mongo_allianz_10ms_kmeans_fail.png>
 Package pdftex.def Info: img/results/mongo_allianz_10ms_kmeans_fail.png  used o
-n input line 1285.
+n input line 1286.
 (pdftex.def)             Requested size: 397.48499pt x 174.02846pt.
 
-Overfull \hbox (7.48499pt too wide) in paragraph at lines 1285--1286
+Overfull \hbox (7.48499pt too wide) in paragraph at lines 1286--1287
  [][] 
  []
 
@@ -2231,11 +2240,16 @@ mongo_allianz_10ms_kmeans_fail.png (PNG copy)>]
 File: img/results/mongo_allianz_10ms_kmeans_ttr.png Graphic file (type png)
 <use img/results/mongo_allianz_10ms_kmeans_ttr.png>
 Package pdftex.def Info: img/results/mongo_allianz_10ms_kmeans_ttr.png  used on
- input line 1294.
+ input line 1295.
 (pdftex.def)             Requested size: 397.48499pt x 170.31451pt.
 
-Overfull \hbox (7.48499pt too wide) in paragraph at lines 1294--1295
+Overfull \hbox (7.48499pt too wide) in paragraph at lines 1295--1296
  [][] 
+ []
+
+
+Overfull \hbox (3.41644pt too wide) in paragraph at lines 1345--1345
+[]|[]| 
  []
 
 
@@ -2265,12 +2279,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [79]
-Underfull \hbox (badness 10000) in paragraph at lines 1422--1422
+Underfull \hbox (badness 10000) in paragraph at lines 1423--1423
 []|\OT1/lmr/m/n/12 [req/s,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1422--1422
+Underfull \hbox (badness 10000) in paragraph at lines 1423--1423
 []|\OT1/lmr/m/n/12 [req/s,
  []
 
@@ -2283,13 +2297,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [80]
-Overfull \hbox (1.13542pt too wide) in paragraph at lines 1473--1473
+Overfull \hbox (1.13542pt too wide) in paragraph at lines 1474--1474
 []|[]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1555--1555
-[]|\OT1/lmr/m/n/12 Time se-
+Overfull \hbox (0.73181pt too wide) in paragraph at lines 1564--1565
+[]\OT1/lmr/m/n/12 Considering the us-age of $\OML/lmm/m/it/12 k$\OT1/lmr/m/n/12
+ -means ver-sus mean shift (MBank1 and CBank1
  []
 
 
@@ -2347,7 +2362,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [86
 
-] (./thesis.bbl
+]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -2356,7 +2371,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[87]
+[87] (./thesis.bbl
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[88]
 Underfull \hbox (badness 1478) in paragraph at lines 70--72
 []\OT1/lmr/m/n/12 S. C. John-son, ``Hi-er-ar-chi-cal clus-ter-ing schemes,'' \O
 T1/lmr/m/it/12 Psy-chome-trika\OT1/lmr/m/n/12 ,
@@ -2370,7 +2394,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[88]
+[89]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -2379,7 +2403,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[89]
+[90]
 Underfull \hbox (badness 3557) in paragraph at lines 149--152
 []\OT1/lmr/m/n/12 V. Flunkert, D. Sali-nas, and J. Gasthaus, ``Deepar: Prob-a-
  []
@@ -2409,7 +2433,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[90]
+[91]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -2418,7 +2442,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[91]
+[92]
 Underfull \hbox (badness 10000) in paragraph at lines 249--252
 \OT1/lmr/m/n/12 ``Wavenet: A gen-er-a-tive model for raw au-dio,'' \OT1/lmr/m/i
 t/12 CoRR\OT1/lmr/m/n/12 ,
@@ -2432,7 +2456,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[92])
+[93])
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -2441,7 +2465,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[93] (./thesis.aux)
+[94] (./thesis.aux)
 Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: 61CCA484361DD84EC12F7A9D1966EEC2;6055.
  )
@@ -2450,9 +2474,9 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 ### semi simple group (level 1) entered at line 5 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 15075 strings out of 478994
- 226607 string characters out of 5864751
- 638719 words of memory out of 5000000
+ 15076 strings out of 478994
+ 226614 string characters out of 5864751
+ 638751 words of memory out of 5000000
  31925 multiletter control sequences out of 15000+600000
  480958 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2474,10 +2498,10 @@ t/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm
 /lmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/t
 exmf-dist/fonts/type1/public/lm/lmtt12.pfb></usr/share/texmf-dist/fonts/type1/p
 ublic/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (100 pages, 4956222 bytes).
+Output written on thesis.pdf (101 pages, 4959511 bytes).
 PDF statistics:
- 1288 PDF objects out of 1440 (max. 8388607)
- 1046 compressed objects within 11 object streams
- 329 named destinations out of 1000 (max. 500000)
+ 1294 PDF objects out of 1440 (max. 8388607)
+ 1051 compressed objects within 11 object streams
+ 330 named destinations out of 1000 (max. 500000)
  598 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1252,7 +1252,7 @@
 	
 	Table \ref{table:results_tuning_scenarios} summarizes the tuning scenarios optimizing MongoDB. The scenarios share the objective function of minimizing the primary memory requirements with experiments of length 30 minutes. By reducing/increasing the latency constraint we make the tuning environment harder/easier. \\
 	The benchmark, that composes the workload for some scenarios and changes the type of requests from read-intensive to write-intensive, was defined in section \ref{sec:exp_setup}.
-	Such property of the workload changes with a daily seasonality on the Daily02B scenario and a weekly seasonality on the Bank4 scenario, using a simple step function. 
+	Such property of the workload changes with a daily seasonality on the MDaily02B scenario and a weekly seasonality on the MBank4 scenario, using a simple step function. 
 
 	\begin{table}\centering 
 		\ra{1.3}
@@ -1260,17 +1260,17 @@
 			\midrule
 			Name & TS & Latency & Collection & Workload & Clustering\\
 			\midrule
-			Daily02&Daily.02 & $<9ms$  & 1 week & [req/s]  & $k$-means\\
-			Daily04&Daily.04 & $<9ms$  & 1 week & [req/s]  & $k$-means\\
-			Daily08&Daily.08 & $<9ms$  & 1 week & [req/s] & $k$-means\\
-			Daily02B&Daily.02 & $<8ms$  & 1 week & [req/s, benchmark] & $k$-means\\
-			Weekly&Daily.02 & $<10ms$  & 2 weeks & [req/s]  & mean shift\\
-			Bank1&Bank & $<9ms$  & 1 week & [req/s]  & $k$-means\\
-			Bank2&Bank & $<9ms$  & 1 week & [req/s]  & mean shift\\
-			Bank3&Bank & $<10ms$  & 1 week & [req/s]  & $k$-means\\
-			Bank4&Bank & $<10ms$  & 1 week & [req/s, benchmark]  & $k$-means\\
-			Taxi1 &Taxi & $<9ms$  & 24 days & [req/s]  & $k$-means\\
-			Taxi2 &Taxi & $<10ms$  & 24 days & [req/s]  & $k$-means\\
+			MDaily02&Daily.02 & $<9ms$  & 1 week & [req/s]  & $k$-means\\
+			MDaily04&Daily.04 & $<9ms$  & 1 week & [req/s]  & $k$-means\\
+			MDaily08&Daily.08 & $<9ms$  & 1 week & [req/s] & $k$-means\\
+			MDaily02B&Daily.02 & $<8ms$  & 1 week & [req/s, benchmark] & $k$-means\\
+			MWeekly&Daily.02 & $<10ms$  & 2 weeks & [req/s]  & mean shift\\
+			MBank1&Bank & $<9ms$  & 1 week & [req/s]  & $k$-means\\
+			MBank2&Bank & $<9ms$  & 1 week & [req/s]  & mean shift\\
+			MBank3&Bank & $<10ms$  & 1 week & [req/s]  & $k$-means\\
+			MBank4&Bank & $<10ms$  & 1 week & [req/s, benchmark]  & $k$-means\\
+			MTaxi1 &Taxi & $<9ms$  & 24 days & [req/s]  & $k$-means\\
+			MTaxi2 &Taxi & $<10ms$  & 24 days & [req/s]  & $k$-means\\
 			
 			\bottomrule
 		\end{tabularx}
@@ -1279,12 +1279,12 @@
 	
 	We first show the complete results of a single tuning scenario, which comprises the CR and Failures graphs and the TTR (Time To Recover). Then, we summarize the results of the remaining scenarios using tables.
 	
-	Figure \ref{fig:results_cgp_bank1} shows the CR and Failures graphs for the Bank3 scenario. The Baseline, Naive, Prophet, and DeepAR tuners start identically: while collecting data, they use the baseline configuration until iteration 2016 (i.e. for one week). Then, the tuners start evaluating new configurations, eventually leading to failures and obtaining different scores. In this particular scenario, the baseline leads to less failures overall when compared to the online tuners. However, by setting the latency constraint to $9ms$, the baseline starts accumulating failures each time the requests per second is above 65, and the online tuners are able to find configurations that reduce such amount of failures. 
+	Figure \ref{fig:results_cgp_bank1} shows the CR and Failures graphs for the MBank3 scenario. The Baseline, Naive, Prophet, and DeepAR tuners start identically: while collecting data, they use the baseline configuration until iteration 2016 (i.e. for one week). Then, the tuners start evaluating new configurations, eventually leading to failures and obtaining different scores. In this particular scenario, the baseline leads to less failures overall when compared to the online tuners. However, by setting the latency constraint to $9ms$, the baseline starts accumulating failures each time the requests per second is above 65, and the online tuners are able to find configurations that reduce such amount of failures. 
 	 
 	\begin{figure}\centering
 		\subfloat[Cumulative Reward]{\includegraphics[width = 5.5in]{img/results/mongo_allianz_10ms_kmeans_cr.png}} \\
 		\subfloat[Cumulative Failures]{\includegraphics[width = 5.5in]{img/results/mongo_allianz_10ms_kmeans_fail.png}}
-		\caption{Results of scenario Bank3.}
+		\caption{Results of scenario MBank3.}
 		\label{fig:results_cgp_bank1}
 	\end{figure}
 	
@@ -1293,7 +1293,7 @@
 	
 	\begin{figure} \centering
 		\includegraphics[width=5.5in]{img/results/mongo_allianz_10ms_kmeans_ttr.png}
-		\caption{Bank3 scenario Time To Recover. The yellow line is the Baseline CR. DeepAR, Prophet, and Naive online tuners overlap, leading to a TTR equal to 21 iterations, i.e. 1.5 hours.}
+		\caption{MBank3 scenario Time To Recover. The yellow line is the Baseline CR. DeepAR, Prophet, and Naive online tuners overlap, leading to a TTR equal to 21 iterations, i.e. 1.5 hours.}
 		\label{fig:results_cgp_bank3_ttr}
 	\end{figure}
 	
@@ -1306,7 +1306,7 @@
 			Scenario & Tuner & ECR/CR & SF & EF/F & TTR\\
 			
 			\midrule
-			\multirow{4}{*}{Daily02}
+			\multirow{4}{*}{MDaily02}
 			& Baseline & 0/0 & \multirow{4}{*}{417} & 712/833 & \\
 			& Naive & 1710/-  && 489/- & 9.5h \\
 			& Prophet & 1417/2053 && 485/503 & 17.2h\\
@@ -1314,28 +1314,28 @@
 			
 			
 			\midrule
-			\multirow{4}{*}{Daily04}
+			\multirow{4}{*}{MDaily04}
 			& Baseline & 0/0 & \multirow{4}{*}{347}  & 604/712 & \\
 			& Naive & 1630/- && 424/- & 10.6h \\
 			& Prophet & 1366/1997 && 409/434 & 15.1h \\
 			& DeepAR & 1404/2105 && 421/434 & 14.3h \\
 			
 			\midrule
-			\multirow{4}{*}{Daily08}
+			\multirow{4}{*}{MDaily08}
 			& Baseline & 0/0 & \multirow{4}{*}{170} & 293/522 & \\
 			& Naive & 1477/- && 226/- & 9.45h\\
 			& Prophet & 1222/3893 && 204/234 & 18.6h\\
 			& DeepAR & 994/4026 && 198/249 & 45h\\
 			
 			\midrule
-			\multirow{4}{*}{Daily02B}
+			\multirow{4}{*}{MDaily02B}
 			& Baseline & 0/0 & \multirow{4}{*}{0} & 0/0 & \\
 			& Naive & 1932/- && 3/- & 1.5h  \\
 			& Prophet & 1125/1671 && 2/4 & 11.5h \\
 			& DeepAR & 1376/2003 && 8/8 & 4.7h\\
 			
 			\midrule
-			\multirow{4}{*}{Weekly}
+			\multirow{4}{*}{MWeekly}
 			& Baseline & 0/0 & \multirow{4}{*}{286} & 429/429 & \\
 			& Naive & 1136/- && 352/- & 16.2h \\
 			& Prophet & 776/1327 && 356/356 & 21.1h\\
@@ -1353,42 +1353,42 @@
 			Scenario & Tuner & ECR/CR & SF & EF/F & TTR\\
 
 			\midrule
-			\multirow{4}{*}{Bank1}
+			\multirow{4}{*}{MBank1}
 			& Baseline & 0/0 & \multirow{4}{*}{107} & 167/167 & \\
 			& Naive & 1297/1297 && 156/156 & 1.8h \\
 			& Prophet & 1290/1290 && 147/147 & 1.8h\\
 			& DeepAR & 1268/1268 && 145/145 & 1.8h\\
 			
 			\midrule
-			\multirow{4}{*}{Bank2}
+			\multirow{4}{*}{MBank2}
 			& Baseline & 0/0 & \multirow{4}{*}{107} & 167/167 & \\
 			& Naive & 1227/1227 && 159/159 & 1.8h \\
 			& Prophet & 1055/1055 && 151/151 & 1.8h\\
 			& DeepAR & 1320/1320 && 148/148 & 1.8h\\
 			
 			\midrule
-			\multirow{4}{*}{Bank3}
+			\multirow{4}{*}{MBank3}
 			& Baseline & 0/0 & \multirow{4}{*}{17} & 19/19 & \\
 			& Naive & 1468/1468 && 40/40 & 1.8h \\
 			& Prophet & 1200/1200 && 34/34 & 1.8h\\
 			& DeepAR & 1275/1275 && 31/31 & 1.8h\\
 			
 			\midrule
-			\multirow{4}{*}{Bank4}
+			\multirow{4}{*}{MBank4}
 			& Baseline & 0/0 & \multirow{4}{*}{0} & 0/0 & \\
 			& Naive & 1271/1271 && 0/0 & 3.6h \\
 			& Prophet & 1218/1218 && 0/0 & 3.6h\\
 			& DeepAR & 1008/1008 && 0/0 & 3.6h\\
 			
 			\midrule
-			\multirow{4}{*}{Taxi1}
+			\multirow{4}{*}{MTaxi1}
 			& Baseline & 0/0 & \multirow{4}{*}{150} & 202/263 & \\
 			& Naive & 908/- && 222/- & 5.6h \\
 			& Prophet & 872/1062 && 214/288 & 7.3h\\
 			& DeepAR & 879/1042 && 219/260 & 5.6h\\
 			
 			\midrule
-			\multirow{4}{*}{Taxi2}
+			\multirow{4}{*}{MTaxi2}
 			& Baseline & 0/0 & \multirow{4}{*}{8} & 28/29 & \\
 			& Naive & 1270/- && 46/- & 5.5h \\
 			& Prophet & 1027/1229 && 48/53 & 7h\\
@@ -1520,7 +1520,7 @@
 		\ra{1.3}
 		\begin{tabularx}{\textwidth}{@{}XXXXXX@{}}
 			\toprule
-			Time series & Tuner & $\Theta$/$\tilde{\Theta}$ & Precision & Recall& F1\\
+			TS & Tuner & $\Theta$/$\tilde{\Theta}$ & Precision & Recall& F1\\
 			
 			\midrule
 			\multirow{2}{*}{Daily02}
@@ -1554,28 +1554,33 @@
 			
 			\bottomrule
 		\end{tabularx}
-		\caption{Tuning scenarios stability data, valid both for Cassandra and MongoDB scenarios.} \label{table:results_stability}
+		\caption{Tuning scenarios stability data, valid both for Cassandra and MongoDB scenarios. TS indicates the Time Series.} \label{table:results_stability}
 	\end{table*}
 	
 	The results show that all the online tuners are able to find configurations outperforming the baseline in a short time. However, the tuners using a forecasting model are able to achieve a much higher CR when taking into consideration the number of performed experiments: for example, the DeepAR tuner of scenario CTaxi ends with 267 experiments and a CR of 476, while the Naive tuner finishes with 296 experiments and a CR of 417. The same reasoning applies to all scenarios. Considering that the change of a configuration property may require the reboot of the system being optimized, the ability of better exploiting the acquired knowledge can be valuable. \\
 	Nevertheless, some scenarios highlighted a small gap between the Naive tuner and the Prophet or DeepAR tuners that may not justify the usage of such more complex tuners, even if the forecasting quality is high.
 	When comparing the MongoDB and Cassandra scenarios, the MongoDB scenarios are characterized by an higher amount of overall failures caused both by the Baseline and online tuners, where the latter are able to tune the system while causing a smaller amount of failure when the latency constraint is set to $9ms$. However, most failures are caused by the latency constraint rather than an entire system failure (that makes the system unavailable to its clients) which may be considered less severe depending on the context. On the other side, tuning the Cassandra scenarios inevitably leads to system failures, while the baseline configuration always keeps the system available. 
 	
-	Considering the usage of $k$-means versus mean shift (Bank1 and CBank1 versus Bank2 and CBank2) it is clear that $k$-means leads to better results. Such outcome could be the consequence of mean shift finding more clusters (see section \ref{ssec:results_wkld_characterization}), resulting in fewer experiments available to the tuner when suggesting a configuration for a specific workload type, especially in the early stage of the tuning scenario. 
+	Considering the usage of $k$-means versus mean shift (MBank1 and CBank1 versus MBank2 and CBank2) it is clear that $k$-means leads to better results. Such outcome could be the consequence of mean shift finding more clusters (see section \ref{ssec:results_wkld_characterization}), resulting in fewer experiments available to the tuner when suggesting a configuration for a specific workload type, especially in the early stage of the tuning scenario. 
 
 	The results of the scenarios using the Daily time series with increasing noise show that noise doesn't have a significant impact on the tuning. Simulating the scenarios, there are a total of 191, 190, and 70 stable windows (i.e. true positives) in the time series with 0.02, 0.04, and 0.08 std. deviation noise respectively, highlighting that  what actually affects the tuning are the thresholds $Theta$ and $\tilde{\Theta}$: by raising the thresholds we increase the CR (lowering the TTR) at the cost of causing more failures. 
 	
 	\clearpage
 	\section{ Conclusions and future work}
-	The developed online tuners have proved the ability of finding better configurations than the baseline, either reducing the memory used by a software system or its response time. However, the exploration of the configuration space to find such better settings inevitably leads to failures on the production system both in terms of QoS or preventing it from serving its clients. Nevertheless, by using the developed forecasting and stability modules the overall number of failures can be reduced. 
+	With this work, we integrated state-of-the-art forecasting techniques with \cite{AkamasCGP} to smartly explore the configuration space of a software system, improving a target metric while avoiding constraints violations, such as Quality of Service constraints. 
 	
-	To further reduce the number of failures, multiple optimizations can be implemented. First of all, at the beginning of the tuning process the tuners suggest a configuration without any available knowledge, making the suggestion random. To overcome this issue, the tuner may sample the outcome of the baseline configuration under different workload types, so that the first suggestion uses a minimum amount of information. Note that a smart way to summarize the collected knowledge should be implemented. Then, we may tune the exploration-exploitation trade-off provided by the BO acquisition function explained in section \ref{ssec:bayesian_optimization} to boost exploitation, so that the tuners prefer to suggest configurations within a region that has already shown to be promising. Finally, to reduce the impact of failures on the production system, the deployment of the configurations could be performed using a canary deployment.
+	The developed solution has been tested using two DBMS models on 20 tuning scenarios, always finding configurations that either reduce the primary memory requirements or the system response time within a day of experiments, and effectively exploiting the collected knowledge. By making accurate predictions about the workload time series, the forecasting models allow the online tuners to reduce the amount of constraint violations and system failures caused by the necessity of exploring the configuration space to improve its baseline, according to the different workloads perceived by the system being optimized. 
 	
-	To further improve the cumulative reward (e.g. overall response time of the system) during the tuning process, we may apply the best configuration found for the upcoming predicted workload rather than the baseline when the workload is predicted to be unstable. Such optimization should be applied once enough experiments have been collected. Then, when the tuners are no longer able to improve the best configuration found so far (or the improvements are minimal) we may stop the tuning process, starting to just apply the best configuration according to the workload.
+	The developed solution can also be applied to different systems with minimal manual work, as the forecasting models just need to autonomously collect workload data for one week without the need of introducing prior knowledge about the workload.
 	
-	Besides these optimizations, we tested the tuners using univariate time series or simple multivariate time series due to a lack of data. In order to test the tuners on more complex scenarios, such as a system with multiple front-end and back-end nodes each with its own time series, more data must be collected, along with the creation of system models. 
+	Nevertheless, we aim at further improving the autonomy and safety (in terms of failures) of the approach. \\	
+	To further reduce the number of failures, multiple optimizations can be implemented. First of all, at the beginning of the tuning process the tuners suggest a configuration without any available knowledge, making the suggestion random. To overcome this issue, the tuner may sample the outcome of the baseline configuration under different workload types, so that the first suggestion uses a minimum amount of information. Note that a smart way to summarize the collected knowledge should be implemented, so that the speed of the tuner is not affected. Then, we may tune the exploration-exploitation trade-off provided by the BO acquisition function explained in section \ref{ssec:bayesian_optimization} to boost exploitation, so that the tuners prefer to suggest configurations within a region that has already shown to be promising. Finally, to reduce the impact of failures on a production system, the tuning experiments could be performed using a canary deployment.
 	
-	Finally, finding a good pair of thresholds to be used to evaluate the stability of the actual and predicted workloads is not trivial, and at the moment requires manual work. By developing an automated approach that chooses these thresholds we would simplify the process of applying the online tuners, reducing the risk of making mistakes.
+	To further improve the cumulative reward (e.g. overall response time of the system) during the tuning process, we may apply the best configuration found for the upcoming predicted workload rather than the baseline when the workload is predicted to be unstable. Such optimization should be applied once enough experiments have been collected. Then, when the tuner is no longer able to improve the best configuration found so far (or the improvements are minimal) we may stop the tuning process, starting to just apply the best configuration according to the workload so that the risk of failure is reduced.
+	
+	Besides these optimizations, we tested the tuners using univariate time series or simple multivariate time series due to a lack of data. In order to further test the tuners on more complex scenarios, such as a system with multiple front-end and back-end nodes each with its own time series, more data must be collected, along with the creation of system models. 
+	
+	Finally, finding a good pair of thresholds to be used to evaluate the stability of the actual and predicted workloads may not be trivial, and at the moment requires some manual work. By developing an automated approach that chooses these thresholds we would simplify the process of applying the online tuners, reducing the risk of making mistakes.
 	
 	\newpage
 	\bibliography{bibliography.bib} 
