@@ -1,15 +1,35 @@
 \begin{thebibliography}{10}
 
-\bibitem{BO}
-B.~Shahriari, K.~Swersky, Z.~Wang, R.~P. Adams, and N.~de~Freitas, ``Taking the
-  human out of the loop: A review of bayesian optimization,'' {\em Proceedings
-  of the IEEE}, vol.~104, no.~1, pp.~148--175, 2016.
-
 \bibitem{AkamasCGP}
 S.~Cereda, S.~Valladares, P.~Cremonesi, and S.~Doni, ``Cgptuner: A contextual
   gaussian process bandit approach for the automatic tuning of it
   configurations under varying workload conditions,'' {\em Proc. VLDB Endow.},
   vol.~14, p.~1401–1413, apr 2021.
+
+\bibitem{OtterTune}
+D.~Van~Aken, A.~Pavlo, G.~J. Gordon, and B.~Zhang, ``Automatic database
+  management system tuning through large-scale machine learning,'' in {\em
+  Proceedings of the 2017 ACM International Conference on Management of Data},
+  SIGMOD '17, pp.~1009--1024, 2017.
+
+\bibitem{OtterTune2}
+D.~V. Aken, D.~Yang, S.~Brillard, A.~Fiorino, B.~Zhang, C.~Billian, and
+  A.~Pavlo, ``An inquiry into machine learning-based automatic configuration
+  tuning services on real-world database management systems,'' {\em Proc.
+  {VLDB} Endow.}, vol.~14, no.~7, pp.~1241--1253, 2021.
+
+\bibitem{LearningToSample}
+P.~Jamshidi, M.~Velez, C.~K\"{a}stner, and N.~Siegmund, ``Learning to sample:
+  Exploiting similarities across environments to learn performance models for
+  configurable systems,'' in {\em Proceedings of the 2018 26th ACM Joint
+  Meeting on European Software Engineering Conference and Symposium on the
+  Foundations of Software Engineering}, ESEC/FSE 2018, (New York, NY, USA),
+  p.~71–82, Association for Computing Machinery, 2018.
+
+\bibitem{BO}
+B.~Shahriari, K.~Swersky, Z.~Wang, R.~P. Adams, and N.~de~Freitas, ``Taking the
+  human out of the loop: A review of bayesian optimization,'' {\em Proceedings
+  of the IEEE}, vol.~104, no.~1, pp.~148--175, 2016.
 
 \bibitem{CGPBanditOptimization}
 A.~Krause and C.~Ong, ``Contextual gaussian process bandit optimization,'' in

@@ -1,25 +1,35 @@
 \babel@toc {english}{}
 \contentsline {section}{\numberline {1} Introduction }{1}{section.1}%
-\contentsline {section}{\numberline {2} Context and State of the Art }{1}{section.2}%
-\contentsline {subsection}{\numberline {2.1} Bayesian Optimization }{1}{subsection.2.1}%
-\contentsline {subsubsection}{\numberline {2.1.1}Contextual Bayesian Optimization of IT systems}{3}{subsubsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.2}Workload characterization}{5}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3} Clustering }{6}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4} Forecasting }{8}{subsection.2.4}%
-\contentsline {subsubsection}{\numberline {2.4.1}Exponential Smoothing}{12}{subsubsection.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.4.2}ARMA models}{13}{subsubsection.2.4.2}%
-\contentsline {subsubsection}{\numberline {2.4.3} Prophet }{14}{subsubsection.2.4.3}%
-\contentsline {subsubsection}{\numberline {2.4.4}ML models}{16}{subsubsection.2.4.4}%
-\contentsline {subsubsection}{\numberline {2.4.5} DeepAR }{19}{subsubsection.2.4.5}%
-\contentsline {subsubsection}{\numberline {2.4.6} DeepState }{21}{subsubsection.2.4.6}%
-\contentsline {subsubsection}{\numberline {2.4.7} Multi Quantile Recurrent Forecaster }{22}{subsubsection.2.4.7}%
-\contentsline {subsection}{\numberline {2.5} Workload forecasting }{25}{subsection.2.5}%
-\contentsline {section}{\numberline {3} Proposed solution and approach }{26}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Online Contextual Gaussian Process Tuner}{27}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Forecasting module}{29}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Stable window finder}{30}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Workload characterization module}{31}{subsection.3.4}%
-\contentsline {section}{\numberline {4} Experimental setup }{32}{section.4}%
-\contentsline {section}{\numberline {5} Results }{32}{section.5}%
-\contentsline {section}{\numberline {6} Conclusions }{32}{section.6}%
-\contentsline {section}{\numberline {7} Future work }{32}{section.7}%
+\contentsline {section}{\numberline {2} Context and State of the Art }{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1} Bayesian Optimization }{3}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Contextual Bayesian Optimization of IT systems}{4}{subsubsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.2}Workload characterization}{9}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3} Clustering }{11}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4} Forecasting }{14}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Exponential Smoothing}{19}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}ARMA models}{20}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3} Prophet }{22}{subsubsection.2.4.3}%
+\contentsline {subsubsection}{\numberline {2.4.4}ML models}{24}{subsubsection.2.4.4}%
+\contentsline {subsubsection}{\numberline {2.4.5} DeepAR }{29}{subsubsection.2.4.5}%
+\contentsline {subsubsection}{\numberline {2.4.6} DeepState }{31}{subsubsection.2.4.6}%
+\contentsline {subsubsection}{\numberline {2.4.7} Multi Quantile Recurrent Forecaster }{34}{subsubsection.2.4.7}%
+\contentsline {subsection}{\numberline {2.5} Workload forecasting }{37}{subsection.2.5}%
+\contentsline {section}{\numberline {3} Proposed solution and approach }{39}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Online Contextual Gaussian Process Tuner}{40}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Forecasting module}{44}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Stable window finder}{47}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Workload characterization module}{50}{subsection.3.4}%
+\contentsline {section}{\numberline {4} Experimental setup }{51}{section.4}%
+\contentsline {subsection}{\numberline {4.1} Workload Forecasting }{52}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2} Stable workload finder }{56}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3} Online Contextual Gaussian Process Tuner }{57}{subsection.4.3}%
+\contentsline {section}{\numberline {5} Results }{58}{section.5}%
+\contentsline {subsection}{\numberline {5.1} Workload Characterization }{58}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Forecasting}{62}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Daily time series}{62}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}Weekly time series}{65}{subsubsection.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.3}Bank time series}{67}{subsubsection.5.2.3}%
+\contentsline {subsubsection}{\numberline {5.2.4}Taxi time series}{70}{subsubsection.5.2.4}%
+\contentsline {subsubsection}{\numberline {5.2.5}Forecasting results conclusions}{72}{subsubsection.5.2.5}%
+\contentsline {subsection}{\numberline {5.3}Online Contextual Gaussian Process Tuner}{73}{subsection.5.3}%
+\contentsline {section}{\numberline {6} Conclusions and future work}{86}{section.6}%
