@@ -2,7 +2,7 @@
 \BOOKMARK [1][-]{section.2}{Context\040and\040State\040of\040the\040Art\040}{}% 2
 \BOOKMARK [2][-]{subsection.2.1}{Bayesian\040Optimization\040}{section.2}% 3
 \BOOKMARK [3][-]{subsubsection.2.1.1}{Contextual\040Bayesian\040Optimization\040of\040IT\040systems}{subsection.2.1}% 4
-\BOOKMARK [2][-]{subsection.2.2}{Workload\040characterization}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.2}{Workload\040Characterization}{section.2}% 5
 \BOOKMARK [2][-]{subsection.2.3}{Clustering\040}{section.2}% 6
 \BOOKMARK [2][-]{subsection.2.4}{Forecasting\040}{section.2}% 7
 \BOOKMARK [3][-]{subsubsection.2.4.1}{Exponential\040Smoothing}{subsection.2.4}% 8
@@ -12,7 +12,7 @@
 \BOOKMARK [3][-]{subsubsection.2.4.5}{DeepAR\040}{subsection.2.4}% 12
 \BOOKMARK [3][-]{subsubsection.2.4.6}{DeepState\040}{subsection.2.4}% 13
 \BOOKMARK [3][-]{subsubsection.2.4.7}{Multi\040Quantile\040Recurrent\040Forecaster\040}{subsection.2.4}% 14
-\BOOKMARK [2][-]{subsection.2.5}{Workload\040forecasting\040}{section.2}% 15
+\BOOKMARK [2][-]{subsection.2.5}{Workload\040Forecasting\040}{section.2}% 15
 \BOOKMARK [1][-]{section.3}{Proposed\040solution\040and\040approach\040}{}% 16
 \BOOKMARK [2][-]{subsection.3.1}{Online\040Contextual\040Gaussian\040Process\040Tuner}{section.3}% 17
 \BOOKMARK [2][-]{subsection.3.2}{Forecasting\040module}{section.3}% 18
