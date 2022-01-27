@@ -9,45 +9,45 @@ Warning--empty journal in STL
 Warning--empty year in STL
 Warning--empty chapter and pages in ExponentialSmoothingStateSpace
 Warning--empty publisher in ExponentialSmoothingStateSpace
-You've used 57 entries,
+You've used 60 entries,
             1876 wiz_defined-function locations,
-            863 strings with 15100 characters,
-and the built_in function-call counts, 16175 in all, are:
-= -- 1533
-> -- 745
+            882 strings with 15536 characters,
+and the built_in function-call counts, 16917 in all, are:
+= -- 1610
+> -- 765
 < -- 0
-+ -- 270
-- -- 213
-* -- 1162
-:= -- 2282
-add.period$ -- 63
-call.type$ -- 57
-change.case$ -- 55
++ -- 278
+- -- 218
+* -- 1212
+:= -- 2376
+add.period$ -- 66
+call.type$ -- 60
+change.case$ -- 58
 chr.to.int$ -- 0
-cite$ -- 63
-duplicate$ -- 859
-empty$ -- 1458
-format.name$ -- 213
-if$ -- 3979
+cite$ -- 66
+duplicate$ -- 895
+empty$ -- 1532
+format.name$ -- 218
+if$ -- 4170
 int.to.chr$ -- 0
-int.to.str$ -- 57
-missing$ -- 56
-newline$ -- 181
-num.names$ -- 61
-pop$ -- 179
+int.to.str$ -- 60
+missing$ -- 58
+newline$ -- 190
+num.names$ -- 63
+pop$ -- 187
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 644
+skip$ -- 681
 stack$ -- 0
-substring$ -- 898
-swap$ -- 390
+substring$ -- 954
+swap$ -- 408
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 6
-while$ -- 126
-width$ -- 59
-write$ -- 565
+while$ -- 132
+width$ -- 62
+write$ -- 591
 (There were 6 warnings)

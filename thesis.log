@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.1.24)  24 JAN 2022 16:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.1.24)  27 JAN 2022 18:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1504,9 +1504,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [40
 
 ]
-Overfull \hbox (7.38605pt too wide) in alignment at lines 686--695
-[][][]
- []
+<img/modules_interaction.png, id=660, 578.16pt x 392.21532pt>
+File: img/modules_interaction.png Graphic file (type png)
+<use img/modules_interaction.png>
+Package pdftex.def Info: img/modules_interaction.png  used on input line 678.
+(pdftex.def)             Requested size: 390.0pt x 264.56635pt.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1516,7 +1518,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[41]
+[41 <./img/modules_interaction.png>]
+Underfull \hbox (badness 10000) in alignment at lines 694--703
+[][] 
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1535,6 +1541,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [43]
+<img/online_tuning_flowchart.png, id=691, 796.47563pt x 920.68968pt>
+File: img/online_tuning_flowchart.png Graphic file (type png)
+<use img/online_tuning_flowchart.png>
+Package pdftex.def Info: img/online_tuning_flowchart.png  used on input line 72
+3.
+(pdftex.def)             Requested size: 390.0pt x 450.81877pt.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1544,15 +1557,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [44]
-Underfull \hbox (badness 10000) in paragraph at lines 737--738
-
- []
-
-LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 
-738.
-(/usr/share/texmf-dist/tex/latex/lm/ot1lmtt.fd
-File: ot1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1561,7 +1565,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[45]
+[45 <./img/online_tuning_flowchart.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1571,6 +1575,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [46]
+<img/forecaster_cfg.png, id=714, 468.24937pt x 628.59843pt>
+File: img/forecaster_cfg.png Graphic file (type png)
+<use img/forecaster_cfg.png>
+Package pdftex.def Info: img/forecaster_cfg.png  used on input line 754.
+(pdftex.def)             Requested size: 289.07999pt x 388.09642pt.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1580,25 +1590,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [47]
-Underfull \hbox (badness 10000) in paragraph at lines 781--789
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 781--789
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 792--799
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 799--806
-
- []
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1607,13 +1598,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[48]
-Underfull \hbox (badness 10000) in paragraph at lines 814--821
+[48 <./img/forecaster_cfg.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 769--778
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 814--821
+Underfull \hbox (badness 10000) in paragraph at lines 769--778
 
  []
 
@@ -1626,19 +1617,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [49]
-<img/stable_workload_threshold_example.png, id=756, 757.83125pt x 497.86pt>
-File: img/stable_workload_threshold_example.png Graphic file (type png)
-<use img/stable_workload_threshold_example.png>
-Package pdftex.def Info: img/stable_workload_threshold_example.png  used on inp
-ut line 823.
-(pdftex.def)             Requested size: 289.07999pt x 189.91045pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 834--841
+Underfull \hbox (badness 10000) in paragraph at lines 781--788
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 834--841
+Underfull \hbox (badness 10000) in paragraph at lines 788--795
 
  []
 
@@ -1650,26 +1634,22 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[50 <./img/stable_workload_threshold_example.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 844--851
+[50]
+Underfull \hbox (badness 10000) in paragraph at lines 803--810
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 844--851
+Underfull \hbox (badness 10000) in paragraph at lines 803--810
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 852--859
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 852--859
-
- []
-
+<img/stable_workload_threshold_example.png, id=740, 757.83125pt x 497.86pt>
+File: img/stable_workload_threshold_example.png Graphic file (type png)
+<use img/stable_workload_threshold_example.png>
+Package pdftex.def Info: img/stable_workload_threshold_example.png  used on inp
+ut line 812.
+(pdftex.def)             Requested size: 289.07999pt x 189.91045pt.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1679,35 +1659,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [51]
+Underfull \hbox (badness 10000) in paragraph at lines 823--830
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
+ []
 
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[52]
-<img/ts/daily.png, id=778, 740.7675pt x 510.90875pt>
-File: img/ts/daily.png Graphic file (type png)
-<use img/ts/daily.png>
-Package pdftex.def Info: img/ts/daily.png  used on input line 871.
-(pdftex.def)             Requested size: 144.54pt x 99.68527pt.
-<img/ts/weekly.png, id=779, 740.7675pt x 510.90875pt>
-File: img/ts/weekly.png Graphic file (type png)
-<use img/ts/weekly.png>
-Package pdftex.def Info: img/ts/weekly.png  used on input line 872.
-(pdftex.def)             Requested size: 144.54pt x 99.68527pt.
-<img/ts/taxi.png, id=780, 780.9175pt x 510.90875pt>
-File: img/ts/taxi.png Graphic file (type png)
-<use img/ts/taxi.png>
-Package pdftex.def Info: img/ts/taxi.png  used on input line 873.
-(pdftex.def)             Requested size: 144.54pt x 94.5634pt.
-<img/ts/bank.png, id=781, 780.9175pt x 510.90875pt>
-File: img/ts/bank.png Graphic file (type png)
-<use img/ts/bank.png>
-Package pdftex.def Info: img/ts/bank.png  used on input line 874.
-(pdftex.def)             Requested size: 144.54pt x 94.5634pt.
+Underfull \hbox (badness 10000) in paragraph at lines 823--830
+
+ []
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1717,75 +1676,95 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[53
+[52 <./img/stable_workload_threshold_example.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 833--840
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 833--840
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 841--848
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 841--848
+
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[53]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[54]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[55
 
 ]
-<img/ts/daily_zoom_02.png, id=788, 757.83125pt x 497.86pt>
-File: img/ts/daily_zoom_02.png Graphic file (type png)
-<use img/ts/daily_zoom_02.png>
-Package pdftex.def Info: img/ts/daily_zoom_02.png  used on input line 881.
-(pdftex.def)             Requested size: 144.54pt x 94.95142pt.
-<img/ts/daily_zoom_04.png, id=789, 757.83125pt x 497.86pt>
-File: img/ts/daily_zoom_04.png Graphic file (type png)
-<use img/ts/daily_zoom_04.png>
-Package pdftex.def Info: img/ts/daily_zoom_04.png  used on input line 882.
-(pdftex.def)             Requested size: 144.54pt x 94.95142pt.
-<img/ts/daily_zoom_08.png, id=790, 757.83125pt x 497.86pt>
-File: img/ts/daily_zoom_08.png Graphic file (type png)
-<use img/ts/daily_zoom_08.png>
-Package pdftex.def Info: img/ts/daily_zoom_08.png  used on input line 883.
-(pdftex.def)             Requested size: 144.54pt x 94.95142pt.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[54 <./img/ts/daily.png> <./img/ts/weekly.png> <./img/ts/taxi.png> <./img/ts/ba
-nk.png>]
-<img/exp_setup_example_forecasts.png, id=807, 740.7675pt x 510.90875pt>
+<img/exp_setup_example_forecasts.png, id=777, 740.7675pt x 510.90875pt>
 File: img/exp_setup_example_forecasts.png Graphic file (type png)
 <use img/exp_setup_example_forecasts.png>
 Package pdftex.def Info: img/exp_setup_example_forecasts.png  used on input lin
-e 900.
+e 870.
 (pdftex.def)             Requested size: 216.81pt x 149.5318pt.
-<img/exp_setup_per_forecast_mape.png, id=808, 780.9175pt x 510.90875pt>
+<img/exp_setup_per_forecast_mape.png, id=778, 780.9175pt x 510.90875pt>
 File: img/exp_setup_per_forecast_mape.png Graphic file (type png)
 <use img/exp_setup_per_forecast_mape.png>
 Package pdftex.def Info: img/exp_setup_per_forecast_mape.png  used on input lin
-e 901.
+e 871.
 (pdftex.def)             Requested size: 216.81pt x 141.84511pt.
-<img/exp_setup_incremental_mape.png, id=809, 780.9175pt x 510.90875pt>
+<img/exp_setup_incremental_mape.png, id=779, 780.9175pt x 510.90875pt>
 File: img/exp_setup_incremental_mape.png Graphic file (type png)
 <use img/exp_setup_incremental_mape.png>
 Package pdftex.def Info: img/exp_setup_incremental_mape.png  used on input line
- 902.
+ 872.
 (pdftex.def)             Requested size: 216.81pt x 141.84511pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 908--920
+Underfull \hbox (badness 10000) in paragraph at lines 878--890
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 908--920
+Underfull \hbox (badness 10000) in paragraph at lines 878--890
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 908--920
+Underfull \hbox (badness 10000) in paragraph at lines 878--890
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 908--920
+Underfull \hbox (badness 10000) in paragraph at lines 878--890
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 908--920
+Underfull \hbox (badness 10000) in paragraph at lines 878--890
 
  []
 
@@ -1797,8 +1776,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[55 <./img/ts/daily_zoom_02.png> <./img/ts/daily_zoom_04.png> <./img/ts/daily_z
-oom_08.png>]
+[56]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1807,57 +1785,39 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[56 <./img/exp_setup_example_forecasts.png> <./img/exp_setup_per_forecast_mape.
+[57 <./img/exp_setup_example_forecasts.png> <./img/exp_setup_per_forecast_mape.
 png> <./img/exp_setup_incremental_mape.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 927--940
+Underfull \hbox (badness 10000) in paragraph at lines 897--910
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 927--940
+Underfull \hbox (badness 10000) in paragraph at lines 897--910
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 927--940
+Underfull \hbox (badness 10000) in paragraph at lines 897--910
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 927--940
+Underfull \hbox (badness 10000) in paragraph at lines 897--910
 
  []
 
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[57]
-Underfull \hbox (badness 10000) in paragraph at lines 941--947
+Underfull \hbox (badness 10000) in paragraph at lines 911--917
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 941--947
+Underfull \hbox (badness 10000) in paragraph at lines 911--917
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 941--947
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 949--957
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 949--957
+Underfull \hbox (badness 10000) in paragraph at lines 911--917
 
  []
 
@@ -1870,22 +1830,22 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [58]
-Underfull \hbox (badness 10000) in paragraph at lines 958--966
+Underfull \hbox (badness 10000) in paragraph at lines 921--928
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 958--966
+Underfull \hbox (badness 10000) in paragraph at lines 921--928
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 967--975
+Underfull \hbox (badness 10000) in paragraph at lines 929--937
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 967--975
+Underfull \hbox (badness 10000) in paragraph at lines 929--937
 
  []
 
@@ -1898,62 +1858,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [59]
-<img/results_clustering_gmm.png, id=848, 780.9175pt x 510.90875pt>
-File: img/results_clustering_gmm.png Graphic file (type png)
-<use img/results_clustering_gmm.png>
-Package pdftex.def Info: img/results_clustering_gmm.png  used on input line 988
-.
-(pdftex.def)             Requested size: 289.07999pt x 189.12682pt.
-<img/results_clustering_kmeans_daily.png, id=851, 810.02625pt x 510.90875pt>
-File: img/results_clustering_kmeans_daily.png Graphic file (type png)
-<use img/results_clustering_kmeans_daily.png>
-Package pdftex.def Info: img/results_clustering_kmeans_daily.png  used on input
- line 996.
-(pdftex.def)             Requested size: 180.67499pt x 113.95163pt.
-<img/results_clustering_kmeans_weekly.png, id=852, 810.02625pt x 510.90875pt>
-File: img/results_clustering_kmeans_weekly.png Graphic file (type png)
-<use img/results_clustering_kmeans_weekly.png>
-Package pdftex.def Info: img/results_clustering_kmeans_weekly.png  used on inpu
-t line 997.
-(pdftex.def)             Requested size: 180.67499pt x 113.95163pt.
-<img/results_clustering_kmeans_taxi.png, id=853, 780.9175pt x 510.90875pt>
-File: img/results_clustering_kmeans_taxi.png Graphic file (type png)
-<use img/results_clustering_kmeans_taxi.png>
-Package pdftex.def Info: img/results_clustering_kmeans_taxi.png  used on input 
-line 998.
-(pdftex.def)             Requested size: 180.67499pt x 118.20036pt.
-<img/results_clustering_kmeans_bank.png, id=854, 780.9175pt x 510.90875pt>
-File: img/results_clustering_kmeans_bank.png Graphic file (type png)
-<use img/results_clustering_kmeans_bank.png>
-Package pdftex.def Info: img/results_clustering_kmeans_bank.png  used on input 
-line 999.
-(pdftex.def)             Requested size: 180.67499pt x 118.20036pt.
-<img/results_clustering_meanshift_daily.png, id=855, 810.02625pt x 510.90875pt>
+Underfull \hbox (badness 10000) in paragraph at lines 938--945
 
-File: img/results_clustering_meanshift_daily.png Graphic file (type png)
-<use img/results_clustering_meanshift_daily.png>
-Package pdftex.def Info: img/results_clustering_meanshift_daily.png  used on in
-put line 1006.
-(pdftex.def)             Requested size: 180.67499pt x 113.95163pt.
-<img/results_clustering_meanshift_weekly.png, id=856, 810.02625pt x 510.90875pt
->
-File: img/results_clustering_meanshift_weekly.png Graphic file (type png)
-<use img/results_clustering_meanshift_weekly.png>
-Package pdftex.def Info: img/results_clustering_meanshift_weekly.png  used on i
-nput line 1007.
-(pdftex.def)             Requested size: 180.67499pt x 113.95163pt.
-<img/results_clustering_meanshift_taxi.png, id=857, 780.9175pt x 510.90875pt>
-File: img/results_clustering_meanshift_taxi.png Graphic file (type png)
-<use img/results_clustering_meanshift_taxi.png>
-Package pdftex.def Info: img/results_clustering_meanshift_taxi.png  used on inp
-ut line 1008.
-(pdftex.def)             Requested size: 180.67499pt x 118.20036pt.
-<img/results_clustering_meanshift_bank.png, id=858, 780.9175pt x 510.90875pt>
-File: img/results_clustering_meanshift_bank.png Graphic file (type png)
-<use img/results_clustering_meanshift_bank.png>
-Package pdftex.def Info: img/results_clustering_meanshift_bank.png  used on inp
-ut line 1009.
-(pdftex.def)             Requested size: 180.67499pt x 118.20036pt.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 938--945
+
+ []
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1963,9 +1875,43 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[60
+[60]
+<img/ts/daily.png, id=824, 740.7675pt x 510.90875pt>
+File: img/ts/daily.png Graphic file (type png)
+<use img/ts/daily.png>
+Package pdftex.def Info: img/ts/daily.png  used on input line 954.
+(pdftex.def)             Requested size: 144.54pt x 99.68527pt.
+<img/ts/weekly.png, id=825, 740.7675pt x 510.90875pt>
+File: img/ts/weekly.png Graphic file (type png)
+<use img/ts/weekly.png>
+Package pdftex.def Info: img/ts/weekly.png  used on input line 955.
+(pdftex.def)             Requested size: 144.54pt x 99.68527pt.
+<img/ts/taxi.png, id=826, 780.9175pt x 510.90875pt>
+File: img/ts/taxi.png Graphic file (type png)
+<use img/ts/taxi.png>
+Package pdftex.def Info: img/ts/taxi.png  used on input line 956.
+(pdftex.def)             Requested size: 144.54pt x 94.5634pt.
+<img/ts/bank.png, id=827, 780.9175pt x 510.90875pt>
+File: img/ts/bank.png Graphic file (type png)
+<use img/ts/bank.png>
+Package pdftex.def Info: img/ts/bank.png  used on input line 957.
+(pdftex.def)             Requested size: 144.54pt x 94.5634pt.
+<img/ts/daily_zoom_02.png, id=828, 757.83125pt x 497.86pt>
+File: img/ts/daily_zoom_02.png Graphic file (type png)
+<use img/ts/daily_zoom_02.png>
+Package pdftex.def Info: img/ts/daily_zoom_02.png  used on input line 964.
+(pdftex.def)             Requested size: 144.54pt x 94.95142pt.
+<img/ts/daily_zoom_04.png, id=829, 757.83125pt x 497.86pt>
+File: img/ts/daily_zoom_04.png Graphic file (type png)
+<use img/ts/daily_zoom_04.png>
+Package pdftex.def Info: img/ts/daily_zoom_04.png  used on input line 965.
+(pdftex.def)             Requested size: 144.54pt x 94.95142pt.
+<img/ts/daily_zoom_08.png, id=830, 757.83125pt x 497.86pt>
+File: img/ts/daily_zoom_08.png Graphic file (type png)
+<use img/ts/daily_zoom_08.png>
+Package pdftex.def Info: img/ts/daily_zoom_08.png  used on input line 966.
+(pdftex.def)             Requested size: 144.54pt x 94.95142pt.
 
-]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1974,9 +1920,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[61 <./img/results_clustering_gmm.png> <./img/results_clustering_kmeans_daily.p
-ng> <./img/results_clustering_kmeans_weekly.png> <./img/results_clustering_kmea
-ns_taxi.png> <./img/results_clustering_kmeans_bank.png>]
+[61 <./img/ts/daily.png> <./img/ts/weekly.png> <./img/ts/taxi.png> <./img/ts/ba
+nk.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1985,69 +1930,48 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[62 <./img/results_clustering_meanshift_daily.png> <./img/results_clustering_me
-anshift_weekly.png> <./img/results_clustering_meanshift_taxi.png> <./img/result
-s_clustering_meanshift_bank.png>]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[63]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[64
-
-]
-<img/results_forecasting_daily_02_fc_mape.png, id=908, 780.9175pt x 510.90875pt
+[62 <./img/ts/daily_zoom_02.png> <./img/ts/daily_zoom_04.png> <./img/ts/daily_z
+oom_08.png>]
+<img/results_forecasting_daily_02_fc_mape.png, id=864, 780.9175pt x 510.90875pt
 >
 File: img/results_forecasting_daily_02_fc_mape.png Graphic file (type png)
 <use img/results_forecasting_daily_02_fc_mape.png>
 Package pdftex.def Info: img/results_forecasting_daily_02_fc_mape.png  used on 
-input line 1036.
+input line 987.
 (pdftex.def)             Requested size: 180.67499pt x 118.20036pt.
-<img/results_forecasting_daily_02_fc_rmse.png, id=909, 780.9175pt x 510.90875pt
+<img/results_forecasting_daily_02_fc_rmse.png, id=865, 780.9175pt x 510.90875pt
 >
 File: img/results_forecasting_daily_02_fc_rmse.png Graphic file (type png)
 <use img/results_forecasting_daily_02_fc_rmse.png>
 Package pdftex.def Info: img/results_forecasting_daily_02_fc_rmse.png  used on 
-input line 1037.
+input line 988.
 (pdftex.def)             Requested size: 180.67499pt x 118.20036pt.
-<img/results_forecasting_daily_02_incr_mape.png, id=910, 390.45876pt x 255.4543
-8pt>
+<img/results_forecasting_daily_02_incr_mape.png, id=866, 780.9175pt x 510.90875
+pt>
 File: img/results_forecasting_daily_02_incr_mape.png Graphic file (type png)
 <use img/results_forecasting_daily_02_incr_mape.png>
 Package pdftex.def Info: img/results_forecasting_daily_02_incr_mape.png  used o
-n input line 1038.
-(pdftex.def)             Requested size: 180.67499pt x 118.20425pt.
-<img/results_forecasting_daily_02_incr_rmse.png, id=911, 390.45876pt x 255.4543
-8pt>
+n input line 989.
+(pdftex.def)             Requested size: 180.67499pt x 118.20036pt.
+<img/results_forecasting_daily_02_incr_rmse.png, id=867, 780.9175pt x 510.90875
+pt>
 File: img/results_forecasting_daily_02_incr_rmse.png Graphic file (type png)
 <use img/results_forecasting_daily_02_incr_rmse.png>
 Package pdftex.def Info: img/results_forecasting_daily_02_incr_rmse.png  used o
-n input line 1039.
-(pdftex.def)             Requested size: 180.67499pt x 118.20425pt.
-<img/results_forecasting_daily_02_deepar.png, id=912, 390.45876pt x 255.45438pt
+n input line 990.
+(pdftex.def)             Requested size: 180.67499pt x 118.20036pt.
+<img/results_forecasting_daily_02_deepar.png, id=868, 390.45876pt x 255.45438pt
 >
 File: img/results_forecasting_daily_02_deepar.png Graphic file (type png)
 <use img/results_forecasting_daily_02_deepar.png>
 Package pdftex.def Info: img/results_forecasting_daily_02_deepar.png  used on i
-nput line 1079.
+nput line 1030.
 (pdftex.def)             Requested size: 180.67499pt x 118.20425pt.
-<img/results_forecasting_daily_02_mqcnn.png, id=913, 780.9175pt x 510.90875pt>
+<img/results_forecasting_daily_02_mqcnn.png, id=869, 780.9175pt x 510.90875pt>
 File: img/results_forecasting_daily_02_mqcnn.png Graphic file (type png)
 <use img/results_forecasting_daily_02_mqcnn.png>
 Package pdftex.def Info: img/results_forecasting_daily_02_mqcnn.png  used on in
-put line 1080.
+put line 1031.
 (pdftex.def)             Requested size: 180.67499pt x 118.20036pt.
 
 
@@ -2058,9 +1982,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[65 <./img/results_forecasting_daily_02_fc_mape.png> <./img/results_forecasting
-_daily_02_fc_rmse.png> <./img/results_forecasting_daily_02_incr_mape.png> <./im
-g/results_forecasting_daily_02_incr_rmse.png>]
+[63
+
+]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -2069,41 +1993,50 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[66 <./img/results_forecasting_daily_02_deepar.png> <./img/results_forecasting_
-daily_02_mqcnn.png>]
-<img/results_forecasting_weekly_fc_mape.png, id=939, 390.45876pt x 255.45438pt>
+[64 <./img/results_forecasting_daily_02_fc_mape.png> <./img/results_forecasting
+_daily_02_fc_rmse.png> <./img/results_forecasting_daily_02_incr_mape.png> <./im
+g/results_forecasting_daily_02_incr_rmse.png> <./img/results_forecasting_daily_
+02_deepar.png> <./img/results_forecasting_daily_02_mqcnn.png>]
 
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[65]
+<img/results_forecasting_weekly_fc_mape.png, id=900, 780.9175pt x 510.90875pt>
 File: img/results_forecasting_weekly_fc_mape.png Graphic file (type png)
 <use img/results_forecasting_weekly_fc_mape.png>
 Package pdftex.def Info: img/results_forecasting_weekly_fc_mape.png  used on in
-put line 1092.
-(pdftex.def)             Requested size: 180.67499pt x 118.20425pt.
-<img/results_forecasting_weekly_fc_rmse.png, id=940, 390.45876pt x 255.45438pt>
-
+put line 1043.
+(pdftex.def)             Requested size: 180.67499pt x 118.20036pt.
+<img/results_forecasting_weekly_fc_rmse.png, id=901, 780.9175pt x 510.90875pt>
 File: img/results_forecasting_weekly_fc_rmse.png Graphic file (type png)
 <use img/results_forecasting_weekly_fc_rmse.png>
 Package pdftex.def Info: img/results_forecasting_weekly_fc_rmse.png  used on in
-put line 1093.
-(pdftex.def)             Requested size: 180.67499pt x 118.20425pt.
-<img/results_forecasting_weekly_incr_mape.png, id=941, 390.45876pt x 255.45438p
-t>
+put line 1044.
+(pdftex.def)             Requested size: 180.67499pt x 118.20036pt.
+<img/results_forecasting_weekly_incr_mape.png, id=902, 780.9175pt x 510.90875pt
+>
 File: img/results_forecasting_weekly_incr_mape.png Graphic file (type png)
 <use img/results_forecasting_weekly_incr_mape.png>
 Package pdftex.def Info: img/results_forecasting_weekly_incr_mape.png  used on 
-input line 1094.
-(pdftex.def)             Requested size: 180.67499pt x 118.20425pt.
-<img/results_forecasting_weekly_incr_rmse.png, id=942, 390.45876pt x 255.45438p
-t>
+input line 1045.
+(pdftex.def)             Requested size: 180.67499pt x 118.20036pt.
+<img/results_forecasting_weekly_incr_rmse.png, id=903, 780.9175pt x 510.90875pt
+>
 File: img/results_forecasting_weekly_incr_rmse.png Graphic file (type png)
 <use img/results_forecasting_weekly_incr_rmse.png>
 Package pdftex.def Info: img/results_forecasting_weekly_incr_rmse.png  used on 
-input line 1095.
-(pdftex.def)             Requested size: 180.67499pt x 118.20425pt.
-<img/results_forecasting_weekly_mqcnn.png, id=943, 390.45876pt x 255.45438pt>
+input line 1046.
+(pdftex.def)             Requested size: 180.67499pt x 118.20036pt.
+<img/results_forecasting_weekly_mqcnn.png, id=904, 390.45876pt x 255.45438pt>
 File: img/results_forecasting_weekly_mqcnn.png Graphic file (type png)
 <use img/results_forecasting_weekly_mqcnn.png>
 Package pdftex.def Info: img/results_forecasting_weekly_mqcnn.png  used on inpu
-t line 1118.
+t line 1069.
 (pdftex.def)             Requested size: 289.07999pt x 189.13461pt.
 
 
@@ -2114,7 +2047,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[67
+[66
 
  <./img/results_forecasting_weekly_fc_mape.png> <./img/results_forecasting_week
 ly_fc_rmse.png> <./img/results_forecasting_weekly_incr_mape.png> <./img/results
@@ -2127,52 +2060,52 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[68 <./img/results_forecasting_weekly_mqcnn.png>]
-<img/results_forecasting_bank_fc_mape.png, id=967, 390.96063pt x 255.45438pt>
+[67 <./img/results_forecasting_weekly_mqcnn.png>]
+<img/results_forecasting_bank_fc_mape.png, id=929, 781.92125pt x 510.90875pt>
 File: img/results_forecasting_bank_fc_mape.png Graphic file (type png)
 <use img/results_forecasting_bank_fc_mape.png>
 Package pdftex.def Info: img/results_forecasting_bank_fc_mape.png  used on inpu
-t line 1137.
-(pdftex.def)             Requested size: 180.67499pt x 118.05223pt.
-<img/results_forecasting_bank_fc_rmse.png, id=968, 390.96063pt x 255.45438pt>
+t line 1088.
+(pdftex.def)             Requested size: 180.67499pt x 118.05225pt.
+<img/results_forecasting_bank_fc_rmse.png, id=930, 781.92125pt x 510.90875pt>
 File: img/results_forecasting_bank_fc_rmse.png Graphic file (type png)
 <use img/results_forecasting_bank_fc_rmse.png>
 Package pdftex.def Info: img/results_forecasting_bank_fc_rmse.png  used on inpu
-t line 1138.
-(pdftex.def)             Requested size: 180.67499pt x 118.05223pt.
-<img/results_forecasting_bank_incr_mape.png, id=969, 390.96063pt x 255.45438pt>
+t line 1089.
+(pdftex.def)             Requested size: 180.67499pt x 118.05225pt.
+<img/results_forecasting_bank_incr_mape.png, id=931, 781.92125pt x 510.90875pt>
 
 File: img/results_forecasting_bank_incr_mape.png Graphic file (type png)
 <use img/results_forecasting_bank_incr_mape.png>
 Package pdftex.def Info: img/results_forecasting_bank_incr_mape.png  used on in
-put line 1139.
-(pdftex.def)             Requested size: 180.67499pt x 118.05223pt.
-<img/results_forecasting_bank_incr_rmse.png, id=970, 390.96063pt x 255.45438pt>
+put line 1090.
+(pdftex.def)             Requested size: 180.67499pt x 118.05225pt.
+<img/results_forecasting_bank_incr_rmse.png, id=932, 781.92125pt x 510.90875pt>
 
 File: img/results_forecasting_bank_incr_rmse.png Graphic file (type png)
 <use img/results_forecasting_bank_incr_rmse.png>
 Package pdftex.def Info: img/results_forecasting_bank_incr_rmse.png  used on in
-put line 1140.
-(pdftex.def)             Requested size: 180.67499pt x 118.05223pt.
-<img/results_forecasting_bank_deepar_30.png, id=971, 390.45876pt x 257.96375pt>
+put line 1091.
+(pdftex.def)             Requested size: 180.67499pt x 118.05225pt.
+<img/results_forecasting_bank_deepar_30.png, id=933, 390.45876pt x 257.96375pt>
 
 File: img/results_forecasting_bank_deepar_30.png Graphic file (type png)
 <use img/results_forecasting_bank_deepar_30.png>
 Package pdftex.def Info: img/results_forecasting_bank_deepar_30.png  used on in
-put line 1163.
+put line 1114.
 (pdftex.def)             Requested size: 180.67499pt x 119.3654pt.
-<img/results_forecasting_bank_deepar_15.png, id=972, 390.45876pt x 257.96375pt>
+<img/results_forecasting_bank_deepar_15.png, id=934, 390.45876pt x 257.96375pt>
 
 File: img/results_forecasting_bank_deepar_15.png Graphic file (type png)
 <use img/results_forecasting_bank_deepar_15.png>
 Package pdftex.def Info: img/results_forecasting_bank_deepar_15.png  used on in
-put line 1164.
+put line 1115.
 (pdftex.def)             Requested size: 180.67499pt x 119.3654pt.
-<img/results_forecasting_bank_prophet.png, id=973, 390.45876pt x 257.46187pt>
+<img/results_forecasting_bank_prophet.png, id=935, 390.45876pt x 257.46187pt>
 File: img/results_forecasting_bank_prophet.png Graphic file (type png)
 <use img/results_forecasting_bank_prophet.png>
 Package pdftex.def Info: img/results_forecasting_bank_prophet.png  used on inpu
-t line 1170.
+t line 1121.
 (pdftex.def)             Requested size: 289.07999pt x 190.62093pt.
 
 
@@ -2183,7 +2116,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[69
+[68
 
 ]
 
@@ -2194,7 +2127,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[70 <./img/results_forecasting_bank_fc_mape.png> <./img/results_forecasting_ban
+[69 <./img/results_forecasting_bank_fc_mape.png> <./img/results_forecasting_ban
 k_fc_rmse.png> <./img/results_forecasting_bank_incr_mape.png> <./img/results_fo
 recasting_bank_incr_rmse.png> <./img/results_forecasting_bank_deepar_30.png> <.
 /img/results_forecasting_bank_deepar_15.png>]
@@ -2206,44 +2139,44 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[71 <./img/results_forecasting_bank_prophet.png>]
-<img/results_forecasting_taxi_fc_mape.png, id=1006, 377.91188pt x 255.45438pt>
+[70 <./img/results_forecasting_bank_prophet.png>]
+<img/results_forecasting_taxi_fc_mape.png, id=969, 755.82375pt x 510.90875pt>
 File: img/results_forecasting_taxi_fc_mape.png Graphic file (type png)
 <use img/results_forecasting_taxi_fc_mape.png>
 Package pdftex.def Info: img/results_forecasting_taxi_fc_mape.png  used on inpu
-t line 1183.
+t line 1134.
 (pdftex.def)             Requested size: 180.67499pt x 122.12946pt.
-<img/results_forecasting_taxi_fc_rmse.png, id=1007, 377.91188pt x 255.45438pt>
+<img/results_forecasting_taxi_fc_rmse.png, id=970, 755.82375pt x 510.90875pt>
 File: img/results_forecasting_taxi_fc_rmse.png Graphic file (type png)
 <use img/results_forecasting_taxi_fc_rmse.png>
 Package pdftex.def Info: img/results_forecasting_taxi_fc_rmse.png  used on inpu
-t line 1184.
+t line 1135.
 (pdftex.def)             Requested size: 180.67499pt x 122.12946pt.
-<img/results_forecasting_taxi_incr_mape.png, id=1008, 377.91188pt x 255.45438pt
->
+<img/results_forecasting_taxi_incr_mape.png, id=971, 755.82375pt x 510.90875pt>
+
 File: img/results_forecasting_taxi_incr_mape.png Graphic file (type png)
 <use img/results_forecasting_taxi_incr_mape.png>
 Package pdftex.def Info: img/results_forecasting_taxi_incr_mape.png  used on in
-put line 1185.
+put line 1136.
 (pdftex.def)             Requested size: 180.67499pt x 122.12946pt.
-<img/results_forecasting_taxi_incr_rmse.png, id=1009, 382.93062pt x 255.45438pt
->
+<img/results_forecasting_taxi_incr_rmse.png, id=972, 765.86125pt x 510.90875pt>
+
 File: img/results_forecasting_taxi_incr_rmse.png Graphic file (type png)
 <use img/results_forecasting_taxi_incr_rmse.png>
 Package pdftex.def Info: img/results_forecasting_taxi_incr_rmse.png  used on in
-put line 1186.
-(pdftex.def)             Requested size: 180.67499pt x 120.53131pt.
-<img/results_forecasting_taxi_prophet.png, id=1010, 377.91188pt x 255.45438pt>
+put line 1137.
+(pdftex.def)             Requested size: 180.67499pt x 120.52351pt.
+<img/results_forecasting_taxi_prophet.png, id=973, 377.91188pt x 255.45438pt>
 File: img/results_forecasting_taxi_prophet.png Graphic file (type png)
 <use img/results_forecasting_taxi_prophet.png>
 Package pdftex.def Info: img/results_forecasting_taxi_prophet.png  used on inpu
-t line 1209.
+t line 1160.
 (pdftex.def)             Requested size: 180.67499pt x 122.12946pt.
-<img/results_forecasting_taxi_deepar.png, id=1011, 377.91188pt x 257.46187pt>
+<img/results_forecasting_taxi_deepar.png, id=974, 377.91188pt x 257.46187pt>
 File: img/results_forecasting_taxi_deepar.png Graphic file (type png)
 <use img/results_forecasting_taxi_deepar.png>
 Package pdftex.def Info: img/results_forecasting_taxi_deepar.png  used on input
- line 1210.
+ line 1161.
 (pdftex.def)             Requested size: 180.67499pt x 123.08922pt.
 
 
@@ -2254,7 +2187,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[72
+[71
 
 ]
 
@@ -2265,7 +2198,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[73 <./img/results_forecasting_taxi_fc_mape.png> <./img/results_forecasting_tax
+[72 <./img/results_forecasting_taxi_fc_mape.png> <./img/results_forecasting_tax
 i_fc_rmse.png> <./img/results_forecasting_taxi_incr_mape.png> <./img/results_fo
 recasting_taxi_incr_rmse.png> <./img/results_forecasting_taxi_prophet.png> <./i
 mg/results_forecasting_taxi_deepar.png>]
@@ -2277,9 +2210,40 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[74
+[73
 
 ]
+<img/results_clustering_gmm.png, id=1006, 780.9175pt x 510.90875pt>
+File: img/results_clustering_gmm.png Graphic file (type png)
+<use img/results_clustering_gmm.png>
+Package pdftex.def Info: img/results_clustering_gmm.png  used on input line 120
+4.
+(pdftex.def)             Requested size: 289.07999pt x 189.12682pt.
+<img/results_clustering_kmeans_daily.png, id=1009, 810.02625pt x 510.90875pt>
+File: img/results_clustering_kmeans_daily.png Graphic file (type png)
+<use img/results_clustering_kmeans_daily.png>
+Package pdftex.def Info: img/results_clustering_kmeans_daily.png  used on input
+ line 1212.
+(pdftex.def)             Requested size: 180.67499pt x 113.95163pt.
+<img/results_clustering_kmeans_weekly.png, id=1010, 810.02625pt x 510.90875pt>
+File: img/results_clustering_kmeans_weekly.png Graphic file (type png)
+<use img/results_clustering_kmeans_weekly.png>
+Package pdftex.def Info: img/results_clustering_kmeans_weekly.png  used on inpu
+t line 1213.
+(pdftex.def)             Requested size: 180.67499pt x 113.95163pt.
+<img/results_clustering_kmeans_taxi.png, id=1011, 780.9175pt x 510.90875pt>
+File: img/results_clustering_kmeans_taxi.png Graphic file (type png)
+<use img/results_clustering_kmeans_taxi.png>
+Package pdftex.def Info: img/results_clustering_kmeans_taxi.png  used on input 
+line 1214.
+(pdftex.def)             Requested size: 180.67499pt x 118.20036pt.
+<img/results_clustering_kmeans_bank.png, id=1012, 780.9175pt x 510.90875pt>
+File: img/results_clustering_kmeans_bank.png Graphic file (type png)
+<use img/results_clustering_kmeans_bank.png>
+Package pdftex.def Info: img/results_clustering_kmeans_bank.png  used on input 
+line 1215.
+(pdftex.def)             Requested size: 180.67499pt x 118.20036pt.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -2288,12 +2252,79 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[75]
-<img/results_onlinecgp_references.png, id=1049, 1266.98344pt x 568.37344pt>
+[74]
+<img/results_clustering_meanshift_daily.png, id=1018, 810.02625pt x 510.90875pt
+>
+File: img/results_clustering_meanshift_daily.png Graphic file (type png)
+<use img/results_clustering_meanshift_daily.png>
+Package pdftex.def Info: img/results_clustering_meanshift_daily.png  used on in
+put line 1222.
+(pdftex.def)             Requested size: 180.67499pt x 113.95163pt.
+<img/results_clustering_meanshift_weekly.png, id=1019, 810.02625pt x 510.90875p
+t>
+File: img/results_clustering_meanshift_weekly.png Graphic file (type png)
+<use img/results_clustering_meanshift_weekly.png>
+Package pdftex.def Info: img/results_clustering_meanshift_weekly.png  used on i
+nput line 1223.
+(pdftex.def)             Requested size: 180.67499pt x 113.95163pt.
+<img/results_clustering_meanshift_taxi.png, id=1020, 780.9175pt x 510.90875pt>
+File: img/results_clustering_meanshift_taxi.png Graphic file (type png)
+<use img/results_clustering_meanshift_taxi.png>
+Package pdftex.def Info: img/results_clustering_meanshift_taxi.png  used on inp
+ut line 1224.
+(pdftex.def)             Requested size: 180.67499pt x 118.20036pt.
+<img/results_clustering_meanshift_bank.png, id=1021, 780.9175pt x 510.90875pt>
+File: img/results_clustering_meanshift_bank.png Graphic file (type png)
+<use img/results_clustering_meanshift_bank.png>
+Package pdftex.def Info: img/results_clustering_meanshift_bank.png  used on inp
+ut line 1225.
+(pdftex.def)             Requested size: 180.67499pt x 118.20036pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[75 <./img/results_clustering_gmm.png>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[76 <./img/results_clustering_kmeans_daily.png> <./img/results_clustering_kmean
+s_weekly.png> <./img/results_clustering_kmeans_taxi.png> <./img/results_cluster
+ing_kmeans_bank.png>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[77 <./img/results_clustering_meanshift_daily.png> <./img/results_clustering_me
+anshift_weekly.png> <./img/results_clustering_meanshift_taxi.png> <./img/result
+s_clustering_meanshift_bank.png>]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[78]
+<img/results_onlinecgp_references.png, id=1061, 1266.98344pt x 568.37344pt>
 File: img/results_onlinecgp_references.png Graphic file (type png)
 <use img/results_onlinecgp_references.png>
 Package pdftex.def Info: img/results_onlinecgp_references.png  used on input li
-ne 1260.
+ne 1245.
 (pdftex.def)             Requested size: 325.215pt x 145.89163pt.
 
 
@@ -2304,85 +2335,43 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[76 <./img/results_onlinecgp_references.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 1289--1289
-[]|\OT1/lmr/m/n/12 [req/s,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1289--1289
-[]|\OT1/lmr/m/n/12 [req/s,
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[77]
-<img/results/mongo_allianz_10ms_kmeans_cr.png, id=1064, 1431.09656pt x 622.5759
+[79 <./img/results_onlinecgp_references.png (PNG copy)>]
+<img/results/mongo_allianz_10ms_kmeans_cr.png, id=1072, 1431.09656pt x 622.5759
 4pt>
 File: img/results/mongo_allianz_10ms_kmeans_cr.png Graphic file (type png)
 <use img/results/mongo_allianz_10ms_kmeans_cr.png>
 Package pdftex.def Info: img/results/mongo_allianz_10ms_kmeans_cr.png  used on 
-input line 1298.
+input line 1283.
 (pdftex.def)             Requested size: 397.48499pt x 172.91411pt.
 
-Overfull \hbox (7.48499pt too wide) in paragraph at lines 1298--1298
+Overfull \hbox (7.48499pt too wide) in paragraph at lines 1283--1283
  [][] 
  []
 
-<img/results/mongo_allianz_10ms_kmeans_fail.png, id=1065, 1416.79312pt x 620.31
+<img/results/mongo_allianz_10ms_kmeans_fail.png, id=1073, 1416.79312pt x 620.31
 75pt>
 File: img/results/mongo_allianz_10ms_kmeans_fail.png Graphic file (type png)
 <use img/results/mongo_allianz_10ms_kmeans_fail.png>
 Package pdftex.def Info: img/results/mongo_allianz_10ms_kmeans_fail.png  used o
-n input line 1299.
+n input line 1284.
 (pdftex.def)             Requested size: 397.48499pt x 174.02846pt.
 
-Overfull \hbox (7.48499pt too wide) in paragraph at lines 1299--1300
+Overfull \hbox (7.48499pt too wide) in paragraph at lines 1284--1285
  [][] 
  []
 
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[78 <./img/results/mongo_allianz_10ms_kmeans_cr.png (PNG copy)> <./img/results/
-mongo_allianz_10ms_kmeans_fail.png (PNG copy)>]
 <img/results/mongo_allianz_10ms_kmeans_ttr.png, id=1075, 1607.00375pt x 688.572
 5pt>
 File: img/results/mongo_allianz_10ms_kmeans_ttr.png Graphic file (type png)
 <use img/results/mongo_allianz_10ms_kmeans_ttr.png>
 Package pdftex.def Info: img/results/mongo_allianz_10ms_kmeans_ttr.png  used on
- input line 1308.
+ input line 1293.
 (pdftex.def)             Requested size: 397.48499pt x 170.31451pt.
 
-Overfull \hbox (7.48499pt too wide) in paragraph at lines 1308--1309
+Overfull \hbox (7.48499pt too wide) in paragraph at lines 1293--1294
  [][] 
  []
 
-
-Overfull \hbox (3.41644pt too wide) in paragraph at lines 1358--1358
-[]|[]| 
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[79 <./img/results/mongo_allianz_10ms_kmeans_ttr.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -2400,14 +2389,50 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[81]
-Underfull \hbox (badness 10000) in paragraph at lines 1436--1436
-[]|\OT1/lmr/m/n/12 [req/s,
+[81 <./img/results/mongo_allianz_10ms_kmeans_cr.png (PNG copy)> <./img/results/
+mongo_allianz_10ms_kmeans_fail.png (PNG copy)>]
+Overfull \hbox (1.37492pt too wide) in paragraph at lines 1343--1343
+[]|\OT1/lmr/m/n/12 1417/\OT1/lmr/bx/n/12 2053| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1436--1436
-[]|\OT1/lmr/m/n/12 [req/s,
+Overfull \hbox (1.37492pt too wide) in paragraph at lines 1343--1343
+[]|\OT1/lmr/m/n/12 1404/\OT1/lmr/bx/n/12 2105| 
+ []
+
+
+Overfull \hbox (3.41644pt too wide) in paragraph at lines 1343--1343
+[]|[]| 
+ []
+
+
+Overfull \hbox (1.37492pt too wide) in paragraph at lines 1343--1343
+[]|\OT1/lmr/m/n/12 1376/\OT1/lmr/bx/n/12 2003| 
+ []
+
+
+Overfull \hbox (4.87498pt too wide) in paragraph at lines 1397--1397
+[]|\OT1/lmr/bx/n/12 1297\OT1/lmr/m/n/12 /\OT1/lmr/bx/n/12 1297| 
+ []
+
+
+Overfull \hbox (4.87498pt too wide) in paragraph at lines 1397--1397
+[]|\OT1/lmr/bx/n/12 1320\OT1/lmr/m/n/12 /\OT1/lmr/bx/n/12 1320| 
+ []
+
+
+Overfull \hbox (4.87498pt too wide) in paragraph at lines 1397--1397
+[]|\OT1/lmr/bx/n/12 1468\OT1/lmr/m/n/12 /\OT1/lmr/bx/n/12 1468| 
+ []
+
+
+Overfull \hbox (4.87498pt too wide) in paragraph at lines 1397--1397
+[]|\OT1/lmr/bx/n/12 1271\OT1/lmr/m/n/12 /\OT1/lmr/bx/n/12 1271| 
+ []
+
+
+Overfull \hbox (1.37492pt too wide) in paragraph at lines 1397--1397
+[]|\OT1/lmr/m/n/12 1240/\OT1/lmr/bx/n/12 1449| 
  []
 
 
@@ -2418,17 +2443,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[82]
-Overfull \hbox (1.13542pt too wide) in paragraph at lines 1487--1487
-[]|[]| 
- []
-
-
-Overfull \hbox (0.73181pt too wide) in paragraph at lines 1577--1578
-[]\OT1/lmr/m/n/12 Considering the us-age of $\OML/lmm/m/it/12 k$\OT1/lmr/m/n/12
- -means ver-sus mean shift (MBank1 and CBank1
- []
-
+[82 <./img/results/mongo_allianz_10ms_kmeans_ttr.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -2447,6 +2462,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [84]
+Overfull \hbox (4.87498pt too wide) in paragraph at lines 1472--1472
+[]|\OT1/lmr/bx/n/12 1094\OT1/lmr/m/n/12 /\OT1/lmr/bx/n/12 1490| 
+ []
+
+
+Overfull \hbox (1.13542pt too wide) in paragraph at lines 1472--1472
+[]|[]| 
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -2482,7 +2506,30 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[88
+[88]
+Overfull \hbox (0.73181pt too wide) in paragraph at lines 1562--1563
+[]\OT1/lmr/m/n/12 Considering the us-age of $\OML/lmm/m/it/12 k$\OT1/lmr/m/n/12
+ -means ver-sus mean shift (MBank1 and CBank1
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[89]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[90
 
 
 ]
@@ -2494,7 +2541,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[89] (./thesis.bbl
+[91] (./thesis.bbl
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -2503,7 +2550,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[90
+[92
 
 ]
 Underfull \hbox (badness 1478) in paragraph at lines 70--72
@@ -2519,7 +2566,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[91]
+[93]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -2528,7 +2575,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[92]
+[94]
 Underfull \hbox (badness 3557) in paragraph at lines 149--152
 []\OT1/lmr/m/n/12 V. Flunkert, D. Sali-nas, and J. Gasthaus, ``Deepar: Prob-a-
  []
@@ -2558,7 +2605,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[93]
+[95]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -2567,7 +2614,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[94]
+[96]
 Underfull \hbox (badness 10000) in paragraph at lines 249--252
 \OT1/lmr/m/n/12 ``Wavenet: A gen-er-a-tive model for raw au-dio,'' \OT1/lmr/m/i
 t/12 CoRR\OT1/lmr/m/n/12 ,
@@ -2581,7 +2628,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[95])
+[97]
+LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 
+297.
+ (/usr/share/texmf-dist/tex/latex/lm/ot1lmtt.fd
+File: ot1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Underfull \hbox (badness 10000) in paragraph at lines 296--298
+[]\OT1/lmr/m/n/12 ``Nyctaxidata.'' []$\OT1/lmtt/m/n/12 https : / / www1 . nyc .
+ gov / site / tlc / about /
+ []
+
+)
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -2590,24 +2648,24 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[96] (./thesis.aux)
+[98] (./thesis.aux)
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 596C713754DC973DD01F7BF968C66204;2695.
+(rerunfilecheck)             Checksum: 998A5C8FE80AB5B1E9E9FD7974E4B3CC;2699.
  )
 (\end occurred inside a group at level 1)
 
 ### semi simple group (level 1) entered at line 5 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 19803 strings out of 478353
- 313268 string characters out of 5854635
- 696206 words of memory out of 5000000
- 37219 multiletter control sequences out of 15000+600000
+ 19539 strings out of 478353
+ 311665 string characters out of 5854635
+ 647305 words of memory out of 5000000
+ 36974 multiletter control sequences out of 15000+600000
  480958 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,18n,63p,1344b,19160s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share
-/texmf-dist/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/share/texmf-dist/fonts/enc/dvi
+ 60i,18n,63p,1344b,17782s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/sha
+re/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fonts/enc/dvi
 ps/lm/lm-ts1.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/
 share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf-dist/fonts/
 enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rmsc.en
@@ -2623,9 +2681,9 @@ t/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm
 /lmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/share/t
 exmf-dist/fonts/type1/public/lm/lmtt12.pfb></usr/share/texmf-dist/fonts/type1/p
 ublic/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (103 pages, 5124748 bytes).
+Output written on thesis.pdf (105 pages, 5364053 bytes).
 PDF statistics:
- 1316 PDF objects out of 1440 (max. 8388607)
- 331 named destinations out of 1000 (max. 500000)
- 615 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1321 PDF objects out of 1440 (max. 8388607)
+ 309 named destinations out of 1000 (max. 500000)
+ 630 words of extra memory for PDF output out of 10000 (max. 10000000)
 

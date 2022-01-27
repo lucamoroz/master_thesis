@@ -283,4 +283,17 @@ O.~Poppe, T.~Amuneke, D.~Banda, A.~De, A.~Green, M.~Knoertzer, E.~Nosakhare,
   infrastructure for load prediction and optimized resource allocation,'' {\em
   CoRR}, vol.~abs/2009.12922, 2020.
 
+\bibitem{Cassandra}
+A.~Lakshman and P.~Malik, ``Cassandra — a decentralized structured storage
+  system,'' {\em Operating Systems Review}, vol.~44, pp.~35--40, 04 2010.
+
+\bibitem{MongoDB}
+H.~Krishnan, M.~Elayidom, and T.~Santhanakrishnan, ``Mongodb – a comparison
+  with nosql databases,'' {\em International Journal of Scientific and
+  Engineering Research}, vol.~7, pp.~1035--1037, 05 2016.
+
+\bibitem{TaxiDataset}
+``Nyctaxidata.''
+  \url{https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page}.
+
 \end{thebibliography}
