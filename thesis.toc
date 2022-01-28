@@ -18,7 +18,7 @@
 \contentsline {subsection}{\numberline {3.1}Online Contextual Gaussian Process Tuner}{42}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Forecasting Module}{46}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Stable Window Finder}{49}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Workload Characterization Module}{52}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.4}Workload Characterization Module}{53}{subsection.3.4}%
 \contentsline {section}{\numberline {4}Experimental Setup }{55}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Workload Forecasting }{55}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Stable Window Finder }{58}{subsection.4.2}%
@@ -31,5 +31,5 @@
 \contentsline {subsubsection}{\numberline {5.1.4}Taxi time series}{71}{subsubsection.5.1.4}%
 \contentsline {subsubsection}{\numberline {5.1.5}Forecasting results conclusions}{73}{subsubsection.5.1.5}%
 \contentsline {subsection}{\numberline {5.2}Workload Characterization }{74}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Online Contextual Gaussian Process Tuner}{75}{subsection.5.3}%
-\contentsline {section}{\numberline {6}Conclusions and future work}{90}{section.6}%
+\contentsline {subsection}{\numberline {5.3}Online Contextual Gaussian Process Tuner}{78}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Conclusions and future work}{91}{section.6}%

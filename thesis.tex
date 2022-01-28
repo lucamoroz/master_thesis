@@ -119,7 +119,7 @@
 	\thispagestyle{plain}
 	\section*{Abstract}
 	Tuning nowadays software systems can be tremendously tricky: the huge number of configuration parameters and their complex dependencies make the manual research for the optimal configuration tedious and time-consuming. Furthermore, such optimal configuration depends on the workload under which the system is running. 
-	This thesis presents the work done to extend an existing tuner to be applied on a production environment exploiting the real workload perceived by the system, i.e. while it is serving its clients, removing the necessity of analyzing and replicating the workload on a replica of the system and posing new challenges.
+	This thesis presents the work done to extend an existing tuner to be applied on a production environment exploiting the real workload perceived by the system, i.e. while it is serving its clients (hence the term Online System Tuning), removing the necessity of analyzing and replicating the workload on a replica of the system and posing new challenges.
 	To do so, two main modules were developed: a forecasting module, based on state-of-the-art techniques that minimize the necessity of manual work, and a stability finder module, used to decide when to perform tuning experiments. With these two modules, the probability of testing a new software configuration during a workload change is reduced, which would cause the system clients to suffer Quality of Service losses.
 	Moreover, by directly tuning the production system the effort of running the tuner is reduced so that it can be easily and quickly applied to different scenarios.
 	The proposed solution was tested on two DBMS models with 20 scenarios, highlighting that the integration of forecasting techniques improves the safety of the tuning process while keeping the effectiveness of the original tuner.
@@ -794,25 +794,29 @@
 		$
 		\item Normal: normalize the window values using the mean and standard deviation of $\pmb{y}_{t_0:t_1}$. Let $\mu_N (\tilde{\pmb{y}}_{t_1:t_2})$ be the (normalized) mean. Then the window is considered stable if all its (normalized) values $y$ are such that: $y \in [\mu_N (\tilde{\pmb{y}}_{t_1:t_2}) - \Theta, \mu_N (\tilde{\pmb{y}}_{t_1:t_2}) + \Theta]$
 	\end{itemize}
-	Of these methods, the minimum-maximum based one is the most intuitive, as $\Theta$ sets the allowed percentage of movement from the historical range of values.
+	Of these methods, the MinMax is the most intuitive, as $\Theta$ sets the allowed percentage of movement from the historical range of values. Figure \ref{fig:threshold_selection} shows a comparison of the three approaches.
 	
 	Note that once we have the true workload, we can check whether a window was actually stable or not by running $s_\Theta(\pmb{y}_{t_1:t_2}, \pmb{y}_{t_0:t_1})$. This is extremely important because it enables us to invalidate a tuning experiment if the workload revealed to be unstable. Furthermore, it allows us to easily evaluate the stability algorithm or tune its parameters $\Theta$.
 	
 	Finally, note that we are using a wide variety of forecasting models with different properties. For example, Prophet (Section \ref{sssec:prohet}) doesn't model noise and therefore its predictions are flatter when compared to the real time series or other models' predictions. This means that using the same threshold for predicting if a window will be stable and then checking if the window was actually stable eventually leads to misleading outcomes, even if the forecast is accurate. Therefore, we use two different thresholds $\tilde{\Theta}$ and $\Theta$: the former for the prediction, i.e. $s_{\tilde{\Theta}}(\tilde{\pmb{y}}_{t_1:t_2}, \pmb{y}_{t_0:t_1})$, and the latter for the posterior evaluation $s_\Theta(\pmb{y}_{t_1:t_2}, \pmb{y}_{t_0:t_1})$.
 	
-	In order to set the thresholds effectively, a human operator must first of all vary $\Theta$ to see which windows would be considered stable on the true workload time series (see Figure \ref{fig:threshold_selection}). Note that it is not trivial to find an optimal $\Theta^\star$ that fits all scenarios because its effectiveness depends on the properties of the workload received by the system, such as noise. To find $\tilde{\Theta}$, we need to train the forecasting model, produce forecasts, and then find a value that matches the outcome of the previous step (both stable and unstable windows). Note that this step can be automated by finding $\tilde{\Theta}$ that maximizes the number of stable and unstable windows matches resulting from $s_\Theta(\pmb{y}_{t_1:t_2}, \pmb{y}_{t_0:t_1})$ and $s_{\tilde{\Theta}}(\tilde{\pmb{y}}_{t_1:t_2}, \pmb{y}_{t_0:t_1})$: \\\\
+	In order to set the thresholds effectively, a human operator must first of all vary $\Theta$ to see which windows would be considered stable on the true workload time series. Note that it is not trivial to find an optimal $\Theta^\star$ that fits all scenarios because its effectiveness depends on the properties of the workload received by the system, such as noise. To find $\tilde{\Theta}$, we need to train the forecasting model, produce forecasts, and then find a value that matches the outcome of the previous step (both stable and unstable windows). Note that this step can be automated by finding $\tilde{\Theta}$ that maximizes the number of stable and unstable windows matches resulting from $s_\Theta(\pmb{y}_{t_1:t_2}, \pmb{y}_{t_0:t_1})$ and $s_{\tilde{\Theta}}(\tilde{\pmb{y}}_{t_1:t_2}, \pmb{y}_{t_0:t_1})$: \\\\
 	\centerline{
 	$
 		\tilde{\Theta} = \underset{ \tilde{\Theta}} {\mathrm{argmax}}\, \frac{n_{TP, \tilde{\Theta}} }{n_{TP, \tilde{\Theta}} + w \cdot n_{FP, \tilde{\Theta}}}
 	$
 	}\\\\
 	where $n_{TP, \tilde{\Theta}}$ is the number of true positives, i.e. the number of predicted stable windows that were actually stable, $n_{FP, \tilde{\Theta}}$ is the number of false positives (see Table \ref{table:stability_cases} for more details), and $w$ is a weight that allows to prioritize the absence of false positives over true positive.
+\begin{figure}\centering
+	\subfloat[CV]{\includegraphics[width = 3in]{img/stable_workload_threshold_cv.png}}
+	\hfill 
+	\subfloat[MinMax]{\includegraphics[width = 3in]{img/stable_workload_threshold_minmax.png}} 
+	\hfill
+	\subfloat[Normal]{\includegraphics[width = 3in]{img/stable_workload_threshold_normal.png}} 
 	
-	\begin{figure} \centering
-		\includegraphics[width=4in]{img/stable_workload_threshold_example.png}
-		\caption{Example of stable windows detected by Min-Max algorithm using a threshold of 6\%.}
-		\label{fig:threshold_selection}
-	\end{figure}
+	\caption{Examples of stable windows detected by the CV-based Stable Window Finder with a threshold of 4, Min-Max with a threshold of 8\%, and Normal with a threshold of 0.18. The stable regions are colored in green.}
+	\label{fig:threshold_selection}
+\end{figure}
 
 
 	
@@ -948,13 +952,13 @@
 	
 	Of course, to perform our experiments, we need a set of time series representing the workload received by the DBMS models that allow us to make reproducible tests. We chose a set of four time series shown in Figure \ref{fig:time_series} representing the number of users connected to the system being optimized.  
 	
-	Two time series are synthetically generated by creating a daily and a weekly pattern. The daily pattern time series has three variants with increasing noise to make a sensibility analysis (Figure \ref{fig:daily_noises}). The remaining two time series are obtained from real data: the number of taxi requests in the city of New York \cite{TaxiDataset} and the number of requests to a private bank system. Note that all time series have been mapped to the $[10, 80]$ range to be compatible with the DBMS models. \\
+	Two time series are synthetically generated by creating a daily and a weekly pattern. The daily pattern time series has three variants with increasing noise to make a sensibility analysis (Figure \ref{fig:daily_noises}). The remaining two time series are obtained from real data: the number of taxi requests in the city of New York \cite{TaxiDataset} and the number of requests to a real private bank system. Note that all time series have been mapped to the $[10, 80]$ range to be compatible with the DBMS models. \\
 	Furthermore, besides the number of requests, the workload can be affected by a 3-value category representing the behavior of the users at a certain time (e.g. are the users just reading data from the DBMS or are they inserting data?). We model this property of the workload, that we name \textit{mix}, by using three types of user behavior: read-intensive, write-intensive, and balanced.
 	\begin{figure}\centering
 		\subfloat[Daily pattern]{\includegraphics[width = 2in]{img/ts/daily.png}} 
 		\subfloat[Weekly pattern]{\includegraphics[width = 2in]{img/ts/weekly.png}} \hfill
 		\subfloat[Taxi requests]{\includegraphics[width = 2in]{img/ts/taxi.png}} 
-		\subfloat[Bank requests]{\includegraphics[width = 2in]{img/ts/bank.png}} 
+		\subfloat[Real requests]{\includegraphics[width = 2in]{img/ts/bank.png}} 
 		
 		\caption{Workload time series.}
 		\label{fig:time_series}
@@ -1107,7 +1111,7 @@
 			DeepState & 13.84 & 184.68\\
 			\bottomrule
 		\end{tabular}
-		\caption{Results on bank time series. The Weekly model produces forecasts repeating data of the previous week.} \label{table:results_forecasting_bank}
+		\caption{Results on Real time series. The Weekly model produces forecasts repeating data of the previous week.} \label{table:results_forecasting_bank}
 	\end{table*}
 
 	\begin{figure}\centering
@@ -1126,7 +1130,7 @@
 	\clearpage
 	\subsubsection{Taxi time series} \label{sssec:results_forecasting_taxi}
 	
-	The taxi time series contains one month of taxi requests performed in the city of New York \cite{TaxiDataset} and was used to study how the models evolve when more data is available. To do so, the data collection period lasts seven days as usual, but every new week the models are re-trained. The time series is characterized by a strong daily seasonality with quick rises and drops, therefore the models shouldn't suffer from fake outs like with the bank time series. The results are shown in Figure \ref{fig:results_forecasting_taxi} and Table \ref{table:results_forecasting_taxi}. 
+	The taxi time series contains one month of taxi requests performed in the city of New York \cite{TaxiDataset} and was used to study how the models evolve when more data is available. To do so, the data collection period lasts seven days as usual, but every new week the models are re-trained. The time series is characterized by a strong daily seasonality with quick rises and drops, therefore the models shouldn't suffer from fake outs like with the Real time series. The results are shown in Figure \ref{fig:results_forecasting_taxi} and Table \ref{table:results_forecasting_taxi}. 
 	
 	DeepAR achieve the best results both in terms of MAPE and RMSE, while DeepState had to be excluded from the per-forecast errors as they are too high. Except DeepState, all the models improve as new data becomes available. Prophet errors are heavily affected by a great mistake made at the beginning of the forecasting, recovering gradually. Nevertheless, the taxi time series has peaks that don't follow a strong daily or weekly seasonality, and Prophet often fails to catch the tops and bottoms. Figure \ref{fig:results_forecasting_taxi_prophet_deepar} compares Prophet and DeepAR forecasts.
 	
@@ -1202,7 +1206,7 @@
 	
 	\begin{figure} \centering
 		\includegraphics[width=4in]{img/results_clustering_gmm.png}
-		\caption{GMM clustering on time series $(d)$ (bank requests). Each color is a cluster (there are a total of 8 clusters). The Image clearly shows how the low-demand zone is over-separated, which would lead to a less-effective usage of the collected experiments by the tuner.}
+		\caption{GMM clustering on the Real time series $(d)$. Each color is a cluster (there are a total of 8 clusters). The Image clearly shows how the low-demand zone is over-separated, which would lead to a less-effective usage of the collected experiments by the tuner.}
 		\label{fig:results_gmm}
 	\end{figure}
 	
@@ -1212,7 +1216,7 @@
 		\subfloat[Daily pattern]{\includegraphics[width = 2.5in]{img/results_clustering_kmeans_daily.png}} 
 		\subfloat[Weekly pattern]{\includegraphics[width = 2.5in]{img/results_clustering_kmeans_weekly.png}} \hfill
 		\subfloat[Taxi requests]{\includegraphics[width = 2.5in]{img/results_clustering_kmeans_taxi.png}} 
-		\subfloat[Bank requests]{\includegraphics[width = 2.5in]{img/results_clustering_kmeans_bank.png}} 
+		\subfloat[Real requests]{\includegraphics[width = 2.5in]{img/results_clustering_kmeans_bank.png}} 
 		
 		\caption{Results of clustering the workload using $k$-means. Points with the same color belong to the same cluster.}
 		\label{fig:results_clustering_kmeans}
@@ -1222,7 +1226,7 @@
 		\subfloat[Daily pattern]{\includegraphics[width = 2.5in]{img/results_clustering_meanshift_daily.png}} 
 		\subfloat[Weekly pattern]{\includegraphics[width = 2.5in]{img/results_clustering_meanshift_weekly.png}} \hfill
 		\subfloat[Taxi requests]{\includegraphics[width = 2.5in]{img/results_clustering_meanshift_taxi.png}} 
-		\subfloat[Bank requests]{\includegraphics[width = 2.5in]{img/results_clustering_meanshift_bank.png}} 
+		\subfloat[Real requests]{\includegraphics[width = 2.5in]{img/results_clustering_meanshift_bank.png}} 
 		
 		\caption{Results of clustering the workload using mean shift. Points with the same color belong to the same cluster.}
 		\label{fig:results_clustering_meanshift}
@@ -1230,9 +1234,10 @@
 	
 	Comparing $k$-means with mean shift, it is clear that mean shift generally finds more clusters. The impact of such difference depends on how the tuner is able to exploit the collected knowledge, and is therefore further discussed later.  Nevertheless, finding more workload types requires more time to populate each cluster with tuning experiments. Therefore, the clustering method should be chosen specifically for each workload pattern. Note that such choice can be made at any step of the tuning process: we may start with $k$-means and then switch to mean shift once there is enough data.
 	
+	\clearpage
 	\subsection{Online Contextual Gaussian Process Tuner} \label{ssec:results_online_cgp_tuner}
-	By using workload forecasting with the tuner we aim at avoiding applying new configurations when the workload is predicted to change (e.g. when the working hours begin). Furthermore, by knowing the upcoming workload, we expect the tuner to suggest workload-tailored configurations. In general, as explained in Section \ref{ssec:exp_online_cgp}, this ability can be measured by considering the Cumulative Reward (CR) and the cumulative number of failures.
-	The achievement of such a goal also depends on the number of stable windows found by the module, which in turn depends on the threshold $\Theta$ and forecasting threshold $\tilde{\Theta}$. To choose the value of these two thresholds we emulated the tuning processes without actually running a tuner (and the system models), but only forecasting the workload and then computing whether a window was stable or not. By doing so, we get the advantage of being able to see the impact of a particular threshold value without the overhead of running an entire tuning process. Furthermore, in a real tuning scenario, we would be able to use the collected workload time series to fine-tune the thresholds without actually running tuning experiments that may cause unwanted failures on the production system being optimized. However, with such an approach, we are only approximating the real Precision, Recall, and F1 score, because in case of failure we are not counting that the tuner would stop the current experiment to eventually run a new experiment right after the failure.
+	By using workload forecasting with the tuner we aim at avoiding applying new configurations when the workload is predicted to change (e.g. when the working hours begin). Furthermore, by knowing the upcoming workload, we expect the tuner to suggest workload-tailored configurations. In general, as explained in Section \ref{ssec:exp_online_cgp}, we measure this by considering the Cumulative Reward (CR) and the cumulative number of Failures (F).
+	The achievement of such a goal strongly depends on the number of stable windows found by the module, which in turn depends on the threshold $\Theta$ and forecasting threshold $\tilde{\Theta}$. To choose the value of these two thresholds we emulated the tuning processes without actually running a tuner (and the system models), but only forecasting the workload and then computing whether a window was stable or not. By doing so, we get the advantage of being able to see the impact of a particular threshold value without the overhead of running an entire tuning process. Furthermore, in a real tuning scenario, we would be able to use the collected workload time series to fine-tune the thresholds without actually running tuning experiments that may cause unwanted failures on the production system being optimized. However, with such an approach, we are only approximating the real Precision, Recall, and F1 score, because in case of failure we are not counting that the tuner would stop the current experiment to eventually run a new experiment right after the failure.
 	
 	To evaluate the Online CGP Tuners using forecasting models we created an online naive version that doesn't make use of the forecasting and stability finder modules. The naive version asks the tuner for a configuration to apply using the workload currently received by the system and measures the outcome independently from the stability of the workload (i.e. any workload is considered stable). If a violation occurs, the outcome is still stored in the knowledge base using the actual average workload received by the system during the experiment.
 	
@@ -1250,7 +1255,7 @@
 	
 	Table \ref{table:results_tuning_scenarios} summarizes the tuning scenarios optimizing MongoDB. The scenarios share the objective function of minimizing the primary memory requirements with experiments of length 30 minutes. By reducing/increasing the latency constraint we make the tuning environment harder/easier. \\
 	The mix, that composes the workload for some scenarios and changes the type of requests from read-intensive to write-intensive, was defined in Section \ref{ssec:exp_online_cgp}.
-	Such property of the workload changes with a daily seasonality on the MDaily02B scenario and a weekly seasonality on the MBank4 scenario, using a simple step function. 
+	Such property of the workload changes with a daily seasonality on the MDaily02B scenario and a weekly seasonality on the MReal4 scenario, using a simple step function. 
 
 	\begin{table}\centering 
 		\ra{1.3}
@@ -1263,10 +1268,10 @@
 			MDaily08&Daily.08 & $<9ms$  & 1 week & [req/s] & $k$-means\\
 			MDaily02B&Daily.02 & $<8ms$  & 1 week & [req/s, mix] & $k$-means\\
 			MWeekly&Daily.02 & $<10ms$  & 2 weeks & [req/s]  & mean shift\\
-			MBank1&Bank & $<9ms$  & 1 week & [req/s]  & $k$-means\\
-			MBank2&Bank & $<9ms$  & 1 week & [req/s]  & mean shift\\
-			MBank3&Bank & $<10ms$  & 1 week & [req/s]  & $k$-means\\
-			MBank4&Bank & $<10ms$  & 1 week & [req/s, mix]  & $k$-means\\
+			MReal1&Real & $<9ms$  & 1 week & [req/s]  & $k$-means\\
+			MReal2&Real & $<9ms$  & 1 week & [req/s]  & mean shift\\
+			MReal3&Real & $<10ms$  & 1 week & [req/s]  & $k$-means\\
+			MReal4&Real & $<10ms$  & 1 week & [req/s, mix]  & $k$-means\\
 			MTaxi1 &Taxi & $<9ms$  & 24 days & [req/s]  & $k$-means\\
 			MTaxi2 &Taxi & $<10ms$  & 24 days & [req/s]  & $k$-means\\
 			
@@ -1275,14 +1280,14 @@
 	\caption{Summary of MongoDB tuning scenarios. }  \label{table:results_tuning_scenarios}
 	\end{table}
 	
-	We first show the complete results of a single tuning scenario, which comprises the CR and Failures graphs and the TTR (Time To Recover). Then, we summarize the results of the remaining scenarios using tables.
+	We first show the complete results of a single tuning scenario, which comprises the CR and Failures graphs and the TTR (Time To Recover) defined in Section \ref{ssec:exp_online_cgp}. Then, we summarize the results of the remaining scenarios using tables.
 	
-	Figure \ref{fig:results_cgp_bank1} shows the CR and Failures graphs for the MBank3 scenario. The Baseline, Naive, Prophet, and DeepAR tuners start identically: while collecting data, they use the baseline configuration until iteration 2016 (i.e. for one week). Then, the tuners start evaluating new configurations, eventually leading to failures and obtaining different scores. In this particular scenario, the baseline leads to fewer failures overall when compared to the online tuners. However, by setting the latency constraint to $9ms$, the baseline starts accumulating failures each time the requests per second are above 65, and the online tuners are able to find configurations that reduce such amount of failures. 
+	Figure \ref{fig:results_cgp_bank1} shows the CR and Failures graphs for the MReal3 scenario. The Baseline, Naive, Prophet, and DeepAR tuners start identically: while collecting data, they use the baseline configuration until iteration 2016 (i.e. for one week). Then, the tuners start evaluating new configurations, eventually leading to failures and obtaining different scores. In this particular scenario, the baseline leads to fewer failures overall when compared to the online tuners. However, by setting the latency constraint to $9ms$, the baseline starts accumulating failures each time the requests per second are above 65, and the online tuners are able to find configurations that reduce such amount of failures. 
 	 
 	\begin{figure}\centering
 		\subfloat[Cumulative Reward]{\includegraphics[width = 5.5in]{img/results/mongo_allianz_10ms_kmeans_cr.png}} \\
-		\subfloat[Cumulative Failures]{\includegraphics[width = 5.5in]{img/results/mongo_allianz_10ms_kmeans_fail.png}}
-		\caption{Results of scenario MBank3.}
+		\subfloat[Failures]{\includegraphics[width = 5.5in]{img/results/mongo_allianz_10ms_kmeans_fail.png}}
+		\caption{Results of scenario MReal3.}
 		\label{fig:results_cgp_bank1}
 	\end{figure}
 	
@@ -1291,11 +1296,11 @@
 	
 	\begin{figure} \centering
 		\includegraphics[width=5.5in]{img/results/mongo_allianz_10ms_kmeans_ttr.png}
-		\caption{MBank3 scenario Time To Recover. The yellow line is the Baseline CR. DeepAR, Prophet, and Naive online tuners overlap, leading to a TTR equal to 21 iterations, i.e. 1.5 hours.}
+		\caption{MReal3 scenario Time To Recover on the CR graph. The yellow line is the Baseline CR. DeepAR, Prophet, and Naive online tuners overlap, leading to a TTR equal to 21 iterations, i.e. 1.5 hours.}
 		\label{fig:results_cgp_bank3_ttr}
 	\end{figure}
 	
-	The final CR, Failures, and TTR of all scenarios are summarized in tables \ref{table:results_mongo_synthetic} and \ref{table:results_mongo_real}. As previously mentioned, in most scenarios (bank time series excluded) the Naive tuner was early stopped due to the greater number of performed experiments, which affect the tuning time with an $O(n^3)$ relation. Therefore, the tables also report the CR and number of failures at the moment the Naive tuner was stopped. These two metrics are named Early CR (ECR) and Early Failures (EF). Furthermore, note that during data collection the system being optimized runs with the baseline configuration, which eventually leads to failures. The number of failures accumulated when the tuning actually starts is named Starting Failures (SF).
+	The final CR, Failures, and TTR of all scenarios are summarized in tables \ref{table:results_mongo_synthetic} and \ref{table:results_mongo_real}. As previously mentioned, in most scenarios (Real time series excluded) the Naive tuner was early stopped due to the greater number of performed experiments, which affect the tuning time with an $O(n^3)$ relation. Therefore, the tables also report the CR and number of failures at the moment the Naive tuner was stopped. These two metrics are named Early CR (ECR) and Early Failures (EF). Furthermore, note that during data collection the system being optimized runs with the baseline configuration, which eventually leads to failures. The number of failures accumulated when the tuning actually starts is named Starting Failures (SF).
 
 	\begin{table*}\centering 
 		\ra{1.3}
@@ -1351,28 +1356,28 @@
 			Scenario & Tuner & ECR/CR & SF & EF/F & TTR\\
 
 			\midrule
-			\multirow{4}{*}{MBank1}
+			\multirow{4}{*}{MReal1}
 			& Baseline & 0/0 & \multirow{4}{*}{107} & 167/167 & \\
 			& Naive & \textbf{1297}/\textbf{1297} && 156/156 & 1.8h \\
 			& Prophet & 1290/1290 && 147/147 & 1.8h\\
 			& DeepAR & 1268/1268 && \textbf{145}/\textbf{145} & 1.8h\\
 			
 			\midrule
-			\multirow{4}{*}{MBank2}
+			\multirow{4}{*}{MReal2}
 			& Baseline & 0/0 & \multirow{4}{*}{107} & 167/167 & \\
 			& Naive & 1227/1227 && 159/159 & 1.8h \\
 			& Prophet & 1055/1055 && 151/151 & 1.8h\\
 			& DeepAR & \textbf{1320}/\textbf{1320} && \textbf{148}/\textbf{148} & 1.8h\\
 			
 			\midrule
-			\multirow{4}{*}{MBank3}
+			\multirow{4}{*}{MReal3}
 			& Baseline & 0/0 & \multirow{4}{*}{17} & \textbf{19}/\textbf{19} & \\
 			& Naive & \textbf{1468}/\textbf{1468} && 40/40 & 1.8h \\
 			& Prophet & 1200/1200 && 34/34 & 1.8h\\
 			& DeepAR & 1275/1275 && 31/31 & 1.8h\\
 			
 			\midrule
-			\multirow{4}{*}{MBank4}
+			\multirow{4}{*}{MReal4}
 			& Baseline & 0/0 & \multirow{4}{*}{0} & 0/0 & \\
 			& Naive & \textbf{1271}/\textbf{1271} && 0/0 & 3.6h \\
 			& Prophet & 1218/1218 && 0/0 & 3.6h\\
@@ -1412,9 +1417,9 @@
 			CDaily08&Daily.08 & $<1920$Mb  & 1 week & [req/s] & $k$-means\\
 			CDaily02B&Daily.02 & $<1920$Mb  & 1 week & [req/s, mix] & $k$-means\\
 			CWeekly&Daily.02 & $<1920$Mb  & 2 weeks & [req/s]  & mean shift\\
-			CBank1&Bank & $<1920$Mb  & 1 week & [req/s]  & $k$-means\\
-			CBank2&Bank & $<1920$Mb  & 1 week & [req/s]  & mean shift\\
-			CBank3&Bank & $<1920$Mb  & 1 week & [req/s, mix]  & $k$-means\\
+			CReal1&Real & $<1920$Mb  & 1 week & [req/s]  & $k$-means\\
+			CReal2&Real & $<1920$Mb  & 1 week & [req/s]  & mean shift\\
+			CReal3&Real & $<1920$Mb  & 1 week & [req/s, mix]  & $k$-means\\
 			CTaxi &Taxi & $<1920$Mb  & 24 days & [req/s]  & $k$-means\\
 			
 			\bottomrule
@@ -1423,8 +1428,8 @@
 	\end{table}
 
 	Tables \ref{table:results_cassandra_synthetic} and \ref{table:results_cassandra_real} show the results on the synthetic and real time series respectively.
-	In all scenarios, the baseline configuration never fails and finding configurations that reduce the latency cause failures. Nevertheless, the online tuners using a forecasting module collect fewer failures when compared to the naive tuner. Furthermore, the tuner always instantly finds a better configuration than the baseline in all scenarios except CBank3. However, all CBank3 tuners have a CR that doesn't fall below $-0.7$ meaning that practically, besides the failures, the suggested configurations don't downgrade the baseline performance. \\
-	In all the Cassandra scenarios using the Bank time series, the CR stops growing under the weekend load, which is flat. Meanwhile, the tuners collect failures as they are exploring the configuration space. Under such context, it would be useful to stop the tuning process as it is not leading to improvements, avoiding failures.
+	In all scenarios, the baseline configuration never fails and finding configurations that reduce the latency cause failures. Nevertheless, the online tuners using a forecasting module collect fewer failures when compared to the naive tuner. Furthermore, the tuner always instantly finds a better configuration than the baseline in all scenarios except CReal3. However, all CReal3 tuners have a CR that doesn't fall below $-0.7$ meaning that practically, besides the failures, the suggested configurations don't downgrade the baseline performance. \\
+	In all the Cassandra scenarios using the Real time series, the CR stops growing under the weekend load, which is flat. Meanwhile, the tuners collect failures as they are exploring the configuration space. Under such context, it would be useful to stop the tuning process as it is not leading to improvements, avoiding failures.
 	
 	\begin{table*}\centering 
 		\ra{1.3}
@@ -1480,21 +1485,21 @@
 			Scenario & Tuner & ECR/CR & SF & EF/F & TTR\\
 			
 			\midrule
-			\multirow{4}{*}{CBank1}
+			\multirow{4}{*}{CReal1}
 			& Baseline & 0/0 & \multirow{4}{*}{0}  & \textbf{0}/\textbf{0} & \\
 			& Naive & \textbf{336}/\textbf{336} && 9/9 & 0h \\
 			& Prophet & 234/234 && 6/6 & 0h \\
 			& DeepAR & 211/211 && 5/5 & 0h \\
 			
 			\midrule
-			\multirow{4}{*}{CBank2}
+			\multirow{4}{*}{CReal2}
 			& Baseline & 0/0 & \multirow{4}{*}{0}  & \textbf{0}/\textbf{0} & \\
 			& Naive & \textbf{265}/\textbf{265} && 18/18 & 0h \\
 			& Prophet & 126/126 && 15/15 & 0h \\
 			& DeepAR & 191/191 && 20/20 & 0h \\
 			
 			\midrule
-			\multirow{4}{*}{CBank3}
+			\multirow{4}{*}{CReal3}
 			& Baseline & 0/0 & \multirow{4}{*}{0}  & \textbf{0}/\textbf{0} & \\
 			& Naive & \textbf{194}/\textbf{194} && 9/9 & \textbf{11.9h} \\
 			& Prophet & 128/128 && 14/14 & 13.1h \\
@@ -1541,7 +1546,7 @@
 			&DeepAR & 0.06/0.06 & 0.50 & \textbf{0.85} & \textbf{0.64}\\
 			
 			\midrule
-			\multirow{2}{*}{Bank}
+			\multirow{2}{*}{Real}
 			&Prophet & 0.12/0.09 & 0.95 & 0.76 & 0.85\\
 			&DeepAR & 0.12/0.09 & 0.95 & \textbf{0.85} & \textbf{0.90} \\
 			
@@ -1559,7 +1564,7 @@
 	Nevertheless, some scenarios highlighted a small gap between the Naive tuner and the Prophet or DeepAR tuners that may not justify the usage of such more complex tuners, even if the forecasting quality is high.
 	When comparing the MongoDB and Cassandra scenarios, the MongoDB scenarios are characterized by an higher amount of overall failures caused both by the Baseline and online tuners, where the latter are able to tune the system while causing a smaller amount of failure when the latency constraint is set to $9ms$. However, most failures are caused by the latency constraint rather than an entire system failure (that makes the system unavailable to its clients) which may be considered less severe depending on the context. On the other side, tuning the Cassandra scenarios inevitably leads to system failures, while the baseline configuration always keeps the system available. 
 	
-	Considering the usage of $k$-means versus mean shift (MBank1 and CBank1 versus MBank2 and CBank2) it is clear that $k$-means leads to better results. Such outcome could be the consequence of mean shift finding more clusters (see Section \ref{ssec:results_wkld_characterization}), resulting in fewer experiments available to the tuner when suggesting a configuration for a specific workload type, especially in the early stage of the tuning scenario. 
+	Considering the usage of $k$-means versus mean shift (MReal1 and CReal1 versus MReal2 and CReal2) it is clear that $k$-means leads to better results. Such outcome could be the consequence of mean shift finding more clusters (see Section \ref{ssec:results_wkld_characterization}), resulting in fewer experiments available to the tuner when suggesting a configuration for a specific workload type, especially in the early stage of the tuning scenario. 
 
 	The results of the scenarios using the Daily time series with increasing noise show that noise doesn't have a significant impact on the tuning. Simulating the scenarios, there are a total of 191, 190, and 70 stable windows (i.e. true positives) in the time series with 0.02, 0.04, and 0.08 std. deviation noise respectively, highlighting that  what actually affects the tuning are the thresholds $Theta$ and $\tilde{\Theta}$: by raising the thresholds we increase the CR (lowering the TTR) at the cost of causing more failures. 
 	

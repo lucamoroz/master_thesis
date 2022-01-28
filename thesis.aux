@@ -227,12 +227,15 @@
 \newlabel{fig:forecaster_cfg.png}{{21}{48}{Forecasting Module JSON configuration. The \textit {group} property was used to build a DeepAR multivariate model on the time series \textit {n\_requests1} and \textit {n\_requests2}. The \textit {params} property takes any model-specific parameter}{figure.21}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Stable Window Finder}{49}{subsection.3.3}\protected@file@percent }
 \newlabel{ssec:stable_window_finder}{{3.3}{49}{Stable Window Finder}{subsection.3.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {22}{\ignorespaces Examples of stable windows detected by the CV-based Stable Window Finder with a threshold of 4, Min-Max with a threshold of 8\%, and Normal with a threshold of 0.18. The stable regions are colored in green.}}{52}{figure.22}\protected@file@percent }
+\newlabel{fig:threshold_selection}{{22}{52}{Examples of stable windows detected by the CV-based Stable Window Finder with a threshold of 4, Min-Max with a threshold of 8\%, and Normal with a threshold of 0.18. The stable regions are colored in green}{figure.22}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {CV}}}{52}{subfigure.22.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {MinMax}}}{52}{subfigure.22.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Normal}}}{52}{subfigure.22.3}\protected@file@percent }
 \citation{SilhouetteCoefficient}
 \citation{MeanShift}
-\@writefile{lof}{\contentsline {figure}{\numberline {22}{\ignorespaces Example of stable windows detected by Min-Max algorithm using a threshold of 6\%.}}{52}{figure.22}\protected@file@percent }
-\newlabel{fig:threshold_selection}{{22}{52}{Example of stable windows detected by Min-Max algorithm using a threshold of 6\%}{figure.22}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Workload Characterization Module}{52}{subsection.3.4}\protected@file@percent }
-\newlabel{ssec:workload_characterization_module}{{3.4}{52}{Workload Characterization Module}{subsection.3.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Workload Characterization Module}{53}{subsection.3.4}\protected@file@percent }
+\newlabel{ssec:workload_characterization_module}{{3.4}{53}{Workload Characterization Module}{subsection.3.4}{}}
 \citation{AkamasCGP}
 \citation{AkamasCGP}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Experimental Setup }{55}{section.4}\protected@file@percent }
@@ -259,7 +262,7 @@
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Daily pattern}}}{61}{subfigure.24.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Weekly pattern}}}{61}{subfigure.24.2}\protected@file@percent }
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Taxi requests}}}{61}{subfigure.24.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {Bank requests}}}{61}{subfigure.24.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {Real requests}}}{61}{subfigure.24.4}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {25}{\ignorespaces Zoomed daily pattern with increasing noise.}}{62}{figure.25}\protected@file@percent }
 \newlabel{fig:daily_noises}{{25}{62}{Zoomed daily pattern with increasing noise}{figure.25}{}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Daily 0.02 stddev noise}}}{62}{subfigure.25.1}\protected@file@percent }
@@ -295,8 +298,8 @@
 \newlabel{table:results_forecasting_weekly}{{4}{67}{Results on weekly pattern with increasing noise. The Weekly model produces forecasts repeating data of the previous week}{table.4}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {29}{\ignorespaces Forecasting of MQCNN model on weekly time series. The ground truth is blue. The model forecasts are red-colored. }}{67}{figure.29}\protected@file@percent }
 \newlabel{fig:results_forecasting_weekly_mqcnn}{{29}{67}{Forecasting of MQCNN model on weekly time series. The ground truth is blue. The model forecasts are red-colored}{figure.29}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Results on bank time series. The Weekly model produces forecasts repeating data of the previous week.}}{68}{table.5}\protected@file@percent }
-\newlabel{table:results_forecasting_bank}{{5}{68}{Results on bank time series. The Weekly model produces forecasts repeating data of the previous week}{table.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Results on Real time series. The Weekly model produces forecasts repeating data of the previous week.}}{68}{table.5}\protected@file@percent }
+\newlabel{table:results_forecasting_bank}{{5}{68}{Results on Real time series. The Weekly model produces forecasts repeating data of the previous week}{table.5}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.3}Real-world time series}{68}{subsubsection.5.1.3}\protected@file@percent }
 \newlabel{sssec:results_forecasting_bank}{{5.1.3}{68}{Real-world time series}{subsubsection.5.1.3}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {30}{\ignorespaces Errors on weekly pattern time series.}}{69}{figure.30}\protected@file@percent }
@@ -331,46 +334,46 @@
 \newlabel{table:results_forecasting_training_times}{{7}{74}{Training times on the Weekly time series}{table.7}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Workload Characterization }{74}{subsection.5.2}\protected@file@percent }
 \newlabel{ssec:results_wkld_characterization}{{5.2}{74}{Workload Characterization }{subsection.5.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {35}{\ignorespaces GMM clustering on time series $(d)$ (bank requests). Each color is a cluster (there are a total of 8 clusters). This image clearly shows how the low-demand zone is over-separated, which would lead to a less-effective usage of the collected experiments by the tuner.}}{75}{figure.35}\protected@file@percent }
-\newlabel{fig:results_gmm}{{35}{75}{GMM clustering on time series $(d)$ (bank requests). Each color is a cluster (there are a total of 8 clusters). This image clearly shows how the low-demand zone is over-separated, which would lead to a less-effective usage of the collected experiments by the tuner}{figure.35}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Online Contextual Gaussian Process Tuner}{75}{subsection.5.3}\protected@file@percent }
-\newlabel{ssec:results_online_cgp_tuner}{{5.3}{75}{Online Contextual Gaussian Process Tuner}{subsection.5.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {35}{\ignorespaces GMM clustering on the Real time series $(d)$. Each color is a cluster (there are a total of 8 clusters). The Image clearly shows how the low-demand zone is over-separated, which would lead to a less-effective usage of the collected experiments by the tuner.}}{75}{figure.35}\protected@file@percent }
+\newlabel{fig:results_gmm}{{35}{75}{GMM clustering on the Real time series $(d)$. Each color is a cluster (there are a total of 8 clusters). The Image clearly shows how the low-demand zone is over-separated, which would lead to a less-effective usage of the collected experiments by the tuner}{figure.35}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {36}{\ignorespaces Results of clustering the workload using $k$-means. Points with the same color belong to the same cluster.}}{76}{figure.36}\protected@file@percent }
 \newlabel{fig:results_clustering_kmeans}{{36}{76}{Results of clustering the workload using $k$-means. Points with the same color belong to the same cluster}{figure.36}{}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Daily pattern}}}{76}{subfigure.36.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Weekly pattern}}}{76}{subfigure.36.2}\protected@file@percent }
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Taxi requests}}}{76}{subfigure.36.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {Bank requests}}}{76}{subfigure.36.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {Real requests}}}{76}{subfigure.36.4}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {37}{\ignorespaces Results of clustering the workload using mean shift. Points with the same color belong to the same cluster.}}{77}{figure.37}\protected@file@percent }
 \newlabel{fig:results_clustering_meanshift}{{37}{77}{Results of clustering the workload using mean shift. Points with the same color belong to the same cluster}{figure.37}{}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Daily pattern}}}{77}{subfigure.37.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Weekly pattern}}}{77}{subfigure.37.2}\protected@file@percent }
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Taxi requests}}}{77}{subfigure.37.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {Bank requests}}}{77}{subfigure.37.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {Real requests}}}{77}{subfigure.37.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Online Contextual Gaussian Process Tuner}{78}{subsection.5.3}\protected@file@percent }
+\newlabel{ssec:results_online_cgp_tuner}{{5.3}{78}{Online Contextual Gaussian Process Tuner}{subsection.5.3}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {38}{\ignorespaces Online CGP references: Best tuner (yellow), Baseline tuner (green), and Worst tuner (red).}}{79}{figure.38}\protected@file@percent }
 \newlabel{fig:results_onlinecgp_references}{{38}{79}{Online CGP references: Best tuner (yellow), Baseline tuner (green), and Worst tuner (red)}{figure.38}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Summary of MongoDB tuning scenarios. }}{80}{table.8}\protected@file@percent }
 \newlabel{table:results_tuning_scenarios}{{8}{80}{Summary of MongoDB tuning scenarios}{table.8}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {39}{\ignorespaces Results of scenario MBank3.}}{81}{figure.39}\protected@file@percent }
-\newlabel{fig:results_cgp_bank1}{{39}{81}{Results of scenario MBank3}{figure.39}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {39}{\ignorespaces Results of scenario MReal3.}}{81}{figure.39}\protected@file@percent }
+\newlabel{fig:results_cgp_bank1}{{39}{81}{Results of scenario MReal3}{figure.39}{}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Cumulative Reward}}}{81}{subfigure.39.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Cumulative Failures}}}{81}{subfigure.39.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {40}{\ignorespaces MBank3 scenario Time To Recover. The yellow line is the Baseline CR. DeepAR, Prophet, and Naive online tuners overlap, leading to a TTR equal to 21 iterations, i.e. 1.5 hours.}}{82}{figure.40}\protected@file@percent }
-\newlabel{fig:results_cgp_bank3_ttr}{{40}{82}{MBank3 scenario Time To Recover. The yellow line is the Baseline CR. DeepAR, Prophet, and Naive online tuners overlap, leading to a TTR equal to 21 iterations, i.e. 1.5 hours}{figure.40}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Failures}}}{81}{subfigure.39.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {40}{\ignorespaces MReal3 scenario Time To Recover on the CR graph. The yellow line is the Baseline CR. DeepAR, Prophet, and Naive online tuners overlap, leading to a TTR equal to 21 iterations, i.e. 1.5 hours.}}{82}{figure.40}\protected@file@percent }
+\newlabel{fig:results_cgp_bank3_ttr}{{40}{82}{MReal3 scenario Time To Recover on the CR graph. The yellow line is the Baseline CR. DeepAR, Prophet, and Naive online tuners overlap, leading to a TTR equal to 21 iterations, i.e. 1.5 hours}{figure.40}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces MongoDB tuning scenarios results on synthetic time series. }}{83}{table.9}\protected@file@percent }
 \newlabel{table:results_mongo_synthetic}{{9}{83}{MongoDB tuning scenarios results on synthetic time series}{table.9}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {10}{\ignorespaces MongoDB tuning scenarios results on real time series.}}{84}{table.10}\protected@file@percent }
 \newlabel{table:results_mongo_real}{{10}{84}{MongoDB tuning scenarios results on real time series}{table.10}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {11}{\ignorespaces Summary of MongoDB tuning scenarios. }}{85}{table.11}\protected@file@percent }
 \newlabel{table:results_tuning_scenarios_cassandra}{{11}{85}{Summary of MongoDB tuning scenarios}{table.11}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {12}{\ignorespaces MongoDB tuning scenarios results on synthetic time series. }}{86}{table.12}\protected@file@percent }
-\newlabel{table:results_cassandra_synthetic}{{12}{86}{MongoDB tuning scenarios results on synthetic time series}{table.12}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {13}{\ignorespaces MongoDB tuning scenarios results on real time series.}}{87}{table.13}\protected@file@percent }
-\newlabel{table:results_cassandra_real}{{13}{87}{MongoDB tuning scenarios results on real time series}{table.13}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {14}{\ignorespaces Tuning scenarios stability data, valid both for Cassandra and MongoDB scenarios. TS indicates the Time Series.}}{88}{table.14}\protected@file@percent }
-\newlabel{table:results_stability}{{14}{88}{Tuning scenarios stability data, valid both for Cassandra and MongoDB scenarios. TS indicates the Time Series}{table.14}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {12}{\ignorespaces MongoDB tuning scenarios results on synthetic time series. }}{87}{table.12}\protected@file@percent }
+\newlabel{table:results_cassandra_synthetic}{{12}{87}{MongoDB tuning scenarios results on synthetic time series}{table.12}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {13}{\ignorespaces MongoDB tuning scenarios results on real time series.}}{88}{table.13}\protected@file@percent }
+\newlabel{table:results_cassandra_real}{{13}{88}{MongoDB tuning scenarios results on real time series}{table.13}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {14}{\ignorespaces Tuning scenarios stability data, valid both for Cassandra and MongoDB scenarios. TS indicates the Time Series.}}{89}{table.14}\protected@file@percent }
+\newlabel{table:results_stability}{{14}{89}{Tuning scenarios stability data, valid both for Cassandra and MongoDB scenarios. TS indicates the Time Series}{table.14}{}}
 \citation{AkamasCGP}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusions and future work}{90}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusions and future work}{91}{section.6}\protected@file@percent }
 \bibdata{bibliography.bib}
 \bibcite{AkamasCGP}{1}
 \bibcite{LearningToSample}{2}
@@ -433,4 +436,4 @@
 \bibcite{MongoDB}{59}
 \bibcite{TaxiDataset}{60}
 \bibstyle{ieeetr}
-\gdef \@abspage@last{105}
+\gdef \@abspage@last{106}
