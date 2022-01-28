@@ -103,7 +103,7 @@
 		\vfill
 		
 		% Bottom of the page
-		{ \large XX February 2022 \par}
+		{ \large 21 February 2022 \par}
 		{ \large \textsc{Academic Year 2021/2022}\par}
 	\end{titlepage}
 	
@@ -174,27 +174,27 @@
 	The following section briefly presents BO and Section \ref{ssec:contextual_bayesian_optimization} presents the Contextual BO tuner of \cite{AkamasCGP} explaining why workload characterization and forecasting are required. The state of the art of forecasting is presented (Section \ref{sec:forecasting}), followed by a section on workload forecasting in the context of IT systems (Section \ref{ssec:workload_forecasting}). A general overview of workload characterization is presented in Section \ref{ssec:workload_characterization}. Clustering, which can be used for workload characterization, is described in Section \ref{ssec:clustering}.
 	
 	\subsection{Bayesian Optimization } \label{ssec:bayesian_optimization}
-	Bayesian Optimization \cite{BO} is a tool for the joint optimization of design choices of complex systems, such as the parameters of a recommendation system, a neural network, or a medical analysis tool. For example a typical software system made of a database, a back-end, and a front-end is characterized by an enormous amount of parameters that are often dependent on each other.
-	Optimizing such parameters is not a simple task, and BO provides an automated approach to make such design choices.\\
+	Bayesian Optimization \cite{BO} is a tool for the joint optimization of design choices of complex systems, such as the parameters of a recommendation system, a neural network, or a medical analysis tool. For example, a typical software system made of a database, a back-end, and a front-end is characterized by an enormous amount of parameters that are often dependent on each other.
+	Optimizing such parameters is not a simple task, and BO provides an automated approach to making such design choices.\\
 	
 	Mathematically, the goal is to maximize (or minimize) an unknown objective function $f$:\\
 	\begin{equation} \label{eq:bo_optimization}
-				\pmb{x}^\star = \underset{\pmb{x} \in \mathcal{X}}{\mathrm{argmax}} f(\pmb{x})
+		\pmb{x}^\star = \underset{\pmb{x} \in \mathcal{X}}{\mathrm{argmax}} f(\pmb{x})
 	\end{equation}
 	where $\mathcal{X}$ is the design space of interest, e.g. a compact subset of $\mathbb{R}^d$. In general, $f$ can be any black-box function with no simple closed form that can be evaluated at any arbitrary point in the domain $\mathcal{X}$, where the evaluation can produce noise-corrupted outputs $y \in \mathbb{R}$.\\
-	BO is a sequential approach to solve Equation \ref{eq:bo_optimization}: at every iteration $i$, the algorithm selects a new $\pmb{x}_{i+1}$ at which $f$ is queried, resulting in a measurement $y_i$. When the maximum number of iterations is reached, or when $y^\star$ is a satisfactory outcome, the algorithm stops returning the best configuration $\pmb{x}^\star$ associated with the best outcome $y^\star$. BO is very data efficient, making it useful when the evaluations of $f$ are costly: the model is initialized with a prior belief, and then at each iteration it is refined using observed data via Bayesian posterior updating. The acquisition function $\alpha_n : \mathcal{X} \rightarrow \mathbb{R}$ guides exploration by evaluating candidate points in $\mathcal{X}$, meaning that $\pmb{x}_{i+1}$ is selected by maximizing $\alpha_n$ using data up to iteration $i$. Figure \ref{fig:bo} shows a few iterations of BO.
+	BO is a sequential approach to solve Equation \ref{eq:bo_optimization}: at every iteration $i$, the algorithm selects a new $\pmb{x}_{i+1}$ at which $f$ is queried, resulting in a measurement $y_i$. When the maximum number of iterations is reached, or when $y^\star$ is a satisfactory outcome, the algorithm stops returning the best configuration $\pmb{x}^\star$ associated with the best outcome $y^\star$. BO is very data-efficient, making it useful when the evaluations of $f$ are costly: the model is initialized with a prior belief, and then at each iteration, it is refined using observed data via Bayesian posterior updating. The acquisition function $\alpha_n : \mathcal{X} \rightarrow \mathbb{R}$ guides exploration by evaluating candidate points in $\mathcal{X}$, meaning that $\pmb{x}_{i+1}$ is selected by maximizing $\alpha_n$ using data up to iteration $i$. Figure \ref{fig:bo} shows a few iterations of BO.
 	\begin{figure}
 		\includegraphics[width=\linewidth]{img/bo.png}
 		\caption{A few iterations of BO. The acquisition function $u(\cdot)$ (green) guides the selection of the next point, obtaining a new observation $(\pmb{x}_i, y_i)$ that updates the underlying model of the unknown function $f(\cdot)$.} 
 		\label{fig:bo}
 	\end{figure}
-	The acquisition function $\alpha_n$ provides a trade off between exploration and exploitation: when boosting exploration the value of $\alpha_n$ will be higher in areas of uncertainty, while when boosting exploitation $\alpha_n$ will favor locations where the model predicts a high objective. It is critical for the acquisition function to be cheap to evaluate or approximate, especially in relation to the objective function $f$.
+	The acquisition function $\alpha_n$ provides a trade-off between exploration and exploitation: when boosting exploration the value of $\alpha_n$ will be higher in areas of uncertainty, while when boosting exploitation $\alpha_n$ will favor locations where the model predicts a high objective. It is critical for the acquisition function to be cheap to evaluate or approximate, especially in relation to the objective function $f$.
 	
 	In summary, BO has two key ingredients \cite{BO}: a probabilistic surrogate model, consisting of a prior distribution that captures our beliefs about $f$ and an observation model that describes the data generation process, and a loss function that describes how optimal a sequence of queries are. The expected loss is minimized to drive the selection of $\pmb{x}_i$. After observing the outcome $y_i$ of $\pmb{x}_i$, the prior is updated to produce a more informative posterior distribution.
 	
 	\subsubsection{Contextual Bayesian Optimization of IT systems} \label{ssec:contextual_bayesian_optimization}
 	
-	When applying BO to IT systems, the goal is to find a configuration $\pmb{x}$ to optimize a performance indicator $y \in \mathbb{R}$ such as throughput, response time, and memory consumption \cite{AkamasCGP}. If BO is applied while the system is running, it is very likely that the workload will change over time: the number of users connected to the system can increase and decrease, as their behavior can change from read-intensive to write-intensive operations. Such changes will inevitably affect how the system behaves under a specific configuration, but regardless the workload, the underlying system maintains some of its properties. 
+	When applying BO to IT systems, the goal is to find a configuration $\pmb{x}$ to optimize a performance indicator $y \in \mathbb{R}$ such as throughput, response time, and memory consumption \cite{AkamasCGP}. If BO is applied while the system is running, it is very likely that the workload will change over time: the number of users connected to the system can increase and decrease, as their behavior can change from read-intensive to write-intensive operations. Such changes will inevitably affect how the system behaves under a specific configuration, but regardless of the workload, the underlying system maintains some of its properties. 
 	This scenario perfectly fits the multitask extension of BO \cite{CGPBanditOptimization}: we have a family of correlated objective functions $\mathcal{T}=\{f_1, ..., f_m\}$ (e.g. the performance of an IT system under different workloads or the same IT system running with different software versions) and we want to use data obtained optimizing $\{f_1, ..., f_{j-1}, f_{j+1}, ..., f_m\}$ to optimize $f_j$. Figure \ref{fig:multitask_bo} shows how \cite{CGPBanditOptimization} is able to share information between two black-box functions and influence the posterior predictive distribution of another function.
 	
 	\begin{figure} 
@@ -212,43 +212,43 @@
 	Furthermore, when optimizing a system, it may be useful to define some constraints the system should not violate: a tuning process may be executed with the requirement of satisfying some Quality of Service (QoS) levels. For example, while trying to minimize the average memory usage to reduce the infrastructure costs, the system could be expected to keep the users' requests latency below some target.  \\
 	The work proposed by \cite{AkamasCGP} has been extended internally by the company so that it is possible to define such constraints: when a configuration violates any constraint, the violation is added to the knowledge base along with its configuration and associated system performance. Interestingly, by penalizing violations, the tuner can be used on a system that doesn't initially satisfy some QoS levels, so that at the end of the tuning process violations are not likely to occur anymore.
 	
-	The BO regression model of \cite{AkamasCGP} is a Gaussian Process (GP) which derives its posterior model (i.e. the predictions) by combining observed values with its prior distribution. When asking the GP to predict the performance of a configuration that is very different from any configuration that was previously observed it will resort to the prior distribution, which is often a zero-mean, unitary variance normal distribution. As a result, if we are trying to maximize the throughput of an IT system, the GP will predict that any unknown configuration will likely destroy the system performance, with the consequence that BO will avoid the exploration of uncertain regions. Therefore, rather than using the raw performance of the applied configurations, \cite{AkamasCGP} standardizes the observed data so that GP will predict that by picking a random configuration the system will exhibit a performance value that is equal to the average performance of the observed values.
+	The BO regression model of \cite{AkamasCGP} is a Gaussian Process (GP) that derives its posterior model (i.e. the predictions) by combining observed values with its prior distribution. When asking the GP to predict the performance of a configuration that is very different from any configuration that was previously observed it will resort to the prior distribution, which is often a zero-mean, unitary variance normal distribution. As a result, if we are trying to maximize the throughput of an IT system, the GP will predict that any unknown configuration will likely destroy the system performance, with the consequence that BO will avoid the exploration of uncertain regions. Therefore, rather than using the raw performance of the applied configurations, \cite{AkamasCGP} standardizes the observed data so that GP will predict that by picking a random configuration the system will exhibit a performance value that is equal to the average performance of the observed values.
 	Nonetheless, when dealing with different workloads, it is crucial to standardize each point by taking into account also the relevant workload \cite{AkamasCGP}. This is achieved by using a modified version of the Normalized Performance Improvement:\\\\
 	\centerline{
-	$
-	NPI(\pmb{x}, \pmb{w}) = \frac{f(\pmb{x}_0, \pmb{w}) - f(\pmb{x}, \pmb{w})}{f(\pmb{x}_0, \pmb{w}) - f(\pmb{x}^+_{\pmb{w}}, \pmb{w})}
-	$
+		$
+		NPI(\pmb{x}, \pmb{w}) = \frac{f(\pmb{x}_0, \pmb{w}) - f(\pmb{x}, \pmb{w})}{f(\pmb{x}_0, \pmb{w}) - f(\pmb{x}^+_{\pmb{w}}, \pmb{w})}
+		$
 	}\\\\
 	where $\pmb{x}$ is the configuration being evaluated, $\pmb{x}_0$ is the baseline configuration, $\pmb{w}$ is the workload, and $f(\pmb{x}^+_{\pmb{w}}, \pmb{w})$ is the best configuration found so far while tuning the system with the workload $\pmb{w}$. Hence, \cite{AkamasCGP} requires a workload characterization module (discussed in Section \ref{ssec:workload_characterization}) to cluster the workloads and effectively apply BO.
 	
-	To evaluate the performance of an IT system under a new configuration, many technologies require some warm-up time. For example, the Java Virtual Machine is characterized by a lazy class loading and Just In Time (JIT) compilation that make the performance evolve over time after the Java application is launched. Usually, a window of duration that ranges from ten to thirty minutes is required for the performance to stabilize. Furthermore, after the warm-up is completed, the system performance $y_i$ resulting from configuration $\pmb{x}_i$ under workload $\pmb{w}_i$ should be obtained by taking multiple measurements in order to balance the noisy environment. This evaluation process requires the workload to remain stable in order to avoid corrupting the measurements or nullifying the warm-up (e.g. a new workload may use different Java classes and functions). Therefore, a single tuning step (or experiment) requires a time window $\omega_{t_1:t_2}$, starting at time $t_1$ and ending at time $t_2$, of duration $t_2 - t_1$ during which the workload $w_t$ must be stable.\\
-	Furthermore, as mentioned before, Contextual Bayesian Optimization suggests a configuration tailored for the given workload.  This means that a workload change may cause the system being optimized to under perform, potentially leading to bad QoS or even failures. Such consequences should be avoided as much as possible.
+	To evaluate the performance of an IT system under a new configuration, many technologies require some warm-up time. For example, the Java Virtual Machine is characterized by a lazy class loading and Just In Time (JIT) compilation that makes the performance evolve with time after the Java application is launched. Usually, a window of duration that ranges from ten to thirty minutes is required for the performance to stabilize. Furthermore, after the warm-up is completed, the system performance $y_i$ resulting from configuration $\pmb{x}_i$ under workload $\pmb{w}_i$ should be obtained by taking multiple measurements in order to balance the noisy environment. This evaluation process requires the workload to remain stable in order to avoid corrupting the measurements or nullifying the warm-up (e.g. a new workload may use different Java classes and functions). Therefore, a single tuning step (or experiment) requires a time window $\omega_{t_1:t_2}$, starting at time $t_1$ and ending at time $t_2$, of duration $t_2 - t_1$ during which the workload $w_t$ must be stable.\\
+	Furthermore, as mentioned before, Contextual Bayesian Optimization suggests a configuration tailored for the given workload.  This means that a workload change may cause the system being optimized to underperform, potentially leading to bad QoS or even failures. Such consequences should be avoided as much as possible.
 	
-	In order to predict if the upcoming tuning window will be stable the tuner requires a component capable of predicting the upcoming workload, as long as some sort of classifier that given the predicted workload indicates whether the future workload will be stable or not.
+	In order to predict if the upcoming tuning window will be stable, the tuner requires a component capable of predicting the upcoming workload, as long as some sort of classifier that given the predicted workload indicates whether the future workload will be stable or not.
 	Finally, once the performance of the best configuration for the given workload is satisfactory, that configuration can be applied in advance.\\
 	Forecasting and workload forecasting will be discusses in Section \ref{sec:forecasting} and \ref{ssec:workload_forecasting} respectively.
 	
 	\subsection{Workload Characterization} \label{ssec:workload_characterization}
 	% wkld charact è stata usata anche per decidere come fare i processori(MICROARCHITECTURE-INDEPENDENT WORKLOAD CHARACTERIZATION)
-	The term workload refers to all the inputs received by a given technological infrastructure \cite{WorkloadCharacterization}. Within the IT domain, understanding the properties and behavior of such workload is essential for evaluating the Quality of Service (QoS) perceived by the users in order to meet the Service Level Agreement (SLA) obligations. In such context, workload characterization provides the basis for devising efficient resource provisioning, power management, and performance engineering strategies.\\
+	The term workload refers to all the inputs received by a given technological infrastructure \cite{WorkloadCharacterization}. Within the IT domain, understanding the properties and behavior of such workload is essential for evaluating the Quality of Service (QoS) perceived by the users in order to meet the Service Level Agreement (SLA) obligations. In such a context, workload characterization provides the basis for devising efficient resource provisioning, power management, and performance engineering strategies.\\
 	By characterizing the workload and deriving workload models it is possible to summarize and explain the main properties of the workloads, generate synthetic workloads for performance evaluation studies, and define benchmark experiments. Workload characterization can be applied to different domains such as online social networks, video services, mobile devices, and cloud computing.
 	
-	Characterizing the workloads requires to collect representative measurements while the system under study is operating (i.e. under the true workloads). These measurements refer to specific components of the system and capture their static and dynamic properties, along with the behavior of the users. When choosing which metrics to consider, it is important to take into account the hierarchical nature of typical infrastructures: a network sniffer provides measurements about the network traffic, logging facilities provide application-specific measurements such as the number of requests to an URL of a web application, and tracelogs contain measurements related to the resources used by jobs and tasks (e.g. CPU and memory usage). The choice of the attributes to consider for the characterization depends on its objectives and on the nature of the workload to be analyzed.
+	Characterizing the workloads requires collecting representative measurements while the system under study is operating (i.e. under the true workloads). These measurements refer to specific components of the system and capture their static and dynamic properties, along with the behavior of the users. When choosing which metrics to consider, it is important to take into account the hierarchical nature of typical infrastructures: a network sniffer provides measurements about the network traffic, logging facilities provide application-specific measurements such as the number of requests to an URL of a web application, and trace logs contain measurements related to the resources used by jobs and tasks (e.g. CPU and memory usage). The choice of the attributes to consider for the characterization depends on its objectives and on the nature of the workload to be analyzed.
 	
 	Once measurements are collected, they have to be analyzed in order to build workload models. The first step is to perform a statistical analysis to describe the properties (e.g. mean, variance, percentiles) of each attribute of interest and find any relation between them (e.g. using Pearson's correlation coefficient \cite{PearsonCoefficient}). \\
 	A common challenge faced during this step is how to deal with outliers, that are atypical behaviors of one or more attributes: outliers could indicate previously unknown phenomena that are worth exploring, or they could correspond to anomalous operating conditions that should be discarded.
 	
 	Further steps of the workload characterization methodology are multivariate analysis to analyze the components in the multidimensional space of their attributes, numerical fitting to study the dynamics of the workloads and model their temporal patterns, stochastic processes to study time-varying properties of the workloads, and graph analysis to model the behavior of interactive users \cite{WorkloadCharacterization}.
 	
-	Multivariate analysis allows to derive models that capture and summarize the overall properties of the workloads. A technique that has been widely used for that purpose is clustering \cite{ClusteringSurvey}, which enables unsupervised classification when labeled data is not available. A popular clustering algorithm is $k$-means \cite{ClusteringSurvey}, that partitions the data into $k$ clusters identified by $k$ centroids where each centroid would represent one type of workload. Clustering is further presented in Section \ref{ssec:clustering}.\\
+	The multivariate analysis allows deriving models that capture and summarize the overall properties of the workloads. A technique that has been widely used for that purpose is clustering \cite{ClusteringSurvey}, which enables unsupervised classification when labeled data is not available. A popular clustering algorithm is $k$-means \cite{ClusteringSurvey}, that partitions the data into $k$ clusters identified by $k$ centroids where each centroid would represent one type of workload. Clustering is further presented in Section \ref{ssec:clustering}.\\
 	When the number of variables being analyzed is too large, it is common to apply dimensionality reduction techniques such as PCA \cite{PCA} to obtain a smaller set of uncorrelated variables.
 	
-	With numerical fitting techniques is possible to estimate the parameters of the function that best fits the empirical data, for example to understand whether it is generated by a well-known probabilistic distribution. \cite{WorkloadsPowerLaw} has shown that the distribution of many workloads properties are well described by power laws (e.g. Pareto or Zipf distributions), meaning that extreme values should be investigated rather than being considered outliers.
+	With numerical fitting techniques is possible to estimate the parameters of the function that best fits the empirical data, for example, to understand whether it is generated by a well-known probabilistic distribution. \cite{WorkloadsPowerLaw} has shown that the distribution of many workloads properties are well described by power laws (e.g. Pareto or Zipf distributions), meaning that extreme values should be investigated rather than being considered outliers.
 	
-	Finally, stochastic processes such as wavelets and non-parametric filtering are used to extract trend and seasonal components from the time series representing the workload properties (see Section \ref{sec:forecasting}), identify the structure of predictive models and estimate their parameters. A common goal when applying such techniques is to cope with capacity planning and resource management.
+	Finally, stochastic processes such as wavelets and non-parametric filtering are used to extract trend and seasonal components from the time series representing the workload properties (see Section \ref{sec:forecasting}), identify the structure of predictive models, and estimate their parameters. A common goal when applying such techniques is to cope with capacity planning and resource management.
 	
 	\subsection{Clustering } \label{ssec:clustering}
-	In the era of data, clustering provides a way to classify and group information into a set of categories, called clusters, when labels are not provided. The goal is to learn a new object or understand a phenomenon, and try to seek the features that can describe it in order to make comparisons with other known objects or phenomena \cite{ClusteringSurvey}. Such learning process is called unsupervised learning.
+	In the era of data, clustering provides a way to classify and group information into a set of categories, called clusters, when labels are not provided. The goal is to learn a new object or understand a phenomenon, and try to seek the features that can describe it to make comparisons with other known objects or phenomena \cite{ClusteringSurvey}. Such learning process is called unsupervised learning.
 	\begin{figure} 
 		\includegraphics[width=\linewidth]{img/clustering_approach.png}
 		\caption{Common clustering procedure.}
@@ -258,9 +258,9 @@
 	
 	Formally, given an input set $X = \{ \pmb{x}_1, ..., \pmb{x_N} \}$ with $\pmb{x}_i \in \mathbb{R}^d$, \textit{hard clustering} attempts to seek a $K$-partition of $X$, $C = \{ C_1, ..., C_K \}$ with $K \leq N$ such that:
 	\begin{enumerate}
-		 \item $C_i \neq \emptyset$ for $i = 1, ..., K$
-		 \item $\cup_{i=1}^{K} C_i = X$
-		 \item $C_i \cap C_j = \emptyset$ for each $i, j = 1, ..., K$ with $i \neq j$
+		\item $C_i \neq \emptyset$ for $i = 1, ..., K$
+		\item $\cup_{i=1}^{K} C_i = X$
+		\item $C_i \cap C_j = \emptyset$ for each $i, j = 1, ..., K$ with $i \neq j$
 	\end{enumerate}
 	Therefore, at the end of the procedure, each point in $X$ belongs to a single cluster. In \textit{fuzzy clustering} this constraint is relaxed, and a point $\pmb{x}_i \in X$ can belong to multiple clusters with a certain degree of membership \cite{FuzzyClustering}. Another alternative to hard clustering is \textit{hierarchical clustering}, that repeatedly agglomerates points (or, symmetrically, divides clusters) creating a dendrogram \cite{HierarchicalClustering}.  
 	
@@ -269,9 +269,9 @@
 	In the context of workload characterization (see Section \ref{ssec:workload_characterization}) we are interested in hard clustering methods to automatically group workloads. \\
 	A well-known clustering method is $k$-means, that partitions $X$ into $k \leq |X|$ clusters $C_1, ..., C_k$ by finding:\\\\
 	\centerline{
-	$
-	\underset{C_1, ..., C_k}{\mathrm{argmax}} \, \sum_{i=1}^{k} \underset{{\pmb{x} \in S}}{\sum} || \pmb{x} - \pmb{\mu}_i ||^2
-	$
+		$
+		\underset{C_1, ..., C_k}{\mathrm{argmax}} \, \sum_{i=1}^{k} \underset{{\pmb{x} \in S}}{\sum} || \pmb{x} - \pmb{\mu}_i ||^2
+		$
 	} \\\\
 	where $\pmb{\mu}_i$ is the \textit{centroid} of cluster $C_i$, and a point $\pmb{x}$ belongs to the cluster having the closest centroid. In order to effectively initialize the value of $\mu_i$, $k$-means++ can be used \cite{kmeans++}. $k$-means requires the number of clusters to be given as input.
 	
@@ -285,15 +285,15 @@
 	
 	OPTICS \cite{OPTICS} is a density-based approach that requires two parameters: the minimum number of points required to form a cluster, and the radius $\epsilon$ to consider when forming clusters. OPTICS is very data-efficient for small values of $\epsilon$, and can be used for outlier detection as it doesn't necessarily need to assign a cluster to each point.
 	
-	Finally, Gaussian Mixture Models (GMM) \cite{MixtureModels} provide a probabilistic approach to clustering by estimating $k$ Gaussian distributions via Expectation-Maximization. The expectation step calculates the probability that a point $\pmb{x}_i$ belongs to the cluster $C_j$, and the maximization step updates the parameters (mean and covariance matrix) of the distributions representing the clusters in order to maximize the log-likelihood function. This process is repeated until convergence. To do so, GMM require to be given the number of components (i.e. clusters) and the covariance type. When compared to $k$-means, the advantage of GMM is that it is not limited to spherical-shaped clusters.
+	Finally, Gaussian Mixture Models (GMM) \cite{MixtureModels} provide a probabilistic approach to clustering by estimating $k$ Gaussian distributions via Expectation-Maximization. The expectation step calculates the probability that a point $\pmb{x}_i$ belongs to the cluster $C_j$, and the maximization step updates the parameters (mean and covariance matrix) of the distributions representing the clusters to maximize the log-likelihood function. This process is repeated until convergence. To do so, GMM require to be given the number of components (i.e. clusters) and the covariance type. When compared to $k$-means, the advantage of GMM is that it is not limited to spherical-shaped clusters.
 	
 	When evaluating the quality of a clustering $C=\{C_1, ..., C_k\}$, the Silhouette coefficient \cite{SilhouetteCoefficient} computes a score representing how well-separated the clusters are. Similarly, the Bayesian Information Criterion \cite{BayesianInformationCriterion} is an alternative applicable to GMM. These scores can be used to choose the number of clusters to be found or method-specific parameter.
 	
 	\subsection{Forecasting } \label{sec:forecasting}
 	Forecasting is a common data science task that makes use of temporal data~\cite{ForecastingSurvey} to help organizations with capacity planning, goal setting, and anomaly detection. It is required in many situations: for example, deciding whether to build another warehouse in the next five years requires forecasts of future demand, and scheduling staff in a call center next week requires forecasts of call volumes.
 	
-	The first successful forecasting methods have been proposed around \textit{1950}, some of them being Exponential Smoothing \cite{ExponentialSmoothingHoltCharles} and ARIMA \cite{ForecastingBoxJenkins}, which originated a wide variety of derived techniques \cite{25YearsForecasting}. In the big-data era, where companies have huge numbers of time series each with their own characteristics, traditional techniques have shown some limitations due to specific model requirements (Section \ref{sssec:exponential_smoothing} and \ref{sssec:arma}), model inflexibility, necessity of manual feature engineering, lack of automation, difficulties of dealing with missing data, and lack of well-performing multivariate models \cite{25YearsForecasting}.\\
-	Recent developments have seen pure deep learning models joining the fields with inconsistent performance \cite{DeepLearningForecastingSurvey}, but highlighting the possibility of exploiting huge datasets in order to learn a single global model capable of recognizing complex and sometimes shared time series patterns. Other recent deep learning research achievements, especially in the natural language processing domain \cite{RNNLSTM, seq2seq, EncoderDecoder}, have inspired promising models \cite{DeepAR, DeepState, DeepLearningForecastingSurvey}, some of them having an hybrid architecture that utilizes both statistical and machine learning (ML) features \cite{MAKRIDAKIS2018802, GluonTS}. 
+	The first successful forecasting methods have been proposed around \textit{1950}, some of them being Exponential Smoothing \cite{ExponentialSmoothingHoltCharles} and ARIMA \cite{ForecastingBoxJenkins}, which originated a wide variety of derived techniques \cite{25YearsForecasting}. In the big-data era, where companies have huge numbers of time series each with their characteristics, traditional techniques have shown some limitations due to specific model requirements (Section \ref{sssec:exponential_smoothing} and \ref{sssec:arma}), model inflexibility, necessity of manual feature engineering, lack of automation, difficulties of dealing with missing data, and lack of well-performing multivariate models \cite{25YearsForecasting}.\\
+	Recent developments have seen pure deep learning models joining the fields with inconsistent performance \cite{DeepLearningForecastingSurvey}, but highlighting the possibility of exploiting huge datasets to learn a single global model capable of recognizing complex and sometimes shared time series patterns. Other recent deep learning research achievements, especially in the natural language processing domain \cite{RNNLSTM, seq2seq, EncoderDecoder}, have inspired promising models \cite{DeepAR, DeepState, DeepLearningForecastingSurvey}, some of them having an hybrid architecture that utilizes both statistical and machine learning (ML) features \cite{MAKRIDAKIS2018802, GluonTS}. 
 	Interestingly, the winner of the 2018 M4 competition \cite{MAKRIDAKIS2018802} was a combination of Exponential Smoothing and deep learning \cite{UberHybridES}, while the top-performing submissions of the 2020 M5 competition \cite{M5Competition}, where most of the time series have some kind of correlation and share frequency and domain, cross-learning ML models have shown their potential with the top-performing submissions using a weighted average of several pure ML models.\\
 	Other methods, such as the one proposed by Prophet \cite{FacebookProphet}, provide an analyst-in-the-loop approach suggesting that by injecting domain-specific knowledge into the model it's still possible to outperform fully automated approaches, especially with small amounts of data.\\
 	Nevertheless, Artificial Neural Network (ANN) based models have only recently started overtaking simpler classical models \cite{MAKRIDAKIS2018802, M5Competition} opening a set of inspiring possibilities, and the market has seen big companies developing their own solutions \cite{FacebookProphet, GluonTS, MicrosoftSSA, UberHybridES} highlighting the necessity for the businesses of better forecasting techniques.
@@ -307,9 +307,9 @@
 	Finally, a cycle occurs when data rises and falls without a fixed frequency, e.g. due to economic conditions.  Cycles are usually longer than seasonal patterns and have more variable magnitudes.
 	
 	\begin{figure}
-	\includegraphics[width=\linewidth]{img/sota_ts_components.png}
-	\caption{Four time series examples. Top left: seasonality and cycle; top right: trend only; bottom left: trend and seasonality; bottom right: random fluctuations.}
-	\label{fig:time_series_components}
+		\includegraphics[width=\linewidth]{img/sota_ts_components.png}
+		\caption{Four time series examples. Top left: seasonality and cycle; top right: trend only; bottom left: trend and seasonality; bottom right: random fluctuations.}
+		\label{fig:time_series_components}
 	\end{figure}
 	
 	Trend and cycles are usually combined into a single trend-cycle component, often referred as trend for simplicity.
@@ -341,9 +341,9 @@
 		\ra{1.3}
 		\begin{tabular}{@{}rcr@{}}\toprule
 			Category & Modeling\\
-			 \midrule
-			 Generative & $p(z_{i,1:T_i+\tau} | \pmb{x}_{i, 1:T_i + \tau}, \Phi)$\\
-			 Discriminative &  $p(z_{i,T_{i}+1:T_i+\tau} | z_{i, 1:T_i}, \pmb{x}_{i, 1:T_i + \tau}, \Phi)$\\
+			\midrule
+			Generative & $p(z_{i,1:T_i+\tau} | \pmb{x}_{i, 1:T_i + \tau}, \Phi)$\\
+			Discriminative &  $p(z_{i,T_{i}+1:T_i+\tau} | z_{i, 1:T_i}, \pmb{x}_{i, 1:T_i + \tau}, \Phi)$\\
 			\bottomrule
 		\end{tabular}
 		\caption{Forecasting models.} \label{table:generativediscriminative}
@@ -356,22 +356,22 @@
 	The simplest form of exponential smoothing assumes that all past observations have equal importance:\\\\
 	\centerline{$\hat{y}_{T+1} = \frac{1}{T} \sum_{t=1}^{T}y_t$}\\\\
 	where $\hat{y}_{T+1}$ is the forecasted value at time $T+1$ knowing past values up to time $T$. By introducing decaying weights, the formula becomes:\\\\
-		\centerline{$\hat{y}_{T+1} = A(y_T + B y_{T-1} + B^2 y_{T-2} + B^3 y_{T-3} + ...)$ }\\\\
+	\centerline{$\hat{y}_{T+1} = A(y_T + B y_{T-1} + B^2 y_{T-2} + B^3 y_{T-3} + ...)$ }\\\\
 	where $A \in [0,1]$ and $B=1-A$, $A$ can attenuate the effect of old observations. The formula can be recursively applied to obtain observation at $T+k$, $k>1$. \\
 	Exponential smoothing has been extended to take into consideration linear trend and seasonality \cite{ExponentialSmoothingHoltCharles}. The trend can be approximated applying the same equation above on the time series $z_t = y_t - y_{t-1}$ while to model seasonality its period must be known beforehand.\\
 	Note that due to its nature the forecasts produced by Exponential Smoothing will lag behind the actual trend.
 	
-	A more complex state-space approach, called Innovation State Space Model (ISSM) \cite{ExponentialSmoothingStateSpace}, has been proposed to add a statistical model that describes the data generation process, therefore providing prediction intervals. ISSM maintains a latent state vector $\pmb{l}_t$ with recent information about level, trend and seasonality which evolves over time adding a small innovation at each time step (i.e. the Gaussian noise):\\\\
+	A more complex state-space approach, called Innovation State Space Model (ISSM) \cite{ExponentialSmoothingStateSpace}, has been proposed to add a statistical model that describes the data generation process, therefore providing prediction intervals. ISSM maintains a latent state vector $\pmb{l}_t$ with recent information about level, trend and seasonality which evolves with time adding a small innovation at each time step (i.e. the Gaussian noise):\\\\
 	\centerline{
-	$
-	\pmb{l}_t = F_t \pmb{l}_{t-1} + \pmb{g}_t \epsilon_t,\; \epsilon_t \sim \mathcal{N}(0,1)
-	$
+		$
+		\pmb{l}_t = F_t \pmb{l}_{t-1} + \pmb{g}_t \epsilon_t,\; \epsilon_t \sim \mathcal{N}(0,1)
+		$
 	}\\\\
 	where $\pmb{g}_t$ controls innovation strength and $F_t$ is the transition matrix. 
 	The observations become a linear combination of the current state $\pmb{l}_t$:\\\\
 	\centerline{$
-	y_{t+1} = \pmb{a}_{t}^T \pmb{l}_t + b_{t} + \nu_t,\; \nu_t \sim \mathcal{N}(0,1)
-	$}\\\\
+		y_{t+1} = \pmb{a}_{t}^T \pmb{l}_t + b_{t} + \nu_t,\; \nu_t \sim \mathcal{N}(0,1)
+		$}\\\\
 	The ISSM parameters $(F_t, \pmb{g}_t, \pmb{a}_t, b_t, \nu_t)$ are typically learned using the maximum likelihood principle.
 	
 	\subsubsection{ARMA models} \label{sssec:arma}
@@ -398,7 +398,7 @@
 	The vector ARIMA (VARIMA) model has been proposed as a multivariate generalization of the univariate ARIMA model, but in general Vector Auto-Regressive (VAR) models tend to suffer from overfitting, providing poor out-of-sample forecasts \cite{25YearsForecasting}.
 	
 	\subsubsection{Prophet } \label{sssec:prohet}
-	Prophet \cite{FacebookProphet} is a solution developed by Facebook that provides an ``analyst-in-the-loop'' approach (Figure \ref{fig:analyst_in_the_loop}) and a flexible model that fits a wide range of business time series. The model simplifies the process of adding domain knowledge about the data generation process and reduces the time required to obtain high quality forecasts. Finally, Prophet is able to automatically handle time series with trend changes, multiple seasonality, and holidays effects.
+	Prophet \cite{FacebookProphet} is a solution developed by Facebook that provides an ``analyst-in-the-loop'' approach (Figure \ref{fig:analyst_in_the_loop}) and a flexible model that fits a wide range of business time series. The model simplifies the process of adding domain knowledge about the data generation process and reduces the time required to obtain high quality forecasts. Finally, Prophet can automatically handle time series with trend changes, multiple seasonality, and holidays effects.
 	\begin{figure}
 		\includegraphics[width=\linewidth]{img/sota_ts_fb_prophet.png}
 		\caption{Prophet analyst-in-the-loop approach.}
@@ -435,16 +435,16 @@
 	The Prophet solution is capable of achieving lower prediction errors when compared to traditional methods like Exponential Smoothing and ARIMA, with very quick fitting time.
 	
 	\subsubsection{ML models}
-	The forecasting field has seen past practitioners proposing novel Neural Networks (NN) architectures that could not be considered competitive against simpler univariate statistical models. However, we are now living in the Big Data era: companies have gathered huge amounts of data over the years containing important information about their business patterns, unlocking the possibility of learning effective multivariate models. Big data in the context of time series doesn't necessarily mean having single time series with a lot of historical data, but it rather means that there are many related time series from the same domain \cite{RNNForecasting}. In such context, models capable of learning from multiple time series have emerged \cite{M5Competition} outperforming traditional ones while alleviating the time and labor intensive manual feature engineering by making no explicit assumptions on data and therefore being more flexible when compared to traditional techniques such as ARIMA and Exponential Smoothing.
+	The forecasting field has seen past practitioners proposing novel Neural Networks (NN) architectures that could not be considered competitive against simpler univariate statistical models. However, we are now living in the Big Data era: companies have gathered huge amounts of data over the years containing important information about their business patterns, unlocking the possibility of learning effective multivariate models. Big data in the context of time series doesn't necessarily mean having single time series with a lot of historical data, but it rather means that there are many related time series from the same domain \cite{RNNForecasting}. In such context, models capable of learning from multiple time series have emerged \cite{M5Competition} outperforming traditional ones while alleviating the time and labor-intensive manual feature engineering by making no explicit assumptions on data and therefore being more flexible when compared to traditional techniques such as ARIMA and Exponential Smoothing.
 	
-	All recent successful models are based on Recurrent Neural Networks (RNN) \cite{RNN, RNNForecasting}, which demonstrated state-of-the-art performance in various applications handling sequential data like text, audio, and video where some kind of state must be kept while processing. RNNs can be combination of recurrent units like Long Short-Term Memory (LSTM) and Gated Recurrent Unit (GRU) (see Figure \ref{fig:lstmgru}). 
+	All recent successful models are based on Recurrent Neural Networks (RNN) \cite{RNN, RNNForecasting}, which demonstrated state-of-the-art performance in various applications handling sequential data like text, audio, and video where some kind of state must be kept while processing. RNNs can be a combination of recurrent units like Long Short-Term Memory (LSTM) and Gated Recurrent Unit (GRU) (see Figure \ref{fig:lstmgru}). 
 	\begin{figure}
 		\includegraphics[width=\linewidth]{img/rnns.png}
 		\caption{Architecture of an Elman recurrent unit, LSTM, and GRU. The output at step $t-1$ influences the output at step $t$.}
 		\label{fig:lstmgru}
 	\end{figure}
 	By using recurrent edges connecting adjacent time steps (i.e. feedback loops), RNNs introduce the notion of time to the model: at time step $t$ the network receives the current input $\pmb{x}^{(t)}$ plus the previous network state $\pmb{h}^{(t-1)}$ producing a new context $\pmb{h}^{(t)}$ (often called hidden state) and eventually an output $\pmb{o}^{(t)}$.
-	The context acts as a memory of what the network has seen so far and influences the output, unlocking a stateful decision making.\\
+	The context acts as a memory of what the network has seen so far and influences the output, unlocking stateful decision-making.\\
 	However, the first recurrent unit (i.e. the Elman recurrent unit) suffered from the vanishing/exploding gradient problem \cite{VanishingGradient} which causes the inability of carrying long-term dependencies. To address this shortcoming, the Elman recurrent unit has been extended leading to improved variants such as LSTM and GRU.
 	
 	LSTM uses two components for its state: the hidden state and the internal state, containing short-term and long-term memory respectively. Furthermore, LSTM introduces a gating mechanism made of an input, forget, and output gate used to filter what should or should not be kept of the state in the next step (for example, to disable the output contribution to the LSTM state just set the output gate to zero). GRU is a simpler version of LSTM with fewer gates (update and reset) which allows faster computations and is less prone to overfitting due to the lower number of parameters.
@@ -455,8 +455,8 @@
 		\caption{RNN architectures. Red rectangles are input vectors, blue rectangles are output vectors, and green rectangles are recurrent units such as LSTM or GRU which share the same weights while their state evolves from left to right.}
 		\label{fig:rnn_architectures}
 	\end{figure}
-
-	To obtain such architectures a single LSTM can be used, in that case the green LSTM in Figure \ref{fig:rnn_architectures} is unfolded such that in the whole processing of the input the same weights are used, while the internal state of the LSTM evolves.	Nevertheless, multiple LSTMs can be stacked together such as in Figure \ref{fig:stacked_lstm} composing multiple layers and increasing the expressiveness of the network.
+	
+	To obtain such architectures a single LSTM can be used, in that case, the green LSTM in Figure \ref{fig:rnn_architectures} is unfolded such that in the whole processing of the input the same weights are used, while the internal state of the LSTM evolves.	Nevertheless, multiple LSTMs can be stacked together such as in Figure \ref{fig:stacked_lstm} composing multiple layers and increasing the expressiveness of the network.
 	\begin{figure}
 		\includegraphics[width=\linewidth]{img/stacked_lstm.png}
 		\caption{2-layers stacked LSTMs. }
@@ -470,37 +470,35 @@
 		\caption{Sequence to sequence model.}
 		\label{fig:seq2seq}
 	\end{figure}
-	 The encoder is used to extract features from known time series data in order to produce a context vector (e.g. the LSTM hidden state) that is given as input to the decoder to produce forecasts. Examples of models based on S2S are DeepAR \cite{DeepAR} and Multi-Horizon Quantile Recurrent Forecaster \cite{MQCNN}, explained later. By defining an encoder and a decoder, a model is allowed to see a limited amount of past values and can predict a fixed horizon, which means that any context and prediction length change requires re-training. 
-	 
-	 The decoder at time step $t+1$ can receive as input the prediction made at step $t$, but many forecasting problems have long periodicity (e.g. 365 days) and may suffer memory loss during forward propagation. To overcome the long-term dependency issue, \cite{NARX} proposed a recurrent unit which computes a hidden state $\pmb{h}^{(t)}$ not only based on previous state $\pmb{h}^{(t-1)}$ but also a specific set of other past states (e.g. $(\pmb{h}^{(t-2)}), ..., \pmb{h}^{(t-D)})$) facilitating the ability of keeping long dependencies. This technique is called skip-connection. However, the naive alternative adopted by \cite{DeepAR, MQCNN} obtains the same effect by directly feeding past time series values $(y_{t-1}, ..., y_{t-D})$ as feature inputs to the decoder.
+	The encoder is used to extract features from known time series data in order to produce a context vector (e.g. the LSTM hidden state) that is given as input to the decoder to produce forecasts. Examples of models based on S2S are DeepAR \cite{DeepAR} and Multi-Horizon Quantile Recurrent Forecaster \cite{MQCNN}, explained later. By defining an encoder and a decoder, a model is allowed to see a limited amount of past values and can predict a fixed horizon, which means that any context and prediction length change requires re-training. 
 	
-	In general, the idea of feeding both time-dependent and time-independent features as input (often called exogenous variables), along with the time series data points, has proven to be successful: when dealing with huge datasets, assigning time-independent (or static) features such as the category of the time series (e.g. ``clothing'' in the context of shopping) allows the model to learn both global and category-specific patterns, while time-dependent (or dynamic) features like day of week, holidays, and relevant events allow the model to learn and distinguish seasonality patterns from one-shot events like anomalies, reducing the risk of overfitting. However, such dynamic features must be known beforehand when computing forecasts, and in some contexts they can be used to make conditional forecasts, e.g. ``\textit{How many units of product X will I sell if I set the price to Z?}''.
+	The decoder at time step $t+1$ can receive as input the prediction made at step $t$, but many forecasting problems have long periodicity (e.g. 365 days) and may suffer memory loss during forward propagation. To overcome the long-term dependency issue, \cite{NARX} proposed a recurrent unit which computes a hidden state $\pmb{h}^{(t)}$ not only based on previous state $\pmb{h}^{(t-1)}$ but also a specific set of other past states (e.g. $(\pmb{h}^{(t-2)}), ..., \pmb{h}^{(t-D)})$) facilitating the ability to keep long dependencies. This technique is called skip-connection. However, the naive alternative adopted by \cite{DeepAR, MQCNN} obtains the same effect by directly feeding past time series values $(y_{t-1}, ..., y_{t-D})$ as feature inputs to the decoder.
 	
-	The usage of such combination of features facilitates the learning of a global model exploiting information from many time series simultaneously. For NNs this means that weights are learned globally, but the state is maintained for each time series. Furthermore, the global model can be used to forecast time series that have never been seen during training and lack of data, as the model can still use patterns learned from the training set.
+	In general, the idea of feeding both time-dependent and time-independent features as input (often called exogenous variables), along with the time series data points, has proven to be successful: when dealing with huge datasets, assigning time-independent (or static) features such as the category of the time series (e.g. ``clothing'' in the context of shopping) allows the model to learn both global and category-specific patterns, while time-dependent (or dynamic) features like the day of the week, holidays, and relevant events allow the model to learn and distinguish seasonality patterns from one-shot events like anomalies, reducing the risk of overfitting. However, such dynamic features must be known beforehand when computing forecasts, and in some contexts, they can be used to make conditional forecasts, e.g. ``\textit{How many units of product X will I sell if I set the price to Z?}''.
 	
-	
+	The usage of such a combination of features facilitates the learning of a global model exploiting information from many time series simultaneously. For NNs this means that weights are learned globally, but the state is maintained for each time series. Furthermore, the global model can be used to forecast time series that have never been seen during training and lack of data, as the model can still use patterns learned from the training set.
 	
 	
 	% TODO introduction about RNNs - characteristics e.g. of LSTM - see https://arxiv.org/pdf/1705.04378.pdf , background of https://arxiv.org/pdf/1703.04691.pdf
 	\subsubsection{DeepAR } \label{sssec:deepar}
 	DeepAR \cite{DeepAR} is a discriminative model capable of probabilistic forecasts in the form of Monte Carlo samples, it is based on Sequence to Sequence (S2S) \cite{seq2seq} and learns a global model from multiple time series.\\
-	Alongside with a model, DeepAR proposes a solution to the issue of dealing with time series having very different magnitudes, which are known to ruin the learning of an effective global model reducing the effectiveness of normalization techniques on some datasets \cite{DeepAR}.
+	Alongside a model, DeepAR proposes a solution to the issue of dealing with time series having very different magnitudes, which are known to ruin the learning of an effective global model reducing the effectiveness of normalization techniques on some datasets \cite{DeepAR}.
 	
 	DeepAR goal is to model the conditional distribution:\\\\
 	\centerline{
-	$
-	P(\pmb{z}_{i, t_0:T} | \pmb{z}_{i, 1:t_0-1}, \pmb{x}_{i, 1:T})
-	$
+		$
+		P(\pmb{z}_{i, t_0:T} | \pmb{z}_{i, 1:t_0-1}, \pmb{x}_{i, 1:T})
+		$
 	}\\\\
 	where $\pmb{z}_{i, t_0:T} = [z_{i,t_0}, z_{i, t_0+1}, ..., z_{i, T}]$ is the future (or prediction range), $\pmb{z}_{i, 1:t_0-1}$ is the past (or conditioning range), and $\pmb{x}_{i, 1:T}$ are covariates that must be known for all time points.
 	
 	DeepAR assumes that its distribution $Q_{\Theta}(\pmb{z}_{i, t_0:T} | \pmb{z}_{i, 1:t_0-1}, \pmb{x}_{i, 1:T})$ consists of a product of likelihood factors:\\\\
 	\centerline{
-	$
-	Q_{\Theta}(\pmb{z}_{i, t_0:T} | \pmb{z}_{i, 1:t_0-1}, \pmb{x}_{i, 1:T}) 
-	= \prod_{t=t_0}^{T} Q_{\Theta}(z_{i, t} | \pmb{z}_{i, 1:t-1}, \pmb{x}_{i, 1:T})
-	= \prod_{t=t_0}^{T} \textit{l}(z_{i,t} | \theta(\pmb{h}_{i,t}, \Theta))
-	$
+		$
+		Q_{\Theta}(\pmb{z}_{i, t_0:T} | \pmb{z}_{i, 1:t_0-1}, \pmb{x}_{i, 1:T}) 
+		= \prod_{t=t_0}^{T} Q_{\Theta}(z_{i, t} | \pmb{z}_{i, 1:t-1}, \pmb{x}_{i, 1:T})
+		= \prod_{t=t_0}^{T} \textit{l}(z_{i,t} | \theta(\pmb{h}_{i,t}, \Theta))
+		$
 	}\\\\
 	which is parameterized by the output $\pmb{h}_{i,t}$ of an autoregressive RNN
 	\begin{equation} \label{eq:autoregressive_rnn}
@@ -519,40 +517,40 @@
 	The likelihood $l(z | \theta)$ determines the noise model and should match the statistical properties of the data: a Gaussian likelihood can be used for real-valued data, a beta likelihood for data in the unit interval, and a negative-binomial likelihood for positive count data. For example, the Gaussian likelihood is parameterized using its mean and standard deviation, i.e. $\theta = (\mu, \sigma)$ where $\mu$ is obtained with an affine function of the network output $\pmb{h}_{i,t}$ and the standard deviation is obtained by applying an affine transformation followed by a softplus activation to ensure $\sigma > 0$.
 	Therefore, each likelihood with parameters $\theta$ requires a mapping from the decoder state $\pmb{h}_{i,t}$ to $\theta$ whose parameters are learned by the network.
 	
-		Without any modification, in order to handle different scales the network should learn to scale the input to an appropriate range and then invert the scaling. As the network has a limited operating range and some datasets exhibit a power-law of scales (such as the Amazon dataset of \cite{DeepAR}), this issue was addressed by scaling the input values (e.g. $\tilde{z}_{i, t}$ and $z_{i,t}$) using an item-dependent factor $\nu_i$. Then, before drawing samples from the distribution, the output of the network (e.g. the mean $\mu$ of the Gaussian) is multiplied by the scale. The scaling factor $\nu$ is set to be the average value of the time series: $\nu_i = 1 + \frac{1}{t_0} \sum_{t=1}^{t_0} z_{i,t}$. Finally, rather than training the network choosing random time series from the dataset, the probability of choosing a time series is proportional to its scale factor $\nu_i$: by non-uniformly sampling during training, imbalanced datasets with fewer large scale time series are used more effectively.
-		
+	Without any modification, in order to handle different scales, the network should learn to scale the input to an appropriate range and then invert the scaling. As the network has a limited operating range and some datasets exhibit a power-law of scales (such as the Amazon dataset of \cite{DeepAR}), this issue was addressed by scaling the input values (e.g. $\tilde{z}_{i, t}$ and $z_{i,t}$) using an item-dependent factor $\nu_i$. Then, before drawing samples from the distribution, the output of the network (e.g. the mean $\mu$ of the Gaussian) is multiplied by the scale. The scaling factor $\nu$ is set to be the average value of the time series: $\nu_i = 1 + \frac{1}{t_0} \sum_{t=1}^{t_0} z_{i,t}$. Finally, rather than training the network choosing random time series from the dataset, the probability of choosing a time series is proportional to its scale factor $\nu_i$: by non-uniformly sampling during training, imbalanced datasets with fewer large scale time series are used more effectively.
+	
 	
 	\subsubsection{DeepState } \label{sssec:deepstate}
 	DeepState \cite{DeepState} is a generative model that combines state space models \cite{ExponentialSmoothingStateSpace} with deep learning. The idea is to use a latent state $\pmb{l}_t \in \mathbb{R}^D$ to encode time series components such as level, trend, and seasonality patterns, and parameterize the linear state space model (SSM) by using a recurrent neural network (RNN) whose weights are learned jointly from multiple time series and covariates. \\
-	The main advantage of SSM is that the model is easily interpretable, but when used with traditional models such as ARIMA and Exponential Smoothing it results in an univariate model that still requires a lot of human work that cannot be easily recycled for other time series.
-	DeepState solves this issue by using neural networks to learn a global model from multiple time series without making strong assumptions and reducing the human effort, and solving the common interpretability issue of neural networks by fusing them with SSMs.
+	The main advantage of SSM is that the model is easily interpretable, but when used with traditional models such as ARIMA and Exponential Smoothing it results in a univariate model that still requires a lot of human work that cannot be easily recycled for other time series.
+	DeepState solves this issue by using neural networks to learn a global model from multiple time series without making strong assumptions reducing the human effort, and solving the common interpretability issue of neural networks by fusing them with SSMs.
 	
 	The goal of DeepState is to produce probabilistic forecasts for each time series $i=1,...,N$ given the past:\\\\
 	\centerline{
-	$
-	p(\pmb{z}_{i, T_i+1:T_i+\tau}| \pmb{z}_{i, 1:T_i}, \pmb{x}_{i, 1:T_i+\tau}; \Phi)
-	$
+		$
+		p(\pmb{z}_{i, T_i+1:T_i+\tau}| \pmb{z}_{i, 1:T_i}, \pmb{x}_{i, 1:T_i+\tau}; \Phi)
+		$
 	}\\\\
 	where $\pmb{z}_{i, T_i+1:T_i+\tau}$ are the $\tau$ future values, $ \pmb{z}_{i, 1:T_i}$ are the known past values, $\pmb{x}_{i, 1:T_i+\tau}$ are the covariates that must be known beforehand for $t=1,...,T$, and $\Phi$ is the set of learnable parameters of the model (i.e. the RNN).\\
 	DeepState makes the assumption that time series are independent of each other when conditioned on the associated covariates $\pmb{x}_{i, 1:T}$. Nevertheless, the model is still able to learn and share patterns across time series as $\Phi$ is shared (and learned) between all of them.
 	
 	SSMs use a latent state $\pmb{l}_t \in \mathbb{R}^L$ encoding time series components (level, trend, seasonality) that evolves over time with linear transitions at each time step $t$:\\\\
 	\centerline{
-	$
-	\pmb{l}_t = F_t \pmb{l}_{t-1} + \pmb{g }_t \epsilon_t, \;\; \epsilon_t \sim \mathcal{N}(0,1)
-	$
+		$
+		\pmb{l}_t = F_t \pmb{l}_{t-1} + \pmb{g }_t \epsilon_t, \;\; \epsilon_t \sim \mathcal{N}(0,1)
+		$
 	}\\\\
 	where $F_t$ is the transition matrix and $\pmb{g }_t \epsilon_t$ is a random innovation component. The latent state can be inspected to check and potentially change the encoded trend and seasonality, and is also used to obtain predictions. For example, considering a linear Gaussian observation model:
 	\begin{equation} \label{eq:deepstate}
-			z_t = y_t + \sigma_t \epsilon_t, \;\; y_t = \pmb{a}_t^T \pmb{l}_{t-1} + b_t, \;\; \epsilon_t \sim \mathcal{N}(0,1)
+		z_t = y_t + \sigma_t \epsilon_t, \;\; y_t = \pmb{a}_t^T \pmb{l}_{t-1} + b_t, \;\; \epsilon_t \sim \mathcal{N}(0,1)
 	\end{equation}
 	with the initial state $\pmb{l}_0 \sim \mathcal{N}(\pmb{\mu}_0, \text{diag}(\pmb{\sigma}_0^2))$, $\pmb{a}_t \in \mathbb{R}^L$, $\sigma_t \in \mathbb{R}_{>0}$, and $b_t \in \mathbb{R}$ varying over time. \\
 	Therefore, the state space model of \textit{one} time series is fully described by $\Theta_t = (\pmb{\mu}_0, \pmb{\sigma}_0, \pmb{F}_t, \pmb{g}_ t, \pmb{a}_t, b_t, \sigma_t), \; \forall t > 0$, differing from the classical settings where $\Theta$ doesn't change with time.\\
 	To obtain $\Theta_{i,t}$ for the time series $i$, the DeepState model learns a mapping $\Psi$ from the covariates $\pmb{x}_{i, 1:T_i}$ to the parameters $\Theta_{i, t}$:\\\\
 	\centerline{
-	$
-	\Theta_{i,t} = \Psi(\pmb{x}_{i, 1:T}, \theta)
-	$
+		$
+		\Theta_{i,t} = \Psi(\pmb{x}_{i, 1:T}, \theta)
+		$
 	}\\\\
 	that is parameterized from a set of parameters $\theta$ learned jointly from the entire dataset of time series. \\
 	More precisely, the mapping $\Psi$ is implemented by the RNN shown in Figure \ref{fig:deepstate} having a stacked architecture of LSTM cells. Its parameters $\theta$ are learned by maximizing the likelihood during training.
@@ -561,13 +559,13 @@
 		\caption{DeepState network.}
 		\label{fig:deepstate}
 	\end{figure}
-
+	
 	Finally, once the mapping is learned and given $\pmb{x}_{i, 1:T_i}$, the data $\pmb{z}_{i,1:T_i}$ is distributed according to the marginal likelihood:\\\\
 	\centerline{
-	$
-	p(\pmb{z}_{i, 1:T_i} | \pmb{x}_{i, 1:T_i}, \theta)
-	= p_{SS}(\pmb{z}_{i, 1:T_i} | \Theta_{i,1:T_i})
-	$
+		$
+		p(\pmb{z}_{i, 1:T_i} | \pmb{x}_{i, 1:T_i}, \theta)
+		= p_{SS}(\pmb{z}_{i, 1:T_i} | \Theta_{i,1:T_i})
+		$
 	}\\\\
 	\centerline{
 		$
@@ -586,23 +584,23 @@
 		\caption{DeepState forecast illustration.}
 		\label{fig:deepstate2}
 	\end{figure}
-
+	
 	\subsubsection{Multi Quantile Recurrent Forecaster } \label{sssec:mqcnn}
 	Multi Quantile Recurrent Forecaster (MQCNN) \cite{MQCNN} is a Sequence-to-Sequence RNN-based model capable of producing multi-horizon quantile forecasts.\\
-	\cite{MQCNN} proposes a forking-sequences approach that improves the training stability and performance of encoder-decoder architectures by efficiently training on all time points where a forecast could be created. Furthermore, the model can be used with different encoders, but the best results were achieved using a CNN-based encoder.
+	\cite{MQCNN} proposes a forking-sequences approach that improves the training stability and performance of encoder-decoder architectures by efficiently training on all-time points where a forecast could be created. Furthermore, the model can be used with different encoders, but the best results were achieved using a CNN-based encoder.
 	
 	To train a quantile regression model for a quantile $q \in [0, 1]$ the loss of a single forecasted value is given by:\\\\
 	\centerline{
-	$
-	L_q(y, \hat{y}) = q \max(0, y-\hat{y}) + (1-q) \max(0, \hat{y} - y)
-	$
+		$
+		L_q(y, \hat{y}) = q \max(0, y-\hat{y}) + (1-q) \max(0, \hat{y} - y)
+		$
 	}\\\\
 	where by setting $q=0.5$ the model will be trained to simply predict the median. Note that by predicting quantiles the model is robust since it doesn't make distributional assumptions (e.g. like DeepAr \cite{DeepAR}). \\
 	Eventually, more quantiles can be considered such that the total loss is given by:\\\\
 	\centerline{
-	$
-	\sum_{t\in T} \sum_{q\in Q} \sum_{k=1}^K L_q(y_{t+k}, \hat{y}_{t+k}^{(q)})
-	$
+		$
+		\sum_{t\in T} \sum_{q\in Q} \sum_{k=1}^K L_q(y_{t+k}, \hat{y}_{t+k}^{(q)})
+		$
 	}\\\\
 	where $T$ contains the forecast creation times, $Q$ the quantiles, and $K$ is the size of the horizon to forecast. Furthermore, different quantiles can be associated with different weights, which could be useful for tasks with an asymmetric cost for over and under-predicting.
 	
@@ -614,16 +612,16 @@
 	\end{figure}
 	The encoder is fed with the time series history producing hidden states $h_t$,  then a global neural network summarizes the encoder output into an horizon-agnostic context $c_a$ plus a horizon-specific context $c_{t+k}$ for $k=1,...,K$ using the hidden state $h_t$ and the future covariates $x_{t+1:t+K}$:\\\\
 	\centerline{
-	$
-	(c_{t+1, ..., c_{t+K}, c_a}) = m_G(h_t, x_{t+1:t+K})
-	$
+		$
+		(c_{t+1, ..., c_{t+K}, c_a}) = m_G(h_t, x_{t+1:t+K})
+		$
 	}\\\\
-	where each context $c_i$ can have arbitrary dimension. The idea behind this choice is that $c_a$ should capture relevant information that is not time-sensitive, while $c_{t+k}$ carries awareness of the temporal distance between the forecast creation time $t$ and the specific horizon.\\ 
+	where each context $c_i$ can have an arbitrary dimension. The idea behind this choice is that $c_a$ should capture relevant information that is not time-sensitive, while $c_{t+k}$ carries awareness of the temporal distance between the forecast creation time $t$ and the specific horizon.\\ 
 	Then, these contexts are used by a local neural network to compute the quantiles of a specific horizon $t+k$ for each $k=1,...,K$ using the horizon-agnostic context and the horizon-specific context, plus the associated covariates:\\\\
 	\centerline{
-	$
-	(\hat{y}_{t+k}^{(q_1)}), ..., \hat{y}_{t+k}^{(q_Q)}) = m_L(c_{t+k}, c_a, x_{t+k})
-	$
+		$
+		(\hat{y}_{t+k}^{(q_1)}), ..., \hat{y}_{t+k}^{(q_Q)}) = m_L(c_{t+k}, c_a, x_{t+k})
+		$
 	}\\\\
 	The local neural network implementing $m_L$ has its parameters shared across all the horizons.
 	
@@ -640,28 +638,28 @@
 	
 	\subsection{Workload Forecasting } \label{ssec:workload_forecasting}
 	% ADD stuff about short term load forecasting (STLF) see https://arxiv.org/pdf/1705.04378.pdf
-	The ability of forecasting the workload of an IT system opens the possibility of proactively adapting the system according to the future demand and making smarter decisions, keeping the Quality of Service (QoS) high while reducing the infrastructure costs. This section lists some applications of workload forecasting and how it has been approached.\\
-	Recent years have seen companies moving from self-hosted to cloud-hosted  IT services, where a public provider is paid to lend on-demand computing power likewise utilities such as electricity, gas, and water. This paradigm, called cloud computing \cite{CloudComputing}, enabled the possibility of flexibly adapting the capacity of a system according to the demand, potentially heavily reducing the infrastructure costs.  Figure \ref{fig:cloud_vs_traditional_computing} highlights the difference of cloud computing with the traditional paradigm, where to avoid loosing customers the capacity of the system must be able to serve the highest peak of demand, causing an over-provisioning of resources when the demand is low.\\
+	The ability to forecast the workload of an IT system opens the possibility of proactively adapting the system according to the future demand and making smarter decisions, keeping the Quality of Service (QoS) high while reducing the infrastructure costs. This section lists some applications of workload forecasting and how it has been approached.\\
+	Recent years have seen companies moving from self-hosted to cloud-hosted  IT services, where a public provider is paid to lend on-demand computing power likewise utilities such as electricity, gas, and water. This paradigm, called cloud computing \cite{CloudComputing}, enabled the possibility of flexibly adapting the capacity of a system according to the demand, potentially heavily reducing the infrastructure costs.  Figure \ref{fig:cloud_vs_traditional_computing} highlights the difference of cloud computing with the traditional paradigm, where to avoid losing customers the capacity of the system must be able to serve the highest peak of demand, causing an over-provisioning of resources when the demand is low.\\
 	\begin{figure}
 		\includegraphics[width=\linewidth]{img/cloud_vs_traditional_computing.png}
 		\caption{Cloud vs traditional computing.}
 		\label{fig:cloud_vs_traditional_computing}
 	\end{figure}
-	A scalable system can acquire new resources in a matter of minutes, thus quickly reacting to changes in the demand. However, the demand a system is subject to can as quickly increase, making a reactive approach often inappropriate due to spikes in the demand that can cause disservices or even system crashes \cite{ArimaWorkloadPrediction}, leading to a loss of customers. In this context, a workload forecasting module that can make reliable forecasts about the upcoming workload allows to proactively adapt the system, reducing costs while providing high QoS. Such module must predict the workload by modeling time series with sub-hourly frequencies, representing metrics such as CPU usage and number of incoming requests.\\
-	To do so, \cite{ArimaWorkloadPrediction} used ARIMA to predict the number of end-users' future requests to meet the QoS targets while reducing the resources utilization, focusing on specific request patterns that exhibit seasonal behavior. \cite{ArmaAutoscaling} used ARMA models to predict the upcoming workload and proactively autoscale the IT system under study, focusing on a small number of machines and leaving the exploration of the feasibility of their solution with modern workloads and large number of resources for future work.
+	A scalable system can acquire new resources in a matter of minutes, thus quickly reacting to changes in the demand. However, the demand a system is subject to can as quickly increase, making a reactive approach often inappropriate due to spikes in the demand that can cause disservices or even system crashes \cite{ArimaWorkloadPrediction}, leading to a loss of customers. In this context, a workload forecasting module that can make reliable forecasts about the upcoming workload allows to proactively adapt the system, reducing costs while providing high QoS. Such a module must predict the workload by modeling time series with sub-hourly frequencies, representing metrics such as CPU usage and the number of incoming requests.\\
+	To do so, \cite{ArimaWorkloadPrediction} used ARIMA to predict the number of end users' future requests to meet the QoS targets while reducing the resources utilization, focusing on specific request patterns that exhibit seasonal behavior. \cite{ArmaAutoscaling} used ARMA models to predict the upcoming workload and proactively autoscale the IT system under study, focusing on a small number of machines and leaving the exploration of the feasibility of their solution with modern workloads and a large number of resources for future work.
 	In order to deal with huge numbers of machines, with the goal of efficiently provision computing resources in the cloud, \cite{WorkloadCharacterizationAndPrediction} adopted the approach of first grouping machines with high correlation and then making predictions about individual machine's workload based on the groups found on the previous step using Hidden Markov Model. 
 	\cite{LSTMLargeScaleWorkloadForecasting} proposes the usage of LSTM-based neural networks to forecast the workload in large-scale computing centers, highlighting that training models on one-dimensional time series doesn't capture useful similarities across multiple time series. 
 	
 	Another task that makes use of workload forecasting is job scheduling. In the context of cloud service providers, running database backups while there are peaks of customer activity results in inevitable competition for resources and poor QoS. \cite{Seagull} proposed an automated solution to schedule backups during intervals of minimum activity comparing the forecasting models proposed by \cite{MicrosoftSSA, GluonTS, FacebookProphet} in terms of accuracy and scalability. Interestingly, they discarded the ARIMA model due to its long execution time. Furthermore, by analyzing the typical customer activity patterns on PostgreSQL and MySQL servers, \cite{Seagull} discovered that the majority of the activity can be classified either as stable or as a daily or weekly pattern: less than 1\% of the servers didn't follow either a daily or weekly pattern.
 	
-	The application of novel forecasting techniques such as the ones based on neural network has still to be explored. Nevertheless, the flexibility of such models, especially when compared to ARIMA and Exponential Smoothing, is promising: potentially dealing with huge numbers of time series with minimum effort, while keeping the forecasting accuracy high, would make workload forecasting much more accessible to many companies, leading to better services and lower costs.
+	The application of novel forecasting techniques such as the ones based on a neural network has still to be explored. Nevertheless, the flexibility of such models, especially when compared to ARIMA and Exponential Smoothing, is promising: potentially dealing with huge numbers of time series with minimum effort, while keeping the forecasting accuracy high, would make workload forecasting much more accessible to many companies, leading to better services and lower costs.
 	
 	\section{Proposed solution and approach } \label{sec:proposed_solution}
 	At the time of writing, \cite{AkamasCGP} optimizes IT systems on a staging environment (a replica of the real system) using artificial workloads that have no impact on the user experience. The goal of this work is to extend the underlying tuner so it can be applied to the actual IT system running under the real workload, with the advantages of reducing the effort explained in Section \ref{ssec:workload_characterization} and obtaining performance measurements directly from the ``real'' system. To do so, as detailed in Section \ref{ssec:contextual_bayesian_optimization}, we need a workload characterization and a workload forecasting module.
 	
-	The main challenge when tuning a system while it is serving its clients is to keep QoS levels high, and at the same time quickly finding good configurations for the system. Furthermore, we want the tuning system to be easy to configure and apply in order to require the minimum amount of human work. Therefore, the requirements for the solution are to be autonomous and reliable.
+	The main challenge when tuning a system while it is serving its clients is to keep QoS levels high and at the same time quickly find good configurations for the system. Furthermore, we want the tuning system to be easy to configure and apply in order to require the minimum amount of human work. Therefore, the requirements for the solution are to be autonomous and reliable.
 	
-	The autonomous requirement translates to the need of a workload forecasting module that can train good models without having to inspect the time series composing the workload, and possibly without having to inject domain knowledge about the system being optimized. The reliability requirement requires the models to be as accurate as possible. Furthermore, as the solution is running in real-time, it must be possible to train the forecasting models in a decent amount of time in order to incorporate new data, and the prediction queries must be satisfied in a matter of seconds.
+	The autonomous requirement translates to the need for a workload forecasting module that can train good models without having to inspect the time series composing the workload, and possibly without having to inject domain knowledge about the system being optimized. The reliability requirement requires the models to be as accurate as possible. Furthermore, as the solution is running in real-time, it must be possible to train the forecasting models in a decent amount of time in order to incorporate new data, and the prediction queries must be satisfied in a matter of seconds.
 	
 	As stated in Section \ref{ssec:contextual_bayesian_optimization}, we are interested in finding short time windows during which the workload will be stable, along with the average values the workload time series will assume. \\
 	Formally, given the forecast $\tilde{Y}_{t_1:t_2} = (\tilde{\pmb{y}}_{t_1:t_2}^1, ..., \tilde{\pmb{y}}_{t_1:t_2}^n)$ at time $t$, where $\tilde{\pmb{y}}_{t_1:t_2}^i, \; i\in [1, n]$ is the forecast of the $i$-th time series composing the workload, we want to know if the window $\omega_{t_1:t_2}$ assuming values $\tilde{Y}_{t_1:t_2}$, starting at time $t_1 \geq t$ and ending at time $t_2 > t_1$ is stable: 
@@ -674,6 +672,7 @@
 	where $s_\Theta$ is a function with hyper-parameters $\Theta$ that marks whether a forecasted window is stable or not, given the historical values $Y_{t_0:t_1}$. The forecast $\tilde{Y}_{t_1:t_2}$ is also used by the tuner to suggest a workload-tailored configuration.
 	To obtain such forecast, the forecasting module explained in Section \ref{ssec:forecasting_module} was developed, while the component developed to implement the function $s_\Theta$ is detailed in Section \ref{ssec:stable_window_finder}. Finally, the workload characterization module is presented in Section \ref{ssec:workload_characterization_module}. \\
 	The interaction of such components is depicted in Figure \ref{fig:modules_interaction}.
+	
 	\begin{figure}[!hb] \centering
 		\includegraphics[width=\linewidth]{img/modules_interaction.png}
 		\caption{Solution architecture: the Tuner repeatedly reads the workload from the IT System and sends it to the Forecasting Module. When ready, the Tuner asks the Forecasting Module to predict the upcoming workload. Then, it uses the Stability Module to check whether the predicted workload is stable or not, eventually applying a new configuration to the IT System. }
@@ -685,29 +684,29 @@
 	The tuner must optimize directly the production system in real-time, with the help of the previously mentioned forecasting and stability modules that allow the tuner to suggest workload-tailored configurations when the workload is predicted to be stable.
 	To do so, before starting the tuning process, made of iterations (or experiments) where a new configuration is repeatedly applied and evaluated, we must collect enough workload data in order to train the forecasting models and gather knowledge about the workload (see Section \ref{ssec:workload_characterization_module} for details).
 	As stated by \cite{Seagull}, a significant number of workloads follow a daily or a weekly seasonality. Therefore, we chose to dedicate at least one week to data collection.
-	 
-	 After the collection period has ended, the online tuning process of the IT system can start. The tuning process is made of experiments of duration up to $t_2 - t_1$, that is the length of the window $\omega_{t_1:t_2}$ on which a configuration is applied and its outcome is measured.  However, it can happen that an experiment gets invalidated due to an early stop condition such as the violation of constraint (see Section \ref{ssec:contextual_bayesian_optimization}).  
-	 
-	 After a forecast is made, the experiment develops and the true workload reveals itself. When comparing the predicted with the actual workload, two (bad) cases can occur: the predicted average workload is different from the true average workload, or the stability prediction is not correct (e.g. predicted stable but was unstable). The latter case is further detailed by the four sub-cases shown in Table \ref{table:stability_cases}. 	 
-     \begin{table*}
-	 	\ra{1.3}
-	 	\begin{tabular*}{\textwidth}{l l}
-	 		\toprule
-	 		\multicolumn{1}{c}{Case} & \multicolumn{1}{c}{Outcome}\\
-	 		\midrule
-	 		Predicted stable, revealed stable (TP) & Experiment chance taken\\
-	 		Predicted stable, revealed unstable (FP)& Experiment failed\\
-	 		Predicted unstable, revealed unstable (TN)& Experiment not available\\
-	 		Predicted unstable, revealed stable (FN)& Experiment chance lost\\
-	 		\bottomrule
-	 	\end{tabular*}
-	 	\caption{Window stability outcomes. TP, FP, TN, FN stands for True Positive, False Positive, True Negative, and False negative respectively.} \label{table:stability_cases}
-	 \end{table*}
-	 The most dangerous case occurs when we predict that the workload will be stable but actually it won't (i.e. false positive case): in such case, the tuner may suggest a configuration that leads to low QoS, ruining user experience. However, if we miss a stable window (i.e. false negative case) we just lengthened the tuning process, which may be acceptable depending on the context.
-	 In case of false positives we chose to discard the experiment as its evaluation requires us to measure the average performance of the configuration and an unstable workload may lead to unrealistic measurements (for example, a good configuration may be associated with a constraint violation caused by a quick spike in the workload).\\
-	 Similarly, we could face issues if the predicted and true windows are stable, but the actual average workload differs from the real average: the tuner would suggest a configuration tailored for a workload that is not the real one. In such cases, when adding the experiment to the knowledge of the tuner, we replace the average forecasted workload with the true average. By doing so, we may augment the knowledge base with a point that that was not suggested, i.e. that doesn't maximize the acquisition function (see Section \ref{ssec:bayesian_optimization}). However, by replacing the associated workload, the point can still provide useful information to the tuner.
-	 
-	 The flowchart of the tuning process is depicted in Figure \ref{fig:online_tuning_flowchart}. In summary, each experiment is made of the following steps: 
+	
+	After the collection period has ended, the online tuning process of the IT system can start. The tuning process is made of experiments of duration up to $t_2 - t_1$, that is the length of the window $\omega_{t_1:t_2}$ on which a configuration is applied and its outcome is measured.  However, it can happen that an experiment gets invalidated due to an early stop condition such as the violation of constraint (see Section \ref{ssec:contextual_bayesian_optimization}).  
+	
+	After a forecast is made, the experiment develops and the true workload reveals itself. When comparing the predicted with the actual workload, two (bad) cases can occur: the predicted average workload is different from the true average workload, or the stability prediction is not correct (e.g. predicted stable but was unstable). The latter case is further detailed by the four sub-cases shown in Table \ref{table:stability_cases}. 	 
+	\begin{table*}
+		\ra{1.3}
+		\begin{tabular*}{\textwidth}{l l}
+			\toprule
+			\multicolumn{1}{c}{Case} & \multicolumn{1}{c}{Outcome}\\
+			\midrule
+			Predicted stable, revealed stable (TP) & Experiment chance taken\\
+			Predicted stable, revealed unstable (FP)& Experiment failed\\
+			Predicted unstable, revealed unstable (TN)& Experiment not available\\
+			Predicted unstable, revealed stable (FN)& Experiment chance lost\\
+			\bottomrule
+		\end{tabular*}
+		\caption{Window stability outcomes. TP, FP, TN, FN stands for True Positive, False Positive, True Negative, and False negative respectively.} \label{table:stability_cases}
+	\end{table*}
+	The most dangerous case occurs when we predict that the workload will be stable but actually it won't (i.e. false positive case): in such case, the tuner may suggest a configuration that leads to low QoS, ruining user experience. However, if we miss a stable window (i.e. false negative case) we just lengthened the tuning process, which may be acceptable depending on the context.
+	In case of false positives, we chose to discard the experiment as its evaluation requires us to measure the average performance of the configuration and an unstable workload may lead to unrealistic measurements (for example, a good configuration may be associated with a constraint violation caused by a quick spike in the workload).\\
+	Similarly, we could face issues if the predicted and true windows are stable, but the actual average workload differs from the real average: the tuner would suggest a configuration tailored for a workload that is not the real one. In such cases, when adding the experiment to the knowledge of the tuner, we replace the average forecasted workload with the true average. By doing so, we may augment the knowledge base with a point that that was not suggested, i.e. that doesn't maximize the acquisition function (see Section \ref{ssec:bayesian_optimization}). However, by replacing the associated workload, the point can still provide useful information to the tuner.
+	
+	The flowchart of the tuning process is depicted in Figure \ref{fig:online_tuning_flowchart}. In summary, each experiment is made of the following steps: 
 	\begin{enumerate}
 		\item Forecast the upcoming workload $\tilde{Y}_{t_1:t_2}$.
 		\item Apply $s_\Theta(\tilde{Y}_{t_1:t_2}, Y_{t_0:t_1})$ to find whether the upcoming workload $\tilde{Y}_{t_1:t_2}$ is stable.
@@ -716,9 +715,9 @@
 		\item Apply the configuration $x$ and monitor the state of the system.
 		\item While $t \in (t_1, t_2)$, check if any constraint violation occurred. If a violation occurred, check if it happened under an unstable workload by applying $s_\Theta(\tilde{Y}_{t:t_2}, Y_{t_0:t})$. If the workload was stable, add the violation caused by the configuration to the knowledge base, otherwise discard the experiment. Go back to step 1.
 		\item When $t=t_2$, check if the workload was actually stable applying\\ $s_\Theta(Y_{t_1:t_2}, Y_{t_0:t_1})$.  If it was stable: add the configuration-outcome pair to the knowledge base, otherwise discard it.\\
-				  Then, repeat from step 1.
+		Then, repeat from step 1.
 	\end{enumerate}
-
+	
 	\begin{figure} \centering
 		\includegraphics[width=\linewidth]{img/online_tuning_flowchart.png}
 		\caption{Tuning flowchart.}
@@ -729,39 +728,39 @@
 	
 	Before the tuner is queried for a new configuration, the workload characterization module groups the knowledge base by workload type (which are automatically detected) so that the performance of the system is normalized according to the related workload type (see Section \ref{ssec:contextual_bayesian_optimization} and \ref{ssec:workload_characterization_module} for more details).
 	
-	The reason for discarding violations that occur when the workload is unstable is that such violations may be caused by a difference between the predicted workload, that is used by the tuner to suggest a configuration, and the real workload, that may not coexist with that suggested configuration (e.g. an abnormal spike in the workload). In these cases we drop the experiment and start a new one. 
+	The reason for discarding violations that occur when the workload is unstable is that such violations may be caused by a difference between the predicted workload, that is used by the tuner to suggest a configuration, and the real workload, that may not coexist with that suggested configuration (e.g. an abnormal spike in the workload). In these cases, we drop the experiment and start a new one. 
 	Furthermore, when a violation occurs, we quickly resort to the vendor (or baseline) configuration. An alternative approach could use the best configuration found so far for the current workload type.
 	
 	Finally, when an experiment completes (i.e. at step 7) we store the evaluated point in the knowledge base using the true average workload rather than the predicted one.
 	
 	It is important to note that both the forecasting and workload characterization modules are working together with a tuner that repeatedly applies new configurations to the system, and each new configuration will likely have an impact on some properties of the system being optimized, such as CPU and memory usage. If the workload being characterized and forecasted includes these properties, the forecasting models will face issues modeling time series with unpredictable changes caused by configuration changes, and the workload characterization module will not be able to objectively characterize workloads. Therefore, such system properties must not be part of the workload. In general, we characterize the workload using metrics that are not affected by a configuration unless it has catastrophic consequences on the system (e.g. a service no longer available). For example, the number of users connected to the system and the read/write ratio satisfy that constraint, where the former gives an idea of the amount of work requested to the system, while the latter suggests the type of such work.
-
+	
 	After $N$ iterations, the tuner will eventually converge to a good configuration for each type of workload. At that point, we can stop the tuner and use only the forecasting module to proactively apply such configurations.
 	
 	Finally, note that the data collection time is exploited only by the forecasting module to train its models with a decent amount of history: the BO tuner doesn't make use of such time and it is therefore (busy) waiting until the end of the week. As a consequence, the first configuration suggestion will resort to the BO prior, which will likely lead to bad QoS levels. We could boost the suggestion of the first configurations by sampling the performance of the baseline configuration during the data collection period in order to initialize the knowledge base. However, by doing so the size of the knowledge base would quickly grow, slowing the actual tuning process (the complexity of GP fitting is $O(n^3)$). Therefore, such improvement requires us to summarize the knowledge base to reduce its size and is left as future work.
-
+	
 	\subsection{Forecasting Module} \label{ssec:forecasting_module}
-	As noted in Section \ref{sec:forecasting}, different models may achieve different results for the same time series, depending on its properties (e.g. patterns, trends, cycles) and the available amount of data. Therefore, the forecasting module was developed such that it can wrap a different prediction model for each time series composing the workload.
+	As noted in Section \ref{sec:forecasting}, different models may achieve different results for the same time series, depending on their properties (e.g. patterns, trends, cycles) and the available amount of data. Therefore, the forecasting module was developed such that it can wrap a different prediction model for each time series composing the workload.
 	The models that have been included in the module are Prophet (Section \ref{sssec:prohet}), DeepAR (Section \ref{sssec:deepar}), DeepState (Section \ref{sssec:deepstate}), and MQCNN (Section \ref{sssec:mqcnn}), plus two naive models that repeat the value of the previous day and the previous week. Besides Prophet and the naive models, the remaining can be used as multivariate models. The module uses a well-defined model interface so that it is easy to integrate new models.\\
-	Prophet is intended to be used when there is a small amount of data or when time series exhibit clear and strong seasonality pattern, while deep learning models should be used when more data is available.\\
-	If a time series exhibit a very strong daily or weekly pattern we can resort to the naive models, which are much lighter. In order to favor such lighter models we could penalize complexity, for example by using the Akaike information criterion. \\
+	Prophet is intended to be used when there is a small amount of data or when time series exhibit clear and strong seasonality patterns, while deep learning models should be used when more data is available.\\
+	If a time series exhibit a very strong daily or weekly pattern we can resort to the naive models, which are much lighter. In order to favor such lighter models, we could penalize complexity, for example by using the Akaike information criterion. \\
 	Note that once the Prophet model is fitted it makes the same predictions independently from new data. On the other side, the deep learning models use the latest data each time a prediction is requested, allowing them to react to time series changes without re-fitting. However, the time required to fit a Prophet model is much less when compared to any neural network-based model in general.
 	
 	The usage of the module is quite simple: as time advances, it will be called to add new data with a given frequency, eventually re-fitting the models to include new information. Meanwhile, the module can be called at any time to predict the upcoming workload. 
 	
 	In order to be configured, the \textit{Forecaster} class accepts a JSON-formatted text that associates each time series with a model, as shown in figure \ref{fig:forecaster_cfg.png}.
-	\begin{figure}[!b]
+	\begin{figure}[!b]\centering
 		\includegraphics[width=4in]{img/forecaster_cfg.png}
 		\caption{Forecasting Module JSON configuration. The \textit{group} property was used to build a DeepAR multivariate model on the time series \textit{n\_requests1} and \textit{n\_requests2}. The \textit{params} property takes any model-specific parameter.}
 		\label{fig:forecaster_cfg.png}
 	\end{figure}
 	Finally, the \textit{Forecaster} class provides utility methods to evaluate the accuracy of the predictions so that different models can be evaluated and the best one selected (see Section \ref{ssec:exp_workload_forecasting}).
 	
-	The implementation of DeepAR, DeepState, and MQCNN uses GluonTS \cite{GluonTS}, with a few modifications. All these models use static and dynamic features, that are used both during training and forecasting. Static features allow the deep learning models to learn time series-specific behaviors when training on multiple time series. Therefore, the forecasting module adds a category to each time series when training a multivariate model, so that when forecasting the model can use the patterns learned from a particular time series. Dynamic features contain information that changes over time and must be known beforehand when requesting a forecast. An example of dynamic features are time features such as the day of the week or the hour of the day, that the model can use to incorporate time-related behaviors such as working hours.
+	The implementation of DeepAR, DeepState, and MQCNN uses GluonTS \cite{GluonTS}, with a few modifications. All these models use static and dynamic features, that are used both during training and forecasting. Static features allow the deep learning models to learn time series-specific behaviors when training on multiple time series. Therefore, the forecasting module adds a category to each time series when training a multivariate model, so that when forecasting the model can use the patterns learned from a particular time series. Dynamic features contain information that changes over time and must be known beforehand when requesting a forecast. Examples of dynamic features are time features such as the day of the week or the hour of the day, that the model can use to incorporate time-related behaviors such as working hours.
 	
-	RNN-based forecasting models unroll a specific amount of past values to make predictions. The amount of data should be limited to avoid making the neural network too expensive to train and compute forecasts, with the consequence that the network may not have the opportunity of incorporating long-term dependencies. This is especially true for time series with an interval of a few minutes: feeding and training a network with the last week of data would require to unroll the RNN up to ten thousand times (see Section \ref{sec:forecasting}). Since this is not feasible, in order to overcome such issue DeepAR is fed with lag features, that are the values assumed by the time series at some points in time before computing the forecasts (e.g. one week before and one month before). These lag features have been customized to enforce the modeling of a weekly seasonality. Furthermore, to balance noisy environments, the lag features include a neighborhood of the lagged value.
+	RNN-based forecasting models unroll a specific amount of past values to make predictions. The amount of data should be limited to avoid making the neural network too expensive to train and compute forecasts, with the consequence that the network may not have the opportunity of incorporating long-term dependencies. This is especially true for time series with an interval of a few minutes: feeding and training a network with the last week of data would require to unroll the RNN up to ten thousand times (see Section \ref{sec:forecasting}). Since this is not feasible, in order to overcome such an issue DeepAR is fed with lag features, which are the values assumed by the time series at some points in time before computing the forecasts (e.g. one week before and one month before). These lag features have been customized to enforce the modeling of a weekly seasonality. Furthermore, to balance noisy environments, the lag features include a neighborhood of the lagged value.
 	
-	Similarly, MQCNN uses dilated causal convolutions to learn long-term dependencies. The default structure of the dilated convolutions has been parameterized so  that the dilation can follow a power of two.
+	Similarly, MQCNN uses dilated causal convolutions to learn long-term dependencies. The default structure of the dilated convolutions has been parameterized so that the dilation can follow a power of two.
 	
 	Finally, the default Prophet model has been changed to accommodate stronger weekly seasonality by increasing the dedicated number of Fourier terms. To overcome overfitting issues, the choice of the Prophet parameters (e.g. the seasonality prior scale) can be performed with cross-validation using the last week of data. Note that by performing such validation on the last week of data the choice of the parameters is biased towards being more correct on recent data.
 	
@@ -770,13 +769,13 @@
 	Therefore, given a forecast $\tilde{Y}_{t_1:t_2}$, we want to know if the represented workload is stable so that it can be used by the tuner to suggest a workload-tailored configuration.
 	The stability function $s_\Theta(\tilde{Y}_{t_1:t_2}, Y_{t_0:t_1})$ is applied to each time series composing the workload independently, meaning that:\\\\
 	\centerline{
-	$
-	s_\Theta(\tilde{Y}_{t_1:t_2}, Y_{t_0:t_1}) = \wedge_{i=1} ^n s_\Theta(\tilde{\pmb{y}}_{t_1:t_2}^i, \pmb{y}_{t_0:t_1}^i)
-	$
+		$
+		s_\Theta(\tilde{Y}_{t_1:t_2}, Y_{t_0:t_1}) = \wedge_{i=1} ^n s_\Theta(\tilde{\pmb{y}}_{t_1:t_2}^i, \pmb{y}_{t_0:t_1}^i)
+		$
 	}\\\\ 
 	where $ \wedge_{i=1}$ is a \textit{logical AND} operation, meaning that the workload is assumed to be stable if all the time series in the workload are independently stable. $\Theta$ is a hyper-parameter of the stability function, usually a threshold.
 	
-	The reason for using the time series history as a parameter is that the evaluation of the stability of the upcoming values should take into consideration the past values, for example to know the range of values  assumed by the time series. The following stability functions have been implemented:
+	The reason for using the time series history as a parameter is that the evaluation of the stability of the upcoming values should take into consideration the past values, for example, to know the range of values assumed by the time series. The following stability functions have been implemented:
 	\begin{itemize}
 		\item Coefficient of Variation (CV): a window is considered stable if its coefficient of variation $\Theta$ doesn't exceed a threshold. This method doesn't make use of past values.\\\\
 		$
@@ -785,7 +784,7 @@
 			0 & \text{otherwise}
 		\end{cases}    
 		$
-		\item Min-Max: let $\delta (\pmb{x}) = (\max{\pmb{x}} - \min{\pmb{x}})$ be the width of the range of values assumed by $\pmb{x}$. Then, a window is considered stable if its values are in a range with size that is below a threshold $\Theta$ times the size of the range of values assumed in the whole history of the time series.\\\\
+		\item Min-Max: let $\delta (\pmb{x}) = (\max{\pmb{x}} - \min{\pmb{x}})$ be the width of the range of values assumed by $\pmb{x}$. Then, a window is considered stable if its values are in a range with a size that is below a threshold $\Theta$ times the size of the range of values assumed in the whole history of the time series.\\\\
 		$
 		s_\Theta(\tilde{\pmb{y}}_{t_1:t_2}, \pmb{y}_{t_0:t_1}) = \begin{cases}
 			1 & \text{if } \delta (\tilde{\pmb{y}}_{t_1:t_2}) \leq \Theta \cdot \delta (\pmb{y}_{t_0:t_1}) \\
@@ -796,29 +795,29 @@
 	\end{itemize}
 	Of these methods, the MinMax is the most intuitive, as $\Theta$ sets the allowed percentage of movement from the historical range of values. Figure \ref{fig:threshold_selection} shows a comparison of the three approaches.
 	
-	Note that once we have the true workload, we can check whether a window was actually stable or not by running $s_\Theta(\pmb{y}_{t_1:t_2}, \pmb{y}_{t_0:t_1})$. This is extremely important because it enables us to invalidate a tuning experiment if the workload revealed to be unstable. Furthermore, it allows us to easily evaluate the stability algorithm or tune its parameters $\Theta$.
+	Note that once we have the true workload, we can check whether a window was actually stable or not by running $s_\Theta(\pmb{y}_{t_1:t_2}, \pmb{y}_{t_0:t_1})$. This is extremely important because it enables us to invalidate a tuning experiment if the workload is revealed to be unstable. Furthermore, it allows us to easily evaluate the stability algorithm or tune its parameters $\Theta$.
 	
-	Finally, note that we are using a wide variety of forecasting models with different properties. For example, Prophet (Section \ref{sssec:prohet}) doesn't model noise and therefore its predictions are flatter when compared to the real time series or other models' predictions. This means that using the same threshold for predicting if a window will be stable and then checking if the window was actually stable eventually leads to misleading outcomes, even if the forecast is accurate. Therefore, we use two different thresholds $\tilde{\Theta}$ and $\Theta$: the former for the prediction, i.e. $s_{\tilde{\Theta}}(\tilde{\pmb{y}}_{t_1:t_2}, \pmb{y}_{t_0:t_1})$, and the latter for the posterior evaluation $s_\Theta(\pmb{y}_{t_1:t_2}, \pmb{y}_{t_0:t_1})$.
+	Finally, note that we are using a wide variety of forecasting models with different properties. For example, Prophet (Section \ref{sssec:prohet}) doesn't model noise and therefore its predictions are flatter when compared to the real-time series or other models' predictions. This means that using the same threshold for predicting if a window will be stable and then checking if the window was actually stable eventually leads to misleading outcomes, even if the forecast is accurate. Therefore, we use two different thresholds $\tilde{\Theta}$ and $\Theta$: the former for the prediction, i.e. $s_{\tilde{\Theta}}(\tilde{\pmb{y}}_{t_1:t_2}, \pmb{y}_{t_0:t_1})$, and the latter for the posterior evaluation $s_\Theta(\pmb{y}_{t_1:t_2}, \pmb{y}_{t_0:t_1})$.
 	
-	In order to set the thresholds effectively, a human operator must first of all vary $\Theta$ to see which windows would be considered stable on the true workload time series. Note that it is not trivial to find an optimal $\Theta^\star$ that fits all scenarios because its effectiveness depends on the properties of the workload received by the system, such as noise. To find $\tilde{\Theta}$, we need to train the forecasting model, produce forecasts, and then find a value that matches the outcome of the previous step (both stable and unstable windows). Note that this step can be automated by finding $\tilde{\Theta}$ that maximizes the number of stable and unstable windows matches resulting from $s_\Theta(\pmb{y}_{t_1:t_2}, \pmb{y}_{t_0:t_1})$ and $s_{\tilde{\Theta}}(\tilde{\pmb{y}}_{t_1:t_2}, \pmb{y}_{t_0:t_1})$: \\\\
+	In order to set the thresholds effectively, a human operator must, first of all, vary $\Theta$ to see which windows would be considered stable on the true workload time series. Note that it is not trivial to find an optimal $\Theta^\star$ that fits all scenarios because its effectiveness depends on the properties of the workload received by the system, such as noise. To find $\tilde{\Theta}$, we need to train the forecasting model, produce forecasts, and then find a value that matches the outcome of the previous step (both stable and unstable windows). Note that this step can be automated by finding $\tilde{\Theta}$ that maximizes the number of stable and unstable windows matches resulting from $s_\Theta(\pmb{y}_{t_1:t_2}, \pmb{y}_{t_0:t_1})$ and $s_{\tilde{\Theta}}(\tilde{\pmb{y}}_{t_1:t_2}, \pmb{y}_{t_0:t_1})$: \\\\
 	\centerline{
-	$
+		$
 		\tilde{\Theta} = \underset{ \tilde{\Theta}} {\mathrm{argmax}}\, \frac{n_{TP, \tilde{\Theta}} }{n_{TP, \tilde{\Theta}} + w \cdot n_{FP, \tilde{\Theta}}}
-	$
+		$
 	}\\\\
 	where $n_{TP, \tilde{\Theta}}$ is the number of true positives, i.e. the number of predicted stable windows that were actually stable, $n_{FP, \tilde{\Theta}}$ is the number of false positives (see Table \ref{table:stability_cases} for more details), and $w$ is a weight that allows to prioritize the absence of false positives over true positive.
-\begin{figure}\centering
-	\subfloat[CV]{\includegraphics[width = 3in]{img/stable_workload_threshold_cv.png}}
-	\hfill 
-	\subfloat[MinMax]{\includegraphics[width = 3in]{img/stable_workload_threshold_minmax.png}} 
-	\hfill
-	\subfloat[Normal]{\includegraphics[width = 3in]{img/stable_workload_threshold_normal.png}} 
+	\begin{figure}\centering
+		\subfloat[CV]{\includegraphics[width = 3in]{img/stable_workload_threshold_cv.png}}
+		\hfill 
+		\subfloat[MinMax]{\includegraphics[width = 3in]{img/stable_workload_threshold_minmax.png}} 
+		\hfill
+		\subfloat[Normal]{\includegraphics[width = 3in]{img/stable_workload_threshold_normal.png}} 
+		
+		\caption{Examples of stable windows detected by the CV-based Stable Window Finder with a threshold of 4, Min-Max with a threshold of 8\%, and Normal with a threshold of 0.18. The stable regions are colored in green.}
+		\label{fig:threshold_selection}
+	\end{figure}
 	
-	\caption{Examples of stable windows detected by the CV-based Stable Window Finder with a threshold of 4, Min-Max with a threshold of 8\%, and Normal with a threshold of 0.18. The stable regions are colored in green.}
-	\label{fig:threshold_selection}
-\end{figure}
-
-
+	
 	
 	\subsection{Workload Characterization Module}  \label{ssec:workload_characterization_module}
 	Workload characterization is used to normalize the outcome of each configuration according to the workload type, which is required by contextual Bayesian optimization (Section \ref{ssec:contextual_bayesian_optimization}). We are interested in characterizing the workload without any human intervention: for this reason, the module uses clustering-based methods. \\
@@ -826,13 +825,13 @@
 	
 	Since $k$-means requires the number of clusters $k$ to be given as input, the quality of clustering is evaluated for each size $k \in K, K = [2, \max (3, \log n)]$ where $n$ is the number of workload points. The evaluation is performed computing the Silhouette coefficient \cite{SilhouetteCoefficient} for each $k$, and selecting the value that leads to the highest score:\\\\
 	\centerline{
-	$
+		$
 		k = \underset{k \in K}{\mathrm{argmax}}\, S(W, l_k)
-	$
+		$
 	}\\\\
 	where $S$ is the Silhouette score, $W$ is the set of workload points, and $l_k$ are the labels obtained by applying $k$-means to find $k$ clusters.
 	
-	Mean shift doesn't require to set the number of clusters beforehand, but it must be provided with the bandwidth,  i.e. the size of the kernel \cite{MeanShift}. The bandwidth is estimated using $k$-nearest neighbor on a down-sampled workload dataset to reduce the computation time.
+	Mean shift doesn't require setting the number of clusters beforehand, but it must be provided with the bandwidth,  i.e. the size of the kernel \cite{MeanShift}. The bandwidth is estimated using $k$-nearest neighbor on a down-sampled workload dataset to reduce the computation time.
 	
 	GMM must be provided with the number of components (i.e. clusters) to look for and the covariance type. These parameters are chosen by maximizing the Bayesian Information Criterion (BIC):\\\\
 	\centerline{
@@ -855,18 +854,18 @@
 	Finally, the dataset $W$ is initialized together with the forecasting module: the workload points seen during the initialization period (e.g. the first week) are included so that the tuner is provided with meaningful workload groups since the beginning of the optimization process.
 
 	\section{Experimental Setup } \label{sec:exp_setup}
-	The proposed solution has the goal of extending the existing tuner \cite{AkamasCGP} to work directly with the production system. Therefore, we are interested in how quickly we are able to find a good configuration while avoiding bad ones. Nevertheless, the tuning effectiveness depends on two key factors: the ability of selecting as many stable workload windows as possible, that increases the number of experiments and therefore how quickly we can optimize the objective function, while avoiding unstable workload windows that are likely to lead to failures or low QoS levels. This selection ability,  along with the quality of the configuration proposed by the tuner, strongly depends on the forecasting accuracy.
+	The proposed solution has the goal of extending the existing tuner \cite{AkamasCGP} to work directly with the production system. Therefore, we are interested in how quickly we are able to find a good configuration while avoiding bad ones. Nevertheless, the tuning effectiveness depends on two key factors: the ability to select as many stable workload windows as possible, which increases the number of experiments and therefore how quickly we can optimize the objective function while avoiding unstable workload windows that are likely to lead to failures or low QoS levels. This selection ability,  along with the quality of the configuration proposed by the tuner, strongly depends on the forecasting accuracy.
 	Therefore, we evaluate the forecasting module and the window selection algorithm independently from the tuner.
 	
 	Section \ref{ssec:exp_workload_forecasting} describes the two metrics chosen to evaluate forecasting, namely MAPE and RMSE. Section \ref{ssec:exp_stable_wkld_finder} presents how Precision and Recall allows us to evaluate the Stable Window Finder module according to our goal (e.g. do we seek for fewer failures or faster optimal convergence?). Section \ref{ssec:exp_online_cgp} describes how the overall solution is evaluated considering the Cumulative Reward and the number of failures caused by the tuning process. To perform such evaluation, we used two IT system models provided by \cite{AkamasCGP} that allow us to perform repeatable tests on a local machine. 
-	Note that to perform our analysis we need a set of time series that describe the workload perceived by the IT system models and that will be used to train the forecasting models and make predictions. Such time series are described in Section \ref{ssec:exp_online_cgp}.
+	Note that to perform our analysis we need a set of time series that describes the workload perceived by the IT system models and that will be used to train the forecasting models and make predictions. Such time series are described in Section \ref{ssec:exp_online_cgp}.
 	Finally, the Workload Characterization module, which is based on clustering algorithms, is evaluated qualitatively in section \ref{ssec:results_wkld_characterization} using the chosen time series. 
 	
 	\subsection{Workload Forecasting } \label{ssec:exp_workload_forecasting}
 	To evaluate the forecasting accuracy we chose two metrics: the Mean Absolute Percentage Error (MAPE) and the Root Mean Squared Error (RMSE).  Remembering that we are repeatedly forecasting short-term windows while new workload data is incoming, we are interested in the overall errors up to the latest measurement plus how wrong the forecaster is in a specific moment.
 	
 	Formally, when evaluating the accuracy of a time series starting at time $t_0$ and we have data up to time $t_1$, for each forecasted window $\omega_{t:t+\delta}$ where $\delta$ is the length of the short term forecast, we compute the error of the associated forecast $\tilde{\pmb{y}}_{t:t+\delta}$ using the true values $\pmb{y}_{t:t+\delta}$, for $t=t_0, ..., t_1 - \delta$. Then, we merge the forecasts and compute the error up to time $t_1 - \delta$. As we receive new time series data over time (i.e. $t_1$ increases over time), the latter is called incremental MAPE or RMSE. \\
-	Figure \ref{fig:exp_setup_forecasting} shows a time series with naive forecasts, the per-forecast error and the incremental error evolving over time when the tuning windows have length $1$ hour.
+	Figure \ref{fig:exp_setup_forecasting} shows a time series with naive forecasts, the per-forecast error, and the incremental error evolving with time when the tuning windows have a length of $1$ hour.
 	
 	The error of a forecasting model in a specific moment can be used to inspect the performance of a single model, eventually automatically triggering a re-fitting process when the error exceeds a threshold. For example, picture $(b)$ in Figure \ref{fig:exp_setup_forecasting} clearly shows a huge forecasting error on date 2019-01-28 given by configuration zero. On the other side, the incremental error can be used to compare different forecasting models and how the errors change after a model has been re-fitted (e.g. new data has been included). The latest value of the incremental error is of particular interest, as it represents the up-to-date overall performance of a model.
 	
@@ -881,9 +880,9 @@
 	
 	The MAPE has the following formula:\\\\
 	\centerline{
-	$
-	\text{MAPE}(\pmb{y}_{t:t+m}, \tilde{\pmb{y}}_{t:t+m}) = \frac{100}{m} \sum_{i=t}^{t+m} |\frac{\pmb{y}_{t:t+m}-\tilde{\pmb{y}}_{t:t+m}}{\pmb{y}_{t:t+m}}|
-	$
+		$
+		\text{MAPE}(\pmb{y}_{t:t+m}, \tilde{\pmb{y}}_{t:t+m}) = \frac{100}{m} \sum_{i=t}^{t+m} |\frac{\pmb{y}_{t:t+m}-\tilde{\pmb{y}}_{t:t+m}}{\pmb{y}_{t:t+m}}|
+		$
 	}\\\\
 	and the RMSE:\\\\
 	\centerline{
@@ -892,17 +891,17 @@
 		$
 	}\\\\
 	
-	The two metrics may look redundant, but since the RMSE gives more importance to the highest errors, by considering the RMSE over the MAPE we are actually increasing sensitivity to outliers. Furthermore, using RMSE we seek to be correct on average, while in contrast the MAPE targets the median.\\
-	Finally, note that the MAPE is easier to understand as it express the error as a percentage that is independent from the scale of the time series. Therefore, it is useful to compare the performance of a model on different time series. Nevertheless, MAPE cannot be used when the values are too close to zero.
+	The two metrics may look redundant, but since the RMSE gives more importance to the highest errors, by considering the RMSE over the MAPE we are actually increasing sensitivity to outliers. Furthermore, using RMSE we seek to be correct on average, while in contrast, the MAPE targets the median.\\
+	Finally, note that the MAPE is easier to understand as it expresses the error as a percentage that is independent of the scale of the time series. Therefore, it is useful to compare the performance of a model on different time series. Nevertheless, MAPE cannot be used when the values are too close to zero.
 	
 	\subsection{Stable Window Finder } \label{ssec:exp_stable_wkld_finder}
 	The stable workload finder algorithm uses the forecast of the upcoming workload and its historical data to predict if a time window in the upcoming future will be stable or not. Therefore, it acts as a binary classifier that detects a decent amount of stable windows while avoiding unstable ones. As mentioned in Section \ref{ssec:stable_window_finder}, we give more importance to avoiding false positives (see Table \ref{table:stability_cases}) as they facilitate failures.
 	
-	To evaluate such classifier, we consider its precision and recall. Precision is defined as:\\\\
+	To evaluate such a classifier, we consider its precision and recall. Precision is defined as:\\\\
 	\centerline{
-	$
-	\text{Precision} = \frac{ True \, Positive}{ True \, Positive + False \, Positive}
-	$
+		$
+		\text{Precision} = \frac{ True \, Positive}{ True \, Positive + False \, Positive}
+		$
 	}\\\\
 	and Recall as:\\\\
 	\centerline{
@@ -920,13 +919,13 @@
 	}\\\\
 	
 	\subsection{Online Contextual Gaussian Process Tuner } \label{ssec:exp_online_cgp}
-	The evaluation of the overall real-time tuner presented in Section \ref{ssec:online_cgp_tuner}, which works in combination with the Workload Forecasting and Stable Window Finder modules, is performed by tuning the system models provided by \cite{AkamasCGP}. The models were trained to map a system-specific configuration space to a wide variety of performance metrics, such as throughput and memory usage, according to the workload perceived by the system. These performance metrics can be used as objective function to be optimized. Furthermore, the models can detect when a system failure occurs, i.e. when the system is not able to respond (e.g. when the configuration doesn't allow to process the huge amount of incoming requests). By using such models, we can run reproducible experiments.
+	The evaluation of the overall real-time tuner presented in Section \ref{ssec:online_cgp_tuner}, which works in combination with the Workload Forecasting and Stable Window Finder modules, is performed by tuning the system models provided by \cite{AkamasCGP}. The models were trained to map a system-specific configuration space to a wide variety of performance metrics, such as throughput and memory usage, according to the workload perceived by the system. These performance metrics can be used as the objective function to be optimized. Furthermore, the models can detect when a system failure occurs, i.e. when the system is not able to respond (e.g. when the configuration doesn't allow to process the huge amount of incoming requests). By using such models, we can run reproducible experiments.
 	
 	Finally, by using system models, we know the optimal configuration for a given workload and we can use it to see how far the tuner is from the real optimum. To do so, we compute the Normalized Performance Improvement at iteration $i$:\\\\
 	\centerline{
-	$
-	NPI(i) = \frac{y_0 - y_i}{y_0 - y^\star} = \frac{f(\pmb{x}_0 \pmb{w}_i) - f(\pmb{x}_i, \pmb{w}_i)}{f(\pmb{x}_0 \pmb{w}_i) - f(\pmb{x}_{\pmb{w}_i}^\star, \pmb{w}_i)}
-	$
+		$
+		NPI(i) = \frac{y_0 - y_i}{y_0 - y^\star} = \frac{f(\pmb{x}_0 \pmb{w}_i) - f(\pmb{x}_i, \pmb{w}_i)}{f(\pmb{x}_0 \pmb{w}_i) - f(\pmb{x}_{\pmb{w}_i}^\star, \pmb{w}_i)}
+		$
 	}\\\\
 	where $\pmb{x}_0$ is the vendor (or baseline) configuration, $\pmb{x}_i$ is the configuration being evaluated at iteration $i$, and $\pmb{x}_{\pmb{w}_i}^\star$ is the optimal configuration for the workload observed at iteration $i$. Therefore, an NPI of zero means that we have the same performance of the vendor configuration, and an NPI of one means that we found the global optimum. 
 	
@@ -947,13 +946,13 @@
 	}\\\\
 	where $F(j)$ is one if a failure occurred at iteration $j$, zero otherwise. Note that \cite{AkamasCGP}, as described in \ref{ssec:contextual_bayesian_optimization}, allows to define constraints that the tuning system should not violate. A violation of any of these constraints, such as a QoS target, is considered a failure.
 	
-	Considering that the system models of \cite{AkamasCGP} are DBMB models simulating Cassandra \cite{Cassandra} and MongoDB \cite{MongoDB}, we set the constraints of keeping the memory usage below some target when tuning Cassandra, and keeping the latency (i.e. response time) below specific values when tuning MongoDB.
+	Considering that the system models of \cite{AkamasCGP} are DBMB models simulating Cassandra \cite{Cassandra} and MongoDB \cite{MongoDB}, we set the constraints of keeping the memory usage below some target when tuning Cassandra and keeping the latency (i.e. response time) below specific values when tuning MongoDB.
 	The objective functions being minimized are the memory requirements for MongoDB and the latency for Cassandra.
 	
 	Of course, to perform our experiments, we need a set of time series representing the workload received by the DBMS models that allow us to make reproducible tests. We chose a set of four time series shown in Figure \ref{fig:time_series} representing the number of users connected to the system being optimized.  
 	
 	Two time series are synthetically generated by creating a daily and a weekly pattern. The daily pattern time series has three variants with increasing noise to make a sensibility analysis (Figure \ref{fig:daily_noises}). The remaining two time series are obtained from real data: the number of taxi requests in the city of New York \cite{TaxiDataset} and the number of requests to a real private bank system. Note that all time series have been mapped to the $[10, 80]$ range to be compatible with the DBMS models. \\
-	Furthermore, besides the number of requests, the workload can be affected by a 3-value category representing the behavior of the users at a certain time (e.g. are the users just reading data from the DBMS or are they inserting data?). We model this property of the workload, that we name \textit{mix}, by using three types of user behavior: read-intensive, write-intensive, and balanced.
+	Furthermore, besides the number of requests, the workload can be affected by a 3-value category representing the behavior of the users at a certain time (e.g. are the users just reading data from the DBMS, or are they inserting data?). We model this property of the workload, that we name \textit{mix}, by using three types of user behavior: read-intensive, write-intensive, and balanced.
 	\begin{figure}\centering
 		\subfloat[Daily pattern]{\includegraphics[width = 2in]{img/ts/daily.png}} 
 		\subfloat[Weekly pattern]{\includegraphics[width = 2in]{img/ts/weekly.png}} \hfill
@@ -973,7 +972,7 @@
 		\label{fig:daily_noises}
 	\end{figure}
 	
-	Finally, we are interested in the performance of the developed solution when the amount of time series data provided to the forecaster covers less than one week. By exploring such case when using time series with weekly seasonality we can also understand how the system reacts to patterns that are not present in the historical data (e.g. the reduced number of requests during the weekend when the forecaster has only four days of historical data).
+	Finally, we are interested in the performance of the developed solution when the amount of time series data provided to the forecaster covers less than one week. By exploring such cases when using time series with weekly seasonality we can also understand how the system reacts to patterns that are not present in the historical data (e.g. the reduced number of requests during the weekend when the forecaster has only four days of historical data).
 	
 	
 	\section{Results } \label{sec:results}
@@ -996,7 +995,7 @@
 		\caption{Errors on daily pattern time series, with 0.02 std dev. noise.}
 		\label{fig:results_forecasting_daily_02}
 	\end{figure}
-
+	
 	\begin{table*}\centering 
 		\ra{1.3}
 		\begin{tabular}{@{}rcrc@{}}
@@ -1040,8 +1039,8 @@
 	
 	\clearpage
 	\subsubsection{Weekly time series} \label{sssec:results_forecasting_weekly}
-	The weekly time series models are trained with 14 days of historical data. The goal of such time series is to understand the ability of a model to extract a weekly pattern.
-	 The results are shown in picture \ref{fig:results_forecasting_weekly} and summarized in Table \ref{table:results_forecasting_weekly}: the clear winners are Prophet and DeepAR. MQCNN is able to extract the pattern, but fails at predicting the time series' tops, accumulating errors during workdays as shown in Figure \ref{fig:results_forecasting_weekly_mqcnn}.
+	The weekly time series models are trained with 14 days of historical data. The goal of such a time series is to understand the ability of a model to extract a weekly pattern.
+	The results are shown in picture \ref{fig:results_forecasting_weekly} and summarized in Table \ref{table:results_forecasting_weekly}: the clear winners are Prophet and DeepAR. MQCNN is able to extract the pattern but fails at predicting the time series' tops, accumulating errors during workdays as shown in Figure \ref{fig:results_forecasting_weekly_mqcnn}.
 	
 	\begin{figure}\centering
 		\subfloat[Per-forecast MAPE]{\includegraphics[width = 2.5in]{img/results_forecasting_weekly_fc_mape.png}} 
@@ -1068,7 +1067,7 @@
 		\end{tabular}
 		\caption{Results on weekly pattern with increasing noise. The Weekly model produces forecasts repeating data of the previous week.} \label{table:results_forecasting_weekly}
 	\end{table*}
-
+	
 	\begin{figure} \centering
 		\includegraphics[width=4in]{img/results_forecasting_weekly_mqcnn.png}
 		\caption{Forecasting of MQCNN model on weekly time series. The ground truth is blue. The model forecasts are red-colored. }
@@ -1077,15 +1076,15 @@
 	
 	\clearpage
 	\subsubsection{Real-world time series} \label{sssec:results_forecasting_bank}
-	The private bank time series was obtained from real-world data, and due to its shortness the data collection period was set to one week. To balance such lack of data the models are retrained every day. 
+	The private bank time series was obtained from real-world data, and due to its shortness, the data collection period was set to one week. To balance such lack of data the models are retrained every day. 
 	
 	This time series is heavily affected by the working hours: in just thirty minutes after the workday started the number of requests per second raises from bottom to top, requiring the models to be able to quickly react to changes. Results are shown in Figure \ref{fig:results_forecasting_bank} and summarized in Table \ref{table:results_forecasting_bank}. 
 	
-	By checking the DeepAR per-forecast error and forecast, we can see that the Saturday ramp causes a fake out where the model predicts a spike similar to the previous working days. This behavior is caused by a lack of data.
+	By checking the DeepAR per-forecast error and forecast, we can see that the Saturday ramp causes a fake-out where the model predicts a spike similar to the previous working days. This behavior is caused by a lack of data.
 	
 	As mentioned before, by reducing the forecast interval the deep learning models are able to react to ramp signals quicker. Figure \ref{fig:results_forecasting_bank_deepar} shows the impact of forecasting every 15 and 30 minutes.
 	
-	The Prophet model achieves a higher error when compared to the other models. Nevertheless, its predictions are not too bad: what contributes to the high errors is the weekend, that is not properly modeled. This issue could be solved by further increasing the number of Fourier terms for the weekly seasonality, however by doing so we would risk overfitting.
+	The Prophet model achieves a higher error when compared to the other models. Nevertheless, its predictions are not too bad: what contributes to the high errors is the weekend, which is not properly modeled. This issue could be solved by further increasing the number of Fourier terms for the weekly seasonality, however, by doing so we would risk overfitting.
 	
 	
 	\begin{figure}\centering
@@ -1113,7 +1112,7 @@
 		\end{tabular}
 		\caption{Results on Real time series. The Weekly model produces forecasts repeating data of the previous week.} \label{table:results_forecasting_bank}
 	\end{table*}
-
+	
 	\begin{figure}\centering
 		\subfloat[DeepAR with 30 minutes forecasting interval]{\includegraphics[width = 2.5in]{img/results_forecasting_bank_deepar_30.png}} 
 		\subfloat[DeepAR with 15 minutes forecasting interval]{\includegraphics[width = 2.5in]{img/results_forecasting_bank_deepar_15.png}}
@@ -1130,9 +1129,9 @@
 	\clearpage
 	\subsubsection{Taxi time series} \label{sssec:results_forecasting_taxi}
 	
-	The taxi time series contains one month of taxi requests performed in the city of New York \cite{TaxiDataset} and was used to study how the models evolve when more data is available. To do so, the data collection period lasts seven days as usual, but every new week the models are re-trained. The time series is characterized by a strong daily seasonality with quick rises and drops, therefore the models shouldn't suffer from fake outs like with the Real time series. The results are shown in Figure \ref{fig:results_forecasting_taxi} and Table \ref{table:results_forecasting_taxi}. 
+	The taxi time series contains one month of taxi requests performed in the city of New York \cite{TaxiDataset} and was used to study how the models evolve when more data is available. To do so, the data collection period lasts seven days as usual, but every new week the models are re-trained. The time series is characterized by a strong daily seasonality with quick rises and drops, therefore the models shouldn't suffer from fake-outs like with the Real time series. The results are shown in Figure \ref{fig:results_forecasting_taxi} and Table \ref{table:results_forecasting_taxi}. 
 	
-	DeepAR achieve the best results both in terms of MAPE and RMSE, while DeepState had to be excluded from the per-forecast errors as they are too high. Except DeepState, all the models improve as new data becomes available. Prophet errors are heavily affected by a great mistake made at the beginning of the forecasting, recovering gradually. Nevertheless, the taxi time series has peaks that don't follow a strong daily or weekly seasonality, and Prophet often fails to catch the tops and bottoms. Figure \ref{fig:results_forecasting_taxi_prophet_deepar} compares Prophet and DeepAR forecasts.
+	DeepAR achieve the best results both in terms of MAPE and RMSE, while DeepState had to be excluded from the per-forecast errors as they are too high. Except for DeepState, all the models improve as new data becomes available. Prophet errors are heavily affected by a great mistake made at the beginning of the forecasting, recovering gradually. Nevertheless, the taxi time series has peaks that don't follow a strong daily or weekly seasonality, and Prophet often fails to catch the tops and bottoms. Figure \ref{fig:results_forecasting_taxi_prophet_deepar} compares Prophet and DeepAR forecasts.
 	
 	\begin{figure}\centering
 		\subfloat[Per-forecast MAPE]{\includegraphics[width = 2.5in]{img/results_forecasting_taxi_fc_mape.png}} 
@@ -1159,7 +1158,7 @@
 		\end{tabular}
 		\caption{Results on taxi time series with increasing noise. The daily model produces forecasts repeating data of the previous day. } \label{table:results_forecasting_taxi}
 	\end{table*}
-
+	
 	\begin{figure}\centering
 		\subfloat[Prophet forecasts]{\includegraphics[width = 2.5in]{img/results_forecasting_taxi_prophet.png}} 
 		\subfloat[DeepAR forecasts]{\includegraphics[width = 2.5in]{img/results_forecasting_taxi_deepar.png}}
@@ -1172,35 +1171,35 @@
 	\subsubsection{Forecasting results conclusions}
 	The results clearly show that DeepState is outperformed by all the other models, despite multiple configurations were tested. Such an outcome could derive by a lack of data, meaning that DeepState requires more data points to make good predictions when compared to the other models.
 	
-	The DeepAR configuration is the same for all time series except the daily time series, that is simple and can be modeled with a lighter network architecture. Therefore, except for the daily time series, the DeepAR model unrolls one day of past data to make a one-hour forecast. Interestingly, the best configuration found for DeepAR makes use of the custom lags, that improved the modeling of the weekly seasonality, quick rises, and drops. 
+	The DeepAR configuration is the same for all time series except the daily time series, which is simple and can be modeled with a lighter network architecture. Therefore, except for the daily time series, the DeepAR model unrolls one day of past data to make a one-hour forecast. Interestingly, the best configuration found for DeepAR makes use of the custom lags, which improved the modeling of the weekly seasonality, quick rises, and drops. 
 	
 	Similarly, the MQCNN configuration uses one day of past data to make one-hour predictions. The network decoder size was increased from 30 to 50. The model is trained to minimize the quantile error for the quantiles $Q = \{ 0.1, 0.2, 0.3, ..., 0.9\}$. The skip-connections were left to the default value, as the custom ones didn't improve the outcomes.
 	
 	Finally, the Prophet model was set to use 8 Fourier terms for the daily seasonality and 30 terms for the weekly seasonality. The weekly terms were greatly increased from the default value (which is 3) due to the strong weekly seasonality that characterizes the time series. Nevertheless, the number of such terms should be increased with caution, as they can lead to overfitting.
 	
-	The models training times are shown in Table \ref{table:results_forecasting_training_times}, which are obtained with an Intel i7 8750h CPU. As expected, Prophet is the lighter model. Nevertheless, by training the deep learning models on a GPU the gap would be much smaller.
+	The models' training times are shown in Table \ref{table:results_forecasting_training_times}, which are obtained with an Intel i7 8750h CPU. As expected, Prophet is the lighter model. Nevertheless, by training the deep learning models on a GPU the gap would be much smaller.
 	
 	\begin{table*}\centering 
 		\ra{1.3}
-	\begin{tabular}{@{}crcrc@{}} 
-		\midrule
-		Model & Time\\
-		\midrule
-		Prophet & $<2s$ total\\
-		DeepAR & $26s$/epoch\\
-		MQCNN & $14s$/epoch\\
-		DeepState & $40s$/epoch\\
-		\bottomrule
-	\end{tabular}
-	\caption{Training times on the Weekly time series. } \label{table:results_forecasting_training_times}
-\end{table*}
+		\begin{tabular}{@{}crcrc@{}} 
+			\midrule
+			Model & Time\\
+			\midrule
+			Prophet & $<2s$ total\\
+			DeepAR & $26s$/epoch\\
+			MQCNN & $14s$/epoch\\
+			DeepState & $40s$/epoch\\
+			\bottomrule
+		\end{tabular}
+		\caption{Training times on the Weekly time series. } \label{table:results_forecasting_training_times}
+	\end{table*}
 	
 	
 	In the following sections, we chose to keep two forecasting models over the available: Prophet and DeepAR. The reasons for excluding DeepState are its lower accuracy and higher training time, while MQCNN has been excluded as it is outperformed by DeepAR. Finally, by keeping Prophet we can make comparisons between deep learning and more traditional models.	
 	
 	\subsection{Workload Characterization } \label{ssec:results_wkld_characterization}
 	The workload characterization, performed with clustering methods, is evaluated qualitatively.
-	By doing so, we must remember that each workload type (i.e. cluster) will group the points that will be used by the tuner to normalize the score. Therefore, it is important for each cluster to contain a meaningful amount of points so that the tuner can understand which configurations are better/worse under a given workload type. For this reason, OPTICS turned out to be unusable due to the high number of identified clusters (often above 1000), where a significant amount of clusters were made of just one point. Note that such issue could be solved by changing the parameters according to the dataset being clustered, at the cost of losing the autonomy of the workload characterization module.  
+	By doing so, we must remember that each workload type (i.e. cluster) will group the points that will be used by the tuner to normalize the score. Therefore, it is important for each cluster to contain a meaningful amount of points so that the tuner can understand which configurations are better/worse under a given workload type. For this reason, OPTICS turned out to be unusable due to the high number of identified clusters (often above 1000), where a significant amount of clusters were made of just one point. Note that such an issue could be solved by changing the parameters according to the dataset being clustered, at the cost of losing the autonomy of the workload characterization module.  
 	
 	By using Gaussian Mixture Models, a probabilistic approach that uses different covariance types, the number of identified clusters on a given dataset is inconsistent: running the algorithm multiple times returns a clustering with different covariance types and number of components (chosen by maximizing the BIC). This outcome is even accentuated after down-sampling the dataset, which is required to limit the amount of time required to find the clusters. Furthermore, GMM is prone to assign different clusters to points that are expected to belong to the same cluster. This behavior is shown in Figure \ref{fig:results_gmm}, where low-demand zones are assigned to different workload types.
 	
@@ -1232,7 +1231,7 @@
 		\label{fig:results_clustering_meanshift}
 	\end{figure}
 	
-	Comparing $k$-means with mean shift, it is clear that mean shift generally finds more clusters. The impact of such difference depends on how the tuner is able to exploit the collected knowledge, and is therefore further discussed later.  Nevertheless, finding more workload types requires more time to populate each cluster with tuning experiments. Therefore, the clustering method should be chosen specifically for each workload pattern. Note that such choice can be made at any step of the tuning process: we may start with $k$-means and then switch to mean shift once there is enough data.
+	Comparing $k$-means with mean shift, it is clear that mean shift generally finds more clusters. The impact of such difference depends on how the tuner is able to exploit the collected knowledge and is therefore further discussed later.  Nevertheless, finding more workload types requires more time to populate each cluster with tuning experiments. Therefore, the clustering method should be chosen specifically for each workload pattern. Note that such a choice can be made at any step of the tuning process: we may start with $k$-means and then switch to mean shift once there is enough data.
 	
 	\clearpage
 	\subsection{Online Contextual Gaussian Process Tuner} \label{ssec:results_online_cgp_tuner}
@@ -1256,7 +1255,7 @@
 	Table \ref{table:results_tuning_scenarios} summarizes the tuning scenarios optimizing MongoDB. The scenarios share the objective function of minimizing the primary memory requirements with experiments of length 30 minutes. By reducing/increasing the latency constraint we make the tuning environment harder/easier. \\
 	The mix, that composes the workload for some scenarios and changes the type of requests from read-intensive to write-intensive, was defined in Section \ref{ssec:exp_online_cgp}.
 	Such property of the workload changes with a daily seasonality on the MDaily02B scenario and a weekly seasonality on the MReal4 scenario, using a simple step function. 
-
+	
 	\begin{table}\centering 
 		\ra{1.3}
 		\begin{tabularx}{\textwidth}{@{}llllXX@{}}
@@ -1277,13 +1276,13 @@
 			
 			\bottomrule
 		\end{tabularx}
-	\caption{Summary of MongoDB tuning scenarios. }  \label{table:results_tuning_scenarios}
+		\caption{Summary of MongoDB tuning scenarios. }  \label{table:results_tuning_scenarios}
 	\end{table}
 	
 	We first show the complete results of a single tuning scenario, which comprises the CR and Failures graphs and the TTR (Time To Recover) defined in Section \ref{ssec:exp_online_cgp}. Then, we summarize the results of the remaining scenarios using tables.
 	
 	Figure \ref{fig:results_cgp_bank1} shows the CR and Failures graphs for the MReal3 scenario. The Baseline, Naive, Prophet, and DeepAR tuners start identically: while collecting data, they use the baseline configuration until iteration 2016 (i.e. for one week). Then, the tuners start evaluating new configurations, eventually leading to failures and obtaining different scores. In this particular scenario, the baseline leads to fewer failures overall when compared to the online tuners. However, by setting the latency constraint to $9ms$, the baseline starts accumulating failures each time the requests per second are above 65, and the online tuners are able to find configurations that reduce such amount of failures. 
-	 
+	
 	\begin{figure}\centering
 		\subfloat[Cumulative Reward]{\includegraphics[width = 5.5in]{img/results/mongo_allianz_10ms_kmeans_cr.png}} \\
 		\subfloat[Failures]{\includegraphics[width = 5.5in]{img/results/mongo_allianz_10ms_kmeans_fail.png}}
@@ -1301,7 +1300,7 @@
 	\end{figure}
 	
 	The final CR, Failures, and TTR of all scenarios are summarized in tables \ref{table:results_mongo_synthetic} and \ref{table:results_mongo_real}. As previously mentioned, in most scenarios (Real time series excluded) the Naive tuner was early stopped due to the greater number of performed experiments, which affect the tuning time with an $O(n^3)$ relation. Therefore, the tables also report the CR and number of failures at the moment the Naive tuner was stopped. These two metrics are named Early CR (ECR) and Early Failures (EF). Furthermore, note that during data collection the system being optimized runs with the baseline configuration, which eventually leads to failures. The number of failures accumulated when the tuning actually starts is named Starting Failures (SF).
-
+	
 	\begin{table*}\centering 
 		\ra{1.3}
 		\begin{tabularx}{\textwidth}{@{}XXXXXX@{}}
@@ -1348,13 +1347,13 @@
 		\end{tabularx}
 		\caption{MongoDB tuning scenarios results on synthetic time series. } \label{table:results_mongo_synthetic}
 	\end{table*}
-
+	
 	\begin{table*}\centering 
 		\ra{1.3}
 		\begin{tabularx}{\textwidth}{@{}XXXXXX@{}}
 			\toprule
 			Scenario & Tuner & ECR/CR & SF & EF/F & TTR\\
-
+			
 			\midrule
 			\multirow{4}{*}{MReal1}
 			& Baseline & 0/0 & \multirow{4}{*}{107} & 167/167 & \\
@@ -1402,7 +1401,7 @@
 		\end{tabularx}
 		\caption{MongoDB tuning scenarios results on real time series.} \label{table:results_mongo_real}
 	\end{table*}
-
+	
 	
 	Table \ref{table:results_tuning_scenarios_cassandra} shows the scenarios performed on the Cassandra database model. All the Cassandra scenarios share the same objective function of minimizing the latency with the constraint of using at most $125\%$ of the primary memory (cache and JVM heap) used by the baseline configuration. Unlike the MongoDB scenario, where the latency constraint is checked monitoring a system metric, the maximum memory constraint is enforced directly on the configuration domain, meaning that the tuner will never violate it. Nevertheless, a configuration can still cause a failure if Cassandra is not able to serve requests. In general, such failure can be considered much worse when compared to a violation of the latency constraint in the MongoDB scenarios.
 	
@@ -1426,9 +1425,9 @@
 		\end{tabularx}
 		\caption{Summary of MongoDB tuning scenarios. }  \label{table:results_tuning_scenarios_cassandra}
 	\end{table}
-
+	
 	Tables \ref{table:results_cassandra_synthetic} and \ref{table:results_cassandra_real} show the results on the synthetic and real time series respectively.
-	In all scenarios, the baseline configuration never fails and finding configurations that reduce the latency cause failures. Nevertheless, the online tuners using a forecasting module collect fewer failures when compared to the naive tuner. Furthermore, the tuner always instantly finds a better configuration than the baseline in all scenarios except CReal3. However, all CReal3 tuners have a CR that doesn't fall below $-0.7$ meaning that practically, besides the failures, the suggested configurations don't downgrade the baseline performance. \\
+	In all scenarios, the baseline configuration never fails, and finding configurations that reduce the latency cause failures. Nevertheless, the online tuners using a forecasting module collect fewer failures when compared to the naive tuner. Furthermore, the tuner always instantly finds a better configuration than the baseline in all scenarios except CReal3. However, all CReal3 tuners have a CR that doesn't fall below $-0.7$ meaning that practically, besides the failures, the suggested configurations don't downgrade the baseline performance. \\
 	In all the Cassandra scenarios using the Real time series, the CR stops growing under the weekend load, which is flat. Meanwhile, the tuners collect failures as they are exploring the configuration space. Under such context, it would be useful to stop the tuning process as it is not leading to improvements, avoiding failures.
 	
 	\begin{table*}\centering 
@@ -1477,7 +1476,7 @@
 		\end{tabularx}
 		\caption{MongoDB tuning scenarios results on synthetic time series. } \label{table:results_cassandra_synthetic}
 	\end{table*}
-
+	
 	\begin{table*}\centering 
 		\ra{1.3}
 		\begin{tabularx}{\textwidth}{@{}XXXXXX@{}}
@@ -1518,7 +1517,7 @@
 	\end{table*}
 	
 	Table \ref{table:results_stability} shows stability information: the threshold $\Theta$ used to mark a window either as stable or unstable, the forecasting threshold $\tilde \Theta$ used on a forecast to predict if a window will be stable or not, and the Precision, Recall, and F1 scores. 
-
+	
 	\begin{table*}\centering 
 		\ra{1.3}
 		\begin{tabularx}{\textwidth}{@{}XXXXXX@{}}
@@ -1560,15 +1559,14 @@
 		\caption{Tuning scenarios stability data, valid both for Cassandra and MongoDB scenarios. TS indicates the Time Series.} \label{table:results_stability}
 	\end{table*}
 	
-	The results show that all the online tuners are able to find configurations outperforming the baseline in a short time. However, the tuners using a forecasting model are able to achieve a much higher CR when taking into consideration the number of performed experiments: for example, the DeepAR tuner of scenario CTaxi ends with 267 experiments and a CR of 476, while the Naive tuner finishes with 296 experiments and a CR of 417. The same reasoning applies to all scenarios. Considering that the change of a configuration property may require the reboot of the system being optimized, the ability of better exploiting the acquired knowledge can be valuable. \\
+	The results show that all the online tuners are able to find configurations outperforming the baseline in a short time. However, the tuners using a forecasting model are able to achieve a much higher CR when taking into consideration the number of performed experiments: for example, the DeepAR tuner of scenario CTaxi ends with 267 experiments and a CR of 476, while the Naive tuner finishes with 296 experiments and a CR of 417. The same reasoning applies to all scenarios. Considering that the change of a configuration property may require the reboot of the system being optimized, the ability to better exploit the acquired knowledge can be valuable. \\
 	Nevertheless, some scenarios highlighted a small gap between the Naive tuner and the Prophet or DeepAR tuners that may not justify the usage of such more complex tuners, even if the forecasting quality is high.
-	When comparing the MongoDB and Cassandra scenarios, the MongoDB scenarios are characterized by an higher amount of overall failures caused both by the Baseline and online tuners, where the latter are able to tune the system while causing a smaller amount of failure when the latency constraint is set to $9ms$. However, most failures are caused by the latency constraint rather than an entire system failure (that makes the system unavailable to its clients) which may be considered less severe depending on the context. On the other side, tuning the Cassandra scenarios inevitably leads to system failures, while the baseline configuration always keeps the system available. 
+	When comparing the MongoDB and Cassandra scenarios, the MongoDB scenarios are characterized by a higher amount of overall failures caused both by the Baseline and online tuners, where the latter are able to tune the system while causing a smaller amount of failure when the latency constraint is set to $9ms$. However, most failures are caused by the latency constraint rather than an entire system failure (that makes the system unavailable to its clients) which may be considered less severe depending on the context. On the other side, tuning the Cassandra scenarios inevitably leads to system failures, while the baseline configuration always keeps the system available. 
 	
 	Considering the usage of $k$-means versus mean shift (MReal1 and CReal1 versus MReal2 and CReal2) it is clear that $k$-means leads to better results. Such outcome could be the consequence of mean shift finding more clusters (see Section \ref{ssec:results_wkld_characterization}), resulting in fewer experiments available to the tuner when suggesting a configuration for a specific workload type, especially in the early stage of the tuning scenario. 
-
-	The results of the scenarios using the Daily time series with increasing noise show that noise doesn't have a significant impact on the tuning. Simulating the scenarios, there are a total of 191, 190, and 70 stable windows (i.e. true positives) in the time series with 0.02, 0.04, and 0.08 std. deviation noise respectively, highlighting that  what actually affects the tuning are the thresholds $Theta$ and $\tilde{\Theta}$: by raising the thresholds we increase the CR (lowering the TTR) at the cost of causing more failures. 
 	
-	\clearpage
+	The results of the scenarios using the Daily time series with increasing noise show that noise doesn't have a significant impact on the tuning. Simulating the scenarios, there are a total of 191, 190, and 70 stable windows (i.e. true positives) in the time series with 0.02, 0.04, and 0.08 std. deviation noise respectively, highlighting that what actually affects the tuning are the thresholds $Theta$ and $\tilde{\Theta}$: by raising the thresholds we increase the CR (lowering the TTR) at the cost of causing more failures. 
+
 	\section{Conclusions and future work}
 	With this work, we integrated state-of-the-art forecasting techniques with \cite{AkamasCGP} to smartly explore the configuration space of a software system, improving a target metric while avoiding constraints violations, such as Quality of Service constraints. 
 	
