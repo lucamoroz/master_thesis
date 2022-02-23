@@ -16,7 +16,7 @@
 \contentsline {subsection}{\numberline {2.5}Workload Forecasting }{37}{subsection.2.5}%
 \contentsline {section}{\numberline {3}Proposed solution and approach }{40}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Online Contextual Gaussian Process Tuner}{42}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Forecasting Module}{46}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.2}Forecasting Module}{47}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Stable Window Finder}{50}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}Workload Characterization Module}{52}{subsection.3.4}%
 \contentsline {section}{\numberline {4}Experimental Setup }{55}{section.4}%

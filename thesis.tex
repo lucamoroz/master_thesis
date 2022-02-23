@@ -99,7 +99,7 @@
 		{ \large \itshape Supervisor:}
 		{ \large Prof. Nicola \textsc{Ferro} \par}
 		{ \large \itshape Co-Supervisor:}
-		{ \large Dr. Stefano \textsc{Cereda} \par}
+		{ \large Stefano \textsc{Cereda} \par}
 		\vfill
 		
 		% Bottom of the page
@@ -115,14 +115,26 @@
 	\clearpage
 	
 	\newpage
+	
+	\section*{Abstract}
 	\pagenumbering{roman}
 	\thispagestyle{plain}
-	\section*{Abstract}
-	Tuning nowadays software systems can be tremendously tricky: the huge number of configuration parameters and their complex dependencies make the manual research for the optimal configuration tedious and time-consuming. Furthermore, such optimal configuration depends on the workload under which the system is running. 
-	This thesis presents the work done to extend an existing tuner to be applied on a production environment exploiting the real workload perceived by the system, i.e. while it is serving its clients (hence the term Online System Tuning), removing the necessity of analyzing and replicating the workload on a replica of the system and posing new challenges.
-	To do so, two main modules were developed: a forecasting module, based on state-of-the-art techniques that minimize the necessity of manual work, and a stability finder module, used to decide when to perform tuning experiments. With these two modules, the probability of testing a new software configuration during a workload change is reduced, which would cause the system clients to suffer Quality of Service losses.
-	Moreover, by directly tuning the production system the effort of running the tuner is reduced so that it can be easily and quickly applied to different scenarios.
+	Tuning modern software systems can be tremendously challenging: the huge number of configuration parameters and their complex dependencies make the manual research for the optimal configuration tedious and time-consuming. Furthermore, such optimal configuration depends on the workload under which the system is running. 
+	This thesis presents the work done to extend an existing performance tuner to be directly applied to a production environment exploiting the real workload perceived by the system, i.e. while it is serving its clients, hence the term Online System Tuning. This approach avoids the necessity of analyzing and replicating the workload on a replica of the system but poses new challenges.
+	To apply the tuner directly to production environments, two main modules were developed: a workload forecasting module, based on state-of-the-art techniques that minimize the necessity of manual work, and a stability finder module, used to decide when to perform tuning experiments. With these two modules, the probability of testing a new and possibly mistaken software configuration during a workload change is reduced, which would cause the system clients to suffer Quality of Service losses.
+	Moreover, by directly tuning the production system the effort of running the tuner is reduced, meaning that it is easier and faster to apply to different scenarios.
 	The proposed solution was tested on two DBMS models with 20 scenarios, highlighting that the integration of forecasting techniques improves the safety of the tuning process while keeping the effectiveness of the original tuner.
+	
+	
+	\section*{Acknowledgments}
+	\thispagestyle{plain}
+	First and foremost I am extremely grateful to my supervisors, Prof.  Nicola Ferro and Stefano Cereda for their invaluable advice and continuous support during the development of my thesis.  I would like to thank all the members of Akamas for the opportunity of writing this thesis within an affable company environment. 
+	
+	I would also like to express my gratitude to my friends who filled my academic journey with motivation, stimulus, and joy and with whom I shared challenges and achievements.
+	
+	Finally, my appreciation goes out to my family and girlfriend who supported me every day, allowing me to fully dedicate myself to my studies with an always encouraging and positive mindset. Without them, it would have been impossible for me to complete or even start my studies.
+	
+	\clearpage
 	
 	% empty page
 	\clearpage%
@@ -152,16 +164,16 @@
 	
 	\section{Introduction }
 	% should i specify that the workload is also specific to each tuning scenario?
-	Most software systems allow their users to tailor the configuration so that the system can meet some targets. For example, we may increase the cache size to reduce the response time while increasing the infrastructure costs (more RAM required), or we may want to reduce the infrastructure costs while keeping the same response time.  Unfortunately, the number of parameters that compose the configurations of software has kept increasing over the last years, making the configurations spaces too wide and complex to be manually explored even by human experts. Furthermore, we must consider the workload under which the system is exposed: how many requests is the system receiving? And which type of requests? The answer to these questions inevitably changes the optimal configuration according to our goals: for example, if the number of requests the system is receiving decreases, we may be able to guarantee the same response time while scaling down the system (i.e. reducing costs). Finally, nowadays software systems quickly evolves over time: the code changes, new versions are released, or the underlying hardware is upgraded, potentially invalidating the previous optimal configuration. In this context, manually exploring the configuration space is expensive and time consuming, if not even unfeasible.	
+	Most software systems allow their users to tailor the configuration to make the system meet some targets. For example, we may increase the cache size to reduce the response time while increasing the infrastructure costs (more RAM required), or we may want to reduce the infrastructure costs while keeping the same response time.  Unfortunately, the number of parameters that compose the software configurations has kept increasing over the last years making the configuration spaces too wide and complex to be manually explored, even by human experts. Furthermore, we must consider the workload under which the system is exposed: how many requests is the system receiving? And which type of requests? The answer to these questions inevitably changes the optimal configuration according to our goals. For example, if the number of requests the system is receiving decreases, we may be able to guarantee the same response time while scaling down the system (i.e. reducing costs). Finally, nowadays software systems quickly evolve over time: the code changes, new versions are released, or the underlying hardware is upgraded, potentially invalidating the previous optimal configuration. In this context, manually exploring the configuration space is expensive and time consuming, if not even unfeasible.	
+	
+	To solve this issue, automated approaches have emerged \cite{AkamasCGP, LearningToSample, OtterTune, OtterTune2}, with Bayesian Optimization playing an important role in the field. In many cases, the available approaches explore the configuration space to build a performance model by running experiments on a replica of the real system. Performing such experiments can be expensive: replicating the entire production system may need a significant amount of resources, and most of all requires understanding and analyzing the workload requested by the system's clients so that it can be replayed on the replica. The workload not only changes over time both in terms of demand and type of requests, but it can also evolve with the capabilities of the system or the acquisition of new clients (e.g. if the system is released to a new country). Any of these changes would require the analysis of the workload to be repeated so that the tuning experiments can be as likely as possible.
+	
+	This work builds on \cite{AkamasCGP} to directly tune the production system avoiding the workload analysis and replication steps, as shown in Figure \ref{fig:online_tuning}. By tuning directly the production system while it is being used, we name such approach \textit{online system tuning}. Such an approach opens a new challenge: the exploration of the configuration space on the production system is vulnerable to ``bad'' configurations that can lead to low Quality of Service levels or even system failures.  We tackle this challenge with a proactive and automatic approach that makes use of workload forecasting to run tuning experiments only when the workload is predicted to be stable and suggest a workload-tailored configuration, minimizing the probability of failure and opening the possibility of preemptively applying the best configuration found for the upcoming workload. 
 	
 	\begin{figure}[!b] \label{fig:online_tuning}
 		\includegraphics[width=\linewidth]{img/online_tuning.png}
 		\caption{Online tuning: while the system is receiving its workload (e.g. a set of HTTP requests) the tuner uses the system metrics to suggest new configurations that may improve the performance or reduce infrastructure costs.}
 	\end{figure}
-	
-	To solve this issue, automated approaches have emerged \cite{AkamasCGP, LearningToSample, OtterTune, OtterTune2}, with Bayesian Optimization playing an important role in the field. In many cases, the available approaches explore the configuration space to build a performance model by running experiments on a replica of the real system. Performing such experiments can be expensive: replicating the entire production system may need a significant amount of resources, and most of all require understanding and analyzing the workload requested by the system's clients so that it can be replayed on the replica. The workload not only changes over time both in terms of demand and type of requests, but it can also evolve with the capabilities of the system or the acquisition of new clients (e.g. if the system is released to a new country). Any of these changes would require the analysis of the workload to be repeated so that the tuning experiments can be as likely as possible.
-	
-	This work builds on \cite{AkamasCGP} to directly tune the production system avoiding the workload analysis and replication steps, as shown in Figure \ref{fig:online_tuning}. By tuning directly the production system while it is being used, we name such approach \textit{online system tuning}. Such an approach opens a new challenge: the exploration of the configuration space on the production system is vulnerable to ``bad'' configurations that can lead to low Quality of Service levels or even system failures.  We tackle this challenge with a proactive and automatic approach that makes use of workload forecasting to run tuning experiments only when the workload is predicted to be stable and suggest a workload-tailored configuration, minimizing the probability of failure and opening the possibility of preemptively applying the best configuration found for the upcoming workload. 
 	
 	We further present the problem in Section \ref{sec:context_and_state_of_the_art}, detailing the components required by the approach and the current state of the art. Section \ref{sec:proposed_solution} describes the proposed solution and \ref{sec:exp_setup} the experimental setup. Finally, Section \ref{sec:results} shows the results obtained on two distinct database models.
 	
@@ -318,7 +330,7 @@
 	\centerline{$y_t = S_t + T_t + R_t$}\\\\
 	where $y_t$ is the time series, $S_t$ the seasonal component, $T_t$ the trend component, and $R_t$ the remainder component, all at period $t$. When considering multiplicative decomposition, which occurs when the variation of the trend or of the seasonal component is proportional to the time series level, we can write: \\\\
 	\centerline{$y_t = S_t * T_t * R_t$}\\\\
-	To obtain such decomposition the Seasonal and Trend decomposition using Loess(STL) \cite{STL} can be applied, leading to the separation of trend, seasonality, and remainder as shown in Figure \ref{fig:stl}.
+	To obtain such decomposition the Seasonal and Trend decomposition using Loess (STL) \cite{STL} can be applied, leading to the separation of trend, seasonality, and remainder as shown in Figure \ref{fig:stl}.
 	\begin{figure}
 		\includegraphics[width=\linewidth]{img/sota_ts_additive_decomposition.png}
 		\caption{Additive decomposition of a time series using STL.}
@@ -685,7 +697,7 @@
 	To do so, before starting the tuning process, made of iterations (or experiments) where a new configuration is repeatedly applied and evaluated, we must collect enough workload data in order to train the forecasting models and gather knowledge about the workload (see Section \ref{ssec:workload_characterization_module} for details).
 	As stated by \cite{Seagull}, a significant number of workloads follow a daily or a weekly seasonality. Therefore, we chose to dedicate at least one week to data collection.
 	
-	After the collection period has ended, the online tuning process of the IT system can start. The tuning process is made of experiments of duration up to $t_2 - t_1$, that is the length of the window $\omega_{t_1:t_2}$ on which a configuration is applied and its outcome is measured.  However, it can happen that an experiment gets invalidated due to an early stop condition such as the violation of constraint (see Section \ref{ssec:contextual_bayesian_optimization}).  
+	After the collection period has ended, the online tuning process of the IT system can start. The tuning process is made of experiments of duration up to $t_2 - t_1$, that is the length of the window $\omega_{t_1:t_2}$ on which a configuration is applied and its outcome is measured. These experiments are performed when the upcoming workload is predicted to be stable. However, it can happen that an experiment gets invalidated due to an early stop condition such as the violation of constraint (see Section \ref{ssec:contextual_bayesian_optimization}).  
 	
 	After a forecast is made, the experiment develops and the true workload reveals itself. When comparing the predicted with the actual workload, two (bad) cases can occur: the predicted average workload is different from the true average workload, or the stability prediction is not correct (e.g. predicted stable but was unstable). The latter case is further detailed by the four sub-cases shown in Table \ref{table:stability_cases}. 	 
 	\begin{table*}
@@ -702,8 +714,8 @@
 		\end{tabular*}
 		\caption{Window stability outcomes. TP, FP, TN, FN stands for True Positive, False Positive, True Negative, and False negative respectively.} \label{table:stability_cases}
 	\end{table*}
-	The most dangerous case occurs when we predict that the workload will be stable but actually it won't (i.e. false positive case): in such case, the tuner may suggest a configuration that leads to low QoS, ruining user experience. However, if we miss a stable window (i.e. false negative case) we just lengthened the tuning process, which may be acceptable depending on the context.
-	In case of false positives, we chose to discard the experiment as its evaluation requires us to measure the average performance of the configuration and an unstable workload may lead to unrealistic measurements (for example, a good configuration may be associated with a constraint violation caused by a quick spike in the workload).\\
+	The most dangerous case occurs when we predict that the workload will be stable but actually it won't (i.e. false positive case): in such case, the tuner may suggest a configuration that leads to low QoS, ruining user experience. However, if we missed a stable window (i.e. false negative case) we just lengthened the tuning process, which may be acceptable depending on the context.
+	In case of false positives, we chose to exclude the experiment results from the knowledge base of the tuner. The reason is that the evaluation of an experiment requires us to measure the average performance of the configuration over the tuning window, and an unstable workload may lead to unrealistic measurements (for example, a good configuration may be associated with a constraint violation caused by a quick spike in the workload)..\\
 	Similarly, we could face issues if the predicted and true windows are stable, but the actual average workload differs from the real average: the tuner would suggest a configuration tailored for a workload that is not the real one. In such cases, when adding the experiment to the knowledge of the tuner, we replace the average forecasted workload with the true average. By doing so, we may augment the knowledge base with a point that that was not suggested, i.e. that doesn't maximize the acquisition function (see Section \ref{ssec:bayesian_optimization}). However, by replacing the associated workload, the point can still provide useful information to the tuner.
 	
 	The flowchart of the tuning process is depicted in Figure \ref{fig:online_tuning_flowchart}. In summary, each experiment is made of the following steps: 
@@ -728,7 +740,7 @@
 	
 	Before the tuner is queried for a new configuration, the workload characterization module groups the knowledge base by workload type (which are automatically detected) so that the performance of the system is normalized according to the related workload type (see Section \ref{ssec:contextual_bayesian_optimization} and \ref{ssec:workload_characterization_module} for more details).
 	
-	The reason for discarding violations that occur when the workload is unstable is that such violations may be caused by a difference between the predicted workload, that is used by the tuner to suggest a configuration, and the real workload, that may not coexist with that suggested configuration (e.g. an abnormal spike in the workload). In these cases, we drop the experiment and start a new one. 
+	The reason for discarding violations that occur when the workload is unstable is that such violations may be caused by a difference between the predicted workload, that is used by the tuner to suggest a configuration, and the real workload, that may not coexist with that suggested configuration (e.g. an abnormal spike in the workload). In these cases, we drop the experiment results and start a new one. 
 	Furthermore, when a violation occurs, we quickly resort to the vendor (or baseline) configuration. An alternative approach could use the best configuration found so far for the current workload type.
 	
 	Finally, when an experiment completes (i.e. at step 7) we store the evaluated point in the knowledge base using the true average workload rather than the predicted one.
@@ -1575,9 +1587,9 @@
 	The developed solution can also be applied to different systems with minimal manual work, as the forecasting models just need to autonomously collect workload data for one week without the need of introducing prior knowledge about the workload.
 	
 	Nevertheless, we aim at further improving the autonomy and safety (in terms of failures) of the approach. \\	
-	To further reduce the number of failures, multiple optimizations can be implemented. First of all, at the beginning of the tuning process, the tuners suggest a configuration without any available knowledge, making the suggestion random. To overcome this issue, the tuner may sample the outcome of the baseline configuration under different workload types, so that the first suggestion uses a minimum amount of information. Note that a smart way to summarize the collected knowledge should be implemented so that the speed of the tuner is not affected. Then, we may tune the exploration-exploitation trade-off provided by the BO acquisition function explained in Section \ref{ssec:bayesian_optimization} to boost exploitation so that the tuners prefer to suggest configurations within a region that has already been shown to be promising. Finally, to reduce the impact of failures on a production system, the tuning experiments could be performed using a canary deployment.
+	To further reduce the number of failures, multiple optimizations can be implemented. First of all, at the beginning of the tuning process, the tuners suggest a configuration without any available knowledge, making the suggestion random. To overcome this issue, the tuner may sample the outcome of the baseline configuration under different workload types, so that the first suggestion uses a minimum amount of information. Note that a smart way to summarize the collected knowledge should be implemented to avoid affecting the speed of the tuner. Then, we may tune the exploration-exploitation trade-off provided by the BO acquisition function explained in Section \ref{ssec:bayesian_optimization} to boost exploitation and make the tuners prefer to suggest configurations within a region that has already been shown to be promising. Finally, to reduce the impact of failures on a production system, the tuning experiments could make use of a canary deployment.
 	
-	To further improve the cumulative reward (e.g. overall response time of the system) during the tuning process, we may apply the best configuration found for the upcoming predicted workload rather than the baseline when the workload is predicted to be unstable. Such optimization should be applied once enough experiments have been collected. Then, when the tuner is no longer able to improve the best configuration found so far (or the improvements are minimal) we may stop the tuning process, starting to just apply the best configuration according to the workload so that the risk of failure is reduced.
+	To further improve the cumulative reward (e.g. overall response time of the system) during the tuning process, in particular when the workload is predicted to be unstable, we may apply the best configuration found for the upcoming predicted workload rather than the baseline. Such optimization should be applied once enough experiments have been collected. Then, when the tuner is no longer able to improve the best configuration found so far (or the improvements are minimal), we may stop the tuning process and start to apply the best configuration according to the workload, reducing the risk of failure.
 	
 	Besides these optimizations, we tested the tuners using univariate time series or simple multivariate time series due to a lack of data. In order to further test the tuners on more complex scenarios, such as a system with multiple front-end and back-end nodes each with its own time series, more data must be collected, along with the creation of system models. 
 	
